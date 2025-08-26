@@ -1,13 +1,13 @@
-<header class="pt-4 pb-2">
+<header class="pt-4 pb-1">
     <nav class="relative mx-auto container">
-        <div class="space-y-4">
-            <a class="block" href="{{ route('home') }}">
+        <div>
+            <a class="block mb-4" href="{{ route('home') }}">
                 <img src="{{ asset('img/logo.png') }}" alt="Mensana Logo" class="h-24">
             </a>
 
-            <div class="flex justify-between items-center nav-wrapper">
+            <div class="nav-wrapper">
                 <ul class="nav-items">
-                    <li><a href="#" class="nav-link">{{ __('Home') }}</a></li>
+                    <li><a href="#" class="nav-link active">{{ __('Home') }}</a></li>
                     <li><a href="#" class="nav-link">{{ __('Tentang Kami') }}</a></li>
                     <li><a href="#" class="nav-link">{{ __('Produk') }}</a></li>
                     <li><a href="#" class="nav-link">{{ __('Layanan') }}</a></li>

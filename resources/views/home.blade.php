@@ -14,7 +14,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                 <div class="relative">
-                    <img src="{{ asset('img/banner-dummy.jpg') }}" alt="Banner 1" class="w-full h-full object-cover">
+                    <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
@@ -27,7 +27,7 @@
             </div>
             <div class="swiper-slide">
                 <div class="relative">
-                    <img src="{{ asset('img/banner-dummy.jpg') }}" alt="Banner 1" class="w-full h-full object-cover">
+                    <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
@@ -40,7 +40,7 @@
             </div>
             <div class="swiper-slide">
                 <div class="relative">
-                    <img src="{{ asset('img/banner-dummy.jpg') }}" alt="Banner 1" class="w-full h-full object-cover">
+                    <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
@@ -63,7 +63,7 @@
 
 
 <!-- Product & Service Section -->
-<section class="mt-20">
+<section class="mt-16">
 
     <h1 class="text-blue-mensana text-5xl text-center">
         <span class="">Solusi tepat kesehatan ternak Anda.</span><br>
@@ -86,9 +86,9 @@
                     </div>
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-3">
                     <h4 class="font-bold text-blue-mensana text-4xl">Vaksin Aktif</h4>
-                    <p>Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
+                    <p class="text-gray-600">Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
                     <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">Info Lebih</a>
                 </div>
             </div>
@@ -105,7 +105,7 @@
 
             <div class="flex justify-center-center items-center h-full">
                 <div class="relative flex-1 space-y-2 text-center">
-                    <h4 class="font-bold text-blue-mensana text-4xl">LABORATORIUM / <br> ANIMAL HEALTH CONSULTANT</h4>
+                    <h4 class="font-normal text-blue-mensana text-4xl">LABORATORIUM / <br> ANIMAL HEALTH CONSULTANT</h4>
                     <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">Info Lebih</a>
                 </div>
             </div>
@@ -311,7 +311,7 @@
                 <h3 title="Featured">Berita & Artikel</h3>
             </div>
             <!-- Background gray -->
-            <div class="top-0 bottom-3/5 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
+            <div class="top-0 bottom-6/12 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
 
             <!-- Featured Article -->
             <div class="z-10 relative gap-x-10 grid grid-cols-2 px-16">
