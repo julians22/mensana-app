@@ -15,15 +15,15 @@
 
                 <div>
                     <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('icons/email.svg') }}" alt="Email" class="mr-2 w-5 h-5">
+                        <img src="{{ asset('img/icons/email.svg') }}" alt="Email" class="mr-2 w-5 h-5">
                         sales@ptmensana.com
                     </p>
                     <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('icons/phone.svg') }}" alt="Phone" class="mr-2 w-5 h-5">
+                        <img src="{{ asset('img/icons/phone.svg') }}" alt="Phone" class="mr-2 w-5 h-5">
                         +62 213 970 1500
                     </p>
                     <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('icons/whatsapp.svg') }}" alt="WhatsApp" class="mr-2 w-5 h-5">
+                        <img src="{{ asset('img/icons/whatsapp.svg') }}" alt="WhatsApp" class="mr-2 w-5 h-5">
                         +62 813 8039 9399
                     </p>
                 </div>
@@ -47,11 +47,11 @@
                     <p class="text-white text-lg">Social media kami</p>
                     <div class="flex">
                         <a href="#" class="w-12 h-12 text-white hover:underline">
-                            <img src="{{ asset('icons/instagram.svg') }}" alt="">
+                            <img src="{{ asset('img/icons/instagram.svg') }}" alt="">
                         </a>
 
                         <a href="#" class="w-12 h-12 text-white hover:underline">
-                            <img src="{{ asset('icons/facebook.svg') }}" alt="">
+                            <img src="{{ asset('img/icons/facebook.svg') }}" alt="">
                         </a>
                     </div>
                 </div>

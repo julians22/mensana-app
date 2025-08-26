@@ -50,7 +50,7 @@
         @mouseenter="openText = true" @mouseleave="openText = false"
     >
         <div class="contact-button">
-            <img src="{{ asset('icons/chat.svg') }}" alt="" class="w-12 h-12">
+            <img src="{{ asset('img/icons/chat.svg') }}" alt="" class="w-12 h-12">
         </div>
         <div class="contact-text" x-show="openText">
             <a  href="#">

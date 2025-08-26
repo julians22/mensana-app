@@ -24,12 +24,12 @@
             <!-- language switcher -->
             <div class="divide-black divide language-switcher">
                 <a href="#" class="language-link active">
-                    <img src="{{ asset('icons/idn.png') }}" alt="Indonesia Flag" class="inline mr-1 w-5 h-5">
+                    <img src="{{ asset('img/icons/idn.png') }}" alt="Indonesia Flag" class="inline mr-1 w-5 h-5">
                     IND
                 </a>
                 <a href="#" class="language-link">
                     ENG
-                    <img src="{{ asset('icons/eng.png') }}" alt="English Flag" class="inline mr-1 w-5 h-5">
+                    <img src="{{ asset('img/icons/eng.png') }}" alt="English Flag" class="inline mr-1 w-5 h-5">
                 </a>
             </div>
         </div>
