@@ -1,0 +1,221 @@
+@import 'swiper/swiper-bundle.css';
+
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-sans-9pt-regular: "DM Sans 9pt", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-promo-test: "Promo Test Normal", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-aileron: "Aileron", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-quicksilver: "Quicksilver", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --font-myriad-pro: "Myriad Pro", ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --color-blue-mensana: #0284be;
+
+}
+
+@layer components {
+
+    .btn {
+        @apply inline-flex justify-center items-center shadow-sm px-6 py-2 border border-transparent rounded-md font-medium text-sm;
+    }
+
+    .btn-primary {
+        @apply bg-blue-mensana focus:outline-none focus:ring-2 focus:ring-blue-mensana focus:ring-offset-2 text-white;
+    }
+
+    .nav-wrapper .search-form{
+        @apply relative;
+    }
+
+    .nav-wrapper .search-input{
+        @apply block py-0.5 pr-10 pl-4 border border-gray-300 rounded-full focus:outline-none focus:ring focus:ring-blue-400 w-full;
+    }
+
+    .nav-items{
+        @apply flex items-center lg:space-x-14;
+    }
+
+    .nav-items .nav-link{
+        @apply font-sans-9pt-regular text-blue-mensana text-lg transition duration-300;
+    }
+
+    .language-switcher{
+        @apply absolute top-1/2 right-0 transform -translate-y-1/2 grid grid-cols-2 gap-2 pl-4;
+    }
+
+    .language-switcher .language-link{
+        @apply font-sans-9pt-regular text-gray-300 hover:text-blue-mensana text-base leading-4 transition duration-300;
+    }
+
+    .language-switcher .language-link img{
+        @apply inline grayscale-100 mr-1 border border-gray-300 w-5 h-5;
+    }
+
+    .language-switcher .language-link:not(:last-child){
+        @apply border-r border-black;
+    }
+
+
+    .language-switcher .language-link.active{
+        @apply font-bold text-blue-mensana;
+    }
+
+    .language-switcher .language-link.active img{
+        @apply grayscale-0;
+    }
+
+    .home__swiper{
+        @apply relative h-[800px];
+    }
+
+    .home__swiper .shape__banner{
+        @apply bottom-0 z-10 absolute inset-x-0 flex justify-center items-center w-full h-[100px];
+    }
+
+
+    .banner-text-wrapper {
+        @apply left-0 absolute inset-y-0 flex justify-center w-5/12;
+    }
+
+    .banner-text-wrapper .banner-text {
+        @apply z-10 relative space-y-7 mt-[220px] max-w-[60%] text-white;
+    }
+
+    .banner-text-wrapper .banner-text-bg {
+        @apply z-0 absolute inset-0 w-full h-full object-cover mix-blend-multiply;
+    }
+
+    .product-service-card{
+        @apply relative bg-gray-100 pl-2 rounded-b-md rounded-tl-md h-[300px] overflow-hidden
+    }
+
+    .product-service-card .badge {
+        @apply top-0 right-0 z-20 absolute py-2.5 rounded-tr-md w-[300px] font-bold text-white text-4xl text-center;
+    }
+
+    .badge.badge-rtl{
+        @apply bg-cover bg-no-repeat bg-left-bottom;
+    }
+
+    .featured-products{
+        @apply relative px-5 pt-20 pb-16 border border-gray-500 rounded w-full;
+    }
+
+    .featured-products .badge {
+        @apply top-0 -left-1 z-20 absolute py-2.5 pr-16 pl-8 rounded-tr-md font-bold text-white text-4xl text-center;
+    }
+
+    .badge.badge-ltr{
+        @apply bg-cover bg-no-repeat bg-right-bottom;
+    }
+
+    .home__product_swiper .product-card{
+        @apply bg-white p-4 border border-gray-300 rounded-md overflow-hidden;
+    }
+
+    .product-card .product-info{
+        @apply mb-2 text-center;
+    }
+
+    .product-card .product-info .product-title{
+        @apply font-sans-9pt-regular font-bold text-blue-mensana text-2xl text-center;
+    }
+
+    .product-card .product-info .product-description{
+        @apply mt-1 mb-4 text-blue-mensana text-lg;
+    }
+
+    .product-card .product-tags{
+        @apply flex flex-nowrap gap-2 mt-5;
+    }
+
+    .product-card .product-tags .tag{
+        @apply px-2.5 py-1 border border-gray-200 rounded-full font-semibold text-blue-mensana text-sm;
+    }
+
+    .article-news {
+        @apply relative pt-20 pb-16 w-full overflow-hidden;
+    }
+
+    .article-news .badge {
+        @apply top-0 -left-1 z-20 absolute py-2.5 pr-16 pl-8 rounded-tr-md font-bold text-white text-4xl text-center;
+    }
+
+    .article-card{
+        @apply bg-white shadow-md rounded-lg overflow-hidden;
+    }
+
+    .article-card .article-badge{
+        @apply top-auto bottom-0 left-0 absolute bg-blue-mensana py-1 pr-8 pl-6 rounded-tr-3xl font-black text-white text-lg;
+    }
+
+    .article-card .article-date{
+        @apply mb-4 font-sans font-semibold text-gray-600;
+    }
+
+    .article-card .article-title {
+        @apply mb-2 font-bold text-blue-mensana text-3xl;
+    }
+
+    .article-card .read-more{
+        @apply float-right mb-4 font-bold text-gray-500 hover:text-blue-mensana underline;
+    }
+
+    .fixed-contact-button{
+        @apply right-10 bottom-10 z-30 fixed flex items-center bg-white shadow-lg p-1 border border-blue-mensana rounded-full transition-all duration-300 ease-in-out;
+    }
+
+    .fixed-contact-button .contact-button{
+        @apply bg-blue-mensana p-2 rounded-full;
+    }
+
+    .fixed-contact-button .contact-text{
+        @apply px-4 py-2 rounded-full font-sans-9pt-regular font-bold text-blue-mensana transition-all duration-300 ease-in-out;
+    }
+
+}
+
+/* Pagination */
+
+/* 1. Banner Pagination */
+.home__swiper .swiper-pagination {
+    @apply right-0 bottom-[90px] left-0 z-20 absolute flex justify-center items-center gap-x-3;
+}
+
+.home__swiper .swiper-pagination-bullet {
+    @apply bg-white opacity-100 !m-0 rounded-full w-3 h-3 transition-opacity duration-300;
+}
+
+.home__swiper .swiper-pagination-bullet-active {
+    @apply bg-blue-400;
+}
+
+/* 2. Featured Products Pagination */
+.featured-products .swiper-pagination {
+    @apply right-0 bottom-8 left-0 z-20 absolute flex justify-center items-center gap-x-3;
+}
+
+.featured-products .swiper-pagination-bullet {
+    @apply bg-gray-300 opacity-100 !m-0 rounded-full w-3 h-3 transition-opacity duration-300;
+}
+
+.featured-products .swiper-pagination-bullet-active {
+    @apply bg-blue-400;
+}

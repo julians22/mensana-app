@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Promo Test Normal';
+    src: url('/fonts/PromoTest-Normal.woff2') format('woff2'),
+        url('/fonts/PromoTest-Normal.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Bold.woff2') format('woff2'),
+        url('/fonts/Aileron-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-SemiBold.woff2') format('woff2'),
+        url('/fonts/Aileron-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Black.woff2') format('woff2'),
+        url('/fonts/Aileron-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Regular.woff2') format('woff2'),
+        url('/fonts/Aileron-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Aileron';
+    src: url('/fonts/Aileron-Heavy.woff2') format('woff2'),
+        url('/fonts/Aileron-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksilver';
+    src: url('/fonts/Quicksilver.woff2') format('woff2'),
+        url('/fonts/Quicksilver.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DM Sans 9pt';
+    src: url('/fonts/DMSans-9ptRegular.woff2') format('woff2'),
+        url('/fonts/DMSans-9ptRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    src: url('/fonts/MyriadPro-Regular.woff2') format('woff2'),
+        url('/fonts/MyriadPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
