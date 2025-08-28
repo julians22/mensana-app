@@ -190,6 +190,55 @@
         @apply float-right mb-4 font-bold text-gray-500 hover:text-blue-mensana underline;
     }
 
+
+
+    /* About page */
+
+    .thumbnail_milestone__swiper{
+        @apply pb-4 max-w-[800px];
+    }
+
+    .thumbnail_milestone__swiper .thumbnail__title{
+        @apply mb-1 font-extralight text-blue-mensana text-3xl text-center;
+    }
+
+    .thumbnail_milestone__swiper .thumbnail__subtitle{
+        @apply mb-4 font-extralight text-blue-mensana text-3xl text-center;
+    }
+
+    .thumbnail_milestone__swiper .milestone__thumbnail--active::after{
+        @apply bottom-0 absolute inset-x-5/12 bg-blue-mensana h-1 content-[''];
+    }
+
+    .milestone__swiper{
+        @apply max-w-[1000px];
+    }
+
+    .milestone__swiper .milestone-card{
+        @apply relative rounded-2xl h-[470px] overflow-hidden transition-transform duration-300 ease-in-out select-none;
+    }
+
+    .milestone__swiper .milestone-card img{
+        @apply w-full h-full object-cover;
+    }
+
+    .swiper-slide-active .milestone-card::after{
+        @apply absolute inset-0 from-blue-mensana to-blue-mensana/30 bg-linear-to-b content-[''] bg-blend-multiply transition-all duration-300 ease-in-out;
+    }
+
+    .swiper-slide-prev .milestone-card::after,
+    .swiper-slide-next .milestone-card::after{
+        @apply absolute inset-0 content-[''] transition-all duration-300 ease-in-out;
+    }
+
+    .swiper-slide-prev .milestone-card::after{
+        @apply bg-linear-to-r from-white to-transparent;
+    }
+
+    .swiper-slide-next .milestone-card::after{
+        @apply bg-linear-to-l from-white to-transparent;
+    }
+
     .fixed-contact-button{
         @apply right-10 bottom-10 z-30 fixed flex items-center bg-white shadow-lg p-1 border border-blue-mensana rounded-full transition-all duration-300 ease-in-out;
     }

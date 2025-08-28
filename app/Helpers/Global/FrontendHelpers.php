@@ -11,3 +11,16 @@ if (! function_exists('appName')) {
         return config('app.name', 'Default App');
     }
 }
+
+if (! function_exists('activeClass')) {
+    /**
+     * Helper to grab the active class for the navigation links.
+     *
+     * @param  string  $route
+     * @return string
+     */
+    function activeClass($route)
+    {
+        return request()->routeIs($route) ? 'active' : '';
+    }
+}

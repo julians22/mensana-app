@@ -7,12 +7,12 @@
 
             <div class="nav-wrapper">
                 <ul class="nav-items">
-                    <li><a href="#" class="nav-link active">{{ __('Home') }}</a></li>
-                    <li><a href="#" class="nav-link">{{ __('Tentang Kami') }}</a></li>
-                    <li><a href="#" class="nav-link">{{ __('Produk') }}</a></li>
-                    <li><a href="#" class="nav-link">{{ __('Layanan') }}</a></li>
-                    <li><a href="#" class="nav-link">{{ __('Berita & Artikel') }}</a></li>
-                    <li><a href="#" class="nav-link">{{ __('Kontak') }}</a></li>
+                    <li><a href="{{ route('home') }}" class="nav-link {{ activeClass('home') }}">{{ __('Home') }}</a></li>
+                    <li><a href="{{ route('about') }}" class="nav-link {{ activeClass('about') }}">{{ __('Tentang Kami') }}</a></li>
+                    <li><a href="{{ route('product.index') }}" class="nav-link {{ activeClass('product.index') }}">{{ __('Produk') }}</a></li>
+                    <li><a href="{{ route('service') }}" class="nav-link {{ activeClass('service') }}">{{ __('Layanan') }}</a></li>
+                    <li><a href="{{ route('article.index') }}" class="nav-link {{ activeClass('article.index') }}">{{ __('Berita & Artikel') }}</a></li>
+                    <li><a href="{{ route('contact') }}" class="nav-link {{ activeClass('contact') }}">{{ __('Kontak') }}</a></li>
                 </ul>
 
                 <!-- Search Form -->

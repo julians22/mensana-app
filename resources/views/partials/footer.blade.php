@@ -1,6 +1,6 @@
 <footer class="bg-cover bg-top pt-20 pb-24" style="background-image: url('{{ asset('img/footer-shape.png') }}');">
 
-    <div class="mx-auto container">
+    <div class="mx-auto overflow-hidden container">
         <div class="flex">
 
             <!-- Logo -->
