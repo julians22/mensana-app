@@ -1,8 +1,14 @@
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="180x180" href={{asset("apple-touch-icon.png")}}>
+    <link rel="icon" type="image/png" sizes="32x32" href={{asset("favicon-32x32.png")}}>
+    <link rel="icon" type="image/png" sizes="16x16" href={{asset("favicon-16x16.png")}}>
+    <link rel="manifest" href={{asset("site.webmanifest")}}>
 
      @yield('meta')
 
@@ -27,7 +33,7 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite([
             'resources/css/app.css',
-            'resources/js/app.js'
+            'resources/js/app.js',
         ])
     @else
         <style>
@@ -35,13 +41,13 @@
         </style>
     @endif
 
-
+    @livewireStyles
 </head>
 <body>
 
     @include('partials.navbar')
 
-    <div id="app">
+    <div id="app" class="min-h-[500px]">
         @yield('content')
     </div>
 
@@ -60,5 +66,8 @@
     </div>
 
     @include('partials.footer')
+
+
+    @livewireScripts
 </body>
 </html>

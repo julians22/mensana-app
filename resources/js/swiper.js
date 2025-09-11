@@ -78,7 +78,7 @@ const milestone__swiper = new Swiper('.milestone__swiper', {
     spaceBetween: 30,
     watchSlidesProgress: true,
     pagination: {
-        el: '.milestone__swiper .swiper-pagination',
+        el: '.milestone__swiper-pagination',
         clickable: true,
     },
     breakpoints: {
@@ -98,6 +98,6 @@ const milestone__swiper = new Swiper('.milestone__swiper', {
     }
 });
 
-milestone__thumbnail_swiper.controller.control = milestone__swiper;
+// milestone__thumbnail_swiper.controller.control = milestone__swiper;
 
-milestone__thumbnail_swiper.init();
+// milestone__thumbnail_swiper.init();

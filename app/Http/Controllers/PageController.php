@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,7 +15,9 @@ class PageController extends Controller
      */
     public function home_page()
     {
-        return view('home');
+        $featured_articles = Article::latest()->take(3)->get();
+
+        return view('home', compact('featured_articles'));
     }
 
     /**
@@ -53,7 +57,9 @@ class PageController extends Controller
      */
     public function article_page()
     {
-        return view('article');
+        $categories = Category::all();
+
+        return view('article', compact('categories'));
     }
 
     /**
@@ -64,7 +70,8 @@ class PageController extends Controller
      */
     public function article_detail_page($slug)
     {
-        return view('article_detail', compact('slug'));
+        $article = Article::findBySlug($slug);
+        return view('article_detail', compact('article'));
     }
 
     /**

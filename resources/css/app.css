@@ -1,6 +1,7 @@
 @import 'swiper/swiper-bundle.css';
 
 @import 'tailwindcss';
+@plugin "@tailwindcss/typography";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -190,9 +191,22 @@
         @apply float-right mb-4 font-bold text-gray-500 hover:text-blue-mensana underline;
     }
 
+    /* Article Page */
+    .article_category__button{
+        @apply py-1 px-4 rounded-full text-center leading-normal text-blue-mensana border border-blue-mensana cursor-pointer hover:bg-blue-mensana hover:text-white transition duration-300 text-2xl;
+    }
+
+    .article_category__button.active{
+        @apply bg-blue-mensana text-white;
+    }
+
 
 
     /* About page */
+
+    .about__section {
+        @apply relative flex items-center py-20 aspect-[3/1];
+    }
 
     .thumbnail_milestone__swiper{
         @apply pb-4 max-w-[800px];
@@ -249,6 +263,14 @@
 
     .fixed-contact-button .contact-text{
         @apply px-4 py-2 rounded-full font-sans-9pt-regular font-bold text-blue-mensana transition-all duration-300 ease-in-out;
+    }
+
+    .img__shadowable_wrapper {
+        @apply relative ml-auto w-max;
+    }
+
+    .img__shadowable.shadow{
+        @apply top-[80%] z-0 absolute inset-x-0 opacity-40 rounded-lg w-full -scale-y-100 blur;
     }
 
 }

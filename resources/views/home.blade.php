@@ -66,8 +66,8 @@
 <section class="mt-16">
 
     <h1 class="text-blue-mensana text-5xl text-center">
-        <span class="">Solusi tepat kesehatan ternak Anda.</span><br>
-        <span class="font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
+        <span data-motion="fade-up" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
+        <span data-motion="fade-down" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
     </h1>
 
     <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
@@ -75,7 +75,7 @@
 
         <div class="product-service-card">
 
-            <div class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
+            <div data-motion="fade-right" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
                 <h3 title="Produk">PRODUK</h3>
             </div>
 
@@ -96,7 +96,7 @@
         </div>
 
         <div class="product-service-card">
-            <div class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
+            <div data-motion="fade-right" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
                 <h3 title="Layanan">LAYANAN</h3>
             </div>
             <div class="z-0 absolute inset-0">
@@ -125,7 +125,7 @@
     <div class="mx-auto container">
         <div class="featured-products">
             <!-- badge -->
-            <div class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
+            <div data-motion="fade-left" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
                 <h3 title="Featured">Produk Unggulan</h3>
             </div>
 
@@ -307,7 +307,7 @@
 
         <div class="article-news">
              <!-- badge -->
-            <div class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
+            <div data-motion="fade-left" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
                 <h3 title="Featured">Berita & Artikel</h3>
             </div>
             <!-- Background gray -->
@@ -339,68 +339,23 @@
             <!-- Article List -->
             <div class="z-10 relative gap-x-10 grid grid-cols-1 lg:grid-cols-3 mt-10 px-16">
 
-                <div class="article-card">
-                    <div class="relative aspect-video">
-                        <!-- Type Label -->
-                        <div class="article-badge">Berita</div>
-                        <!-- Article Image -->
-                        <img src="{{ asset('dummy/article-1.png') }}" alt="" class="w-full h-full object-cover">
-                    </div>
-                    <div class="px-8 py-4">
-                        <!-- Article Title -->
-                        <h4 class="article-title">Infeksi Patogen pada Unggas</h4>
-                        <!-- Article Date -->
-                        <p class="article-date">08 Feb 2022</p>
-                        <!-- Article Excerpt -->
-                        <p class="mb-4 text-gray-500">Peralihan antar musim atau yang kita kenal dengan istilah musim pancaroba merupakan suatu tantangan terhadap para peternak, khususnya dalam bidang perunggasan.</p>
-                        <!-- Read More Link -->
-                        <a href="#" class="read-more">SELENGKAPNYA</a>
-                    </div>
-                </div>
+                @foreach ($featured_articles as $article)
+                    <x-article-card-component
+                        :article="$article"
+                        :type="$article->category->name"
+                        :date="$article->published_at ? $article->published_at->format('d M Y') : $article->created_at->format('d M Y')"
+                        :title="$article->title"
+                        :excerpt="$article->excerpt"
+                        :slug="$article->slug"
+                    />
 
-                <div class="article-card">
-                    <div class="relative aspect-video">
-                        <!-- Type Label -->
-                        <div class="article-badge">Artikel</div>
-                        <!-- Article Image -->
-                        <img src="{{ asset('dummy/article-2.png') }}" alt="" class="w-full h-full object-cover">
-                    </div>
-                    <div class="px-8 py-4">
-                        <!-- Article Title -->
-                        <h4 class="article-title">Titer Rendah Setelah Vaksinasi</h4>
-                        <!-- Article Date -->
-                        <p class="article-date">08 Feb 2022</p>
-                        <!-- Article Excerpt -->
-                        <p class="mb-4 text-gray-500">Peralihan antar musim atau yang kita kenal dengan istilah musim pancaroba merupakan suatu tantangan terhadap para peternak, khususnya dalam bidang perunggasan.</p>
-                        <!-- Read More Link -->
-                        <a href="#" class="read-more">SELENGKAPNYA</a>
-                    </div>
-                </div>
-
-                <div class="article-card">
-                    <div class="relative aspect-video">
-                        <!-- Type Label -->
-                        <div class="article-badge">Artikel</div>
-                        <!-- Article Image -->
-                        <img src="{{ asset('dummy/article-3.png') }}" alt="" class="w-full h-full object-cover">
-                    </div>
-                    <div class="px-8 py-4">
-                        <!-- Article Title -->
-                        <h4 class="article-title">Peran Uji PCR & Sekuensing</h4>
-                        <!-- Article Date -->
-                        <p class="article-date">08 Feb 2022</p>
-                        <!-- Article Excerpt -->
-                        <p class="mb-4 text-gray-500">Peralihan antar musim atau yang kita kenal dengan istilah musim pancaroba merupakan suatu tantangan terhadap para peternak, khususnya dalam bidang perunggasan.</p>
-                        <!-- Read More Link -->
-                        <a href="#" class="read-more">SELENGKAPNYA</a>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 
             {{-- button more articles --}}
             <div class="flex justify-center mt-8">
-                <a href="#" class="btn btn-primary">ARTIKEL LAIN</a>
+                <a href="{{ route('article.index') }}" class="btn btn-primary">ARTIKEL LAIN</a>
             </div>
 
         </div>
