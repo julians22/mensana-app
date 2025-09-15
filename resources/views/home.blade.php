@@ -66,8 +66,8 @@
 <section class="mt-16">
 
     <h1 class="text-blue-mensana text-5xl text-center">
-        <span data-motion="fade-up" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
-        <span data-motion="fade-down" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
+        <span data-motion="fade-up" data-duration="0.6" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
+        <span data-motion="fade-down" data-duration="0.6" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
     </h1>
 
     <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">

@@ -58,8 +58,8 @@
         <div class="contact-button">
             <img src="{{ asset('img/icons/chat.svg') }}" alt="" class="w-12 h-12">
         </div>
-        <div class="contact-text" x-show="openText">
-            <a  href="#">
+        <div class="contact-text" x-show="openText" x-transition x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
+            <a href="#">
                 Tanya Kami
             </a>
         </div>

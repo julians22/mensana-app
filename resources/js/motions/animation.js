@@ -2,7 +2,7 @@ import { animate } from "motion";
 
 const DEFAULT_ONCE = true;
 const DEFAULT_DELAY = 0;
-const duration = 0.9;
+const duration = 0.6;
 
 
 function attachAnimation(el)
@@ -25,25 +25,6 @@ function attachAnimation(el)
     return () => animate(el, animation.initial);
 }
 
-
-
-// let config = {
-//     delay: element.getAttribute("data-delay") || DEFAULT_DELAY,
-//     duration: element.getAttribute("data-duration") || duration,
-//     once: element.getAttribute("data-once") || DEFAULT_ONCE,
-//     easing: [0.6, -0.05, 0.01, 0.99]
-// }
-
-// animate(
-//     element,
-//     { opacity: [0,1], x: [-100, 0] },
-//     config
-// )
-
-// return () => animate(element, { opacity: 0, x: -100 }, config)
-
-
-// @generate me an animations list
 const FADE_LEFT = {
     initial: { opacity: 0, x: -100 },
     animate: { opacity: [0, 1], x: [-100, 0] }

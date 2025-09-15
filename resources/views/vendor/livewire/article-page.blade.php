@@ -14,7 +14,9 @@ $scrollIntoViewJsSnippet = ($scrollTo !== false)
     @if ($paginator->hasPages())
 
         <div class="mx-auto mt-10 w-[100px]">
-            <a wire:click="nextPage" wire:loading.attr="disabled" rel="next" class="">Load More</a>
+            <div class="flex flex-col items-center">
+                <a wire:click="nextPage" wire:loading.attr="disabled" rel="next" class="">Load More</a>
+            </div>
         </div>
     @endif
 </div>
