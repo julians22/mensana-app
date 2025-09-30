@@ -26,19 +26,16 @@ const home__product_swiper = new Swiper('.home__product_swiper', {
         el: '.featured-products .swiper-pagination',
         clickable: true,
     },
-    centeredSlides: true,
-    initialSlide: 2,
     autoHeight: true,
     spaceBetween: 30,
     breakpoints: {
         640: {
             slidesPerView: 1,
-        },
-        768: {
-            slidesPerView: 4,
+            slidesPerGroup: 1
         },
         1024: {
             slidesPerView: 5,
+            slidesPerGroup: 3
         },
     }
 });

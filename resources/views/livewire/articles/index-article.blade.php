@@ -26,9 +26,9 @@
 
     {{-- load more button --}}
     @if ($this->hasNextPage())
-    <x-heroicon-o-chevron-double-down class="mx-auto mb-4 w-10 h-10 text-gray-400" />
+    <x-heroicon-o-chevron-double-down class="mx-auto mb-2 size-6 text-gray-400" />
     <div class="flex justify-center">
-        <button wire:click="loadMore" class="text-gray-400">
+        <button wire:click="loadMore" class="font-semibold text-blue-mensana underline cursor-pointer">
             Load More
         </button>
     </div>

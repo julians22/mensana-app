@@ -1,4 +1,15 @@
-<footer class="relative bg-cover bg-top pt-20 pb-24" style="background-image: url('{{ asset('img/footer-shape.png') }}');">
+
+@php
+
+    $class="footer-gray";
+
+    $route = Route::currentRouteName();
+
+    if ($route !== 'contact') {
+        $class = "footer-white";
+    }
+@endphp
+<footer class="relative bg-cover bg-top pt-20 pb-24 {{ $class }}" style="background-image: url('{{ asset('img/footer-shape.png') }}');">
 
     <div class="mx-auto overflow-hidden container">
         <div class="flex">

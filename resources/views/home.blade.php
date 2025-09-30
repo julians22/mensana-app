@@ -6,7 +6,6 @@
 
 @section('content')
 
-
 <!-- Banner -->
 <section class="relative">
     <!--swiper-->
@@ -128,6 +127,11 @@
             <div data-motion="fade-left" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
                 <h3 title="Featured">Produk Unggulan</h3>
             </div>
+
+            <div class="top-0 right-0 absolute mt-5 mr-5">
+                <a class="text-blue-mensana" href="{{ route('product.index') }}">@lang('Product Lainnya') <span class="inline"><x-heroicon-o-chevron-double-right class="inline outline-blue-mensana size-5" /></span></a>
+            </div>
+
 
             <!-- Featured Products Carousel -->
             <div class="home__product_swiper swiper">

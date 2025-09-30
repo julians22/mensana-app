@@ -8,6 +8,9 @@
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-heroicons": "^2.6",
+        "codeat3/blade-elusive-icons": "^1.5",
+        "codeat3/blade-eos-icons": "^1.15",
+        "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')
+@section('title', __('Tentang Kami'))
 
+@section('content')
 
 <section class="relative">
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->

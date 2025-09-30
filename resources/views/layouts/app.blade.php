@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href={{asset("favicon-16x16.png")}}>
     <link rel="manifest" href={{asset("site.webmanifest")}}>
 
-     @yield('meta')
+    @yield('meta')
 
     <title>{{ appName() }} | @yield('title')</title>
     <meta name="description" content="@yield('meta_description', appName())">
@@ -27,7 +27,7 @@
 
     @stack('before-styles')
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
@@ -43,7 +43,10 @@
 
     @livewireStyles
 </head>
-<body>
+<body x-data="{ openRequestModal: false }"
+    :class="{ 'overflow-hidden': openRequestModal }"
+    @keyup.escape="openRequestModal = false"
+    >
 
     @include('partials.navbar')
 
@@ -65,9 +68,76 @@
         </div>
     </div>
 
+
+     <!--Modal-->
+    <div class="modal"
+        :class="{ 'modal-open': openRequestModal }">
+        <div class="absolute bg-gray-900 opacity-50 w-full h-full modal-overlay"></div>
+
+        <div class="z-50 bg-white shadow-lg mx-auto rounded-3xl w-11/12 md:max-w-2xl overflow-y-auto modal-container">
+
+            <!-- Add margin if you want to see some of the overlay behind the modal-->
+            <div
+                class="relative bg-blue-mensana px-6 py-4 text-white text-left modal-content">
+
+                <div
+                    @click="openRequestModal = false"
+                    class="top-0 right-0 z-50 absolute flex flex-col items-center mt-4 mr-4 text-white text-sm cursor-pointer modal-close">
+                    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18">
+                        <path
+                            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                        </path>
+                    </svg>
+                </div>
+
+
+                <!--Body-->
+                <div class="modal-body">
+                    <p class="font-black text-4xl text-center">REQUEST DOWNLOAD CATALOG</p>
+                    <p class="mb-4 font-black text-xl text-center">Catalog akan dikirimkan ke alamat email anda </p>
+
+                    <div class="flex flex-col gap-y-2">
+                        <div class="flex flex-col space-y-1">
+                            <label for="full_name" class="font-extrabold text-lg">@lang('Nama Lengkap')</label>
+                            <input name="full_name" type="text" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
+                        </div>
+
+                        <div class="flex flex-col space-y-1">
+                            <label for="email" class="font-extrabold text-lg">@lang('Email')</label>
+                            <input name="email" type="email" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
+                        </div>
+
+                        <div class="flex flex-col space-y-1">
+                            <label for="phone_number" class="font-extrabold text-lg">@lang('No. Telp')</label>
+                            <input name="phone_number" type="tel" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
+                        </div>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="flex justify-end pt-2">
+                    <button
+                        class="bg-orange-400 hover:bg-orange-500 mr-2 p-3 px-4 rounded-lg text-white">@lang('Kirim')</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     @include('partials.footer')
 
 
+    <script>
+
+
+        const escapeModal = (evt) => {
+            console.log(evt);
+        }
+
+    </script>
     @livewireScripts
+
+    @stack('after-scripts')
 </body>
 </html>

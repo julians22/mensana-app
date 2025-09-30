@@ -28,6 +28,7 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 
     --color-blue-mensana: #0284be;
+    --color-cyan-mensana: #03909a;
 
 }
 
@@ -311,19 +312,42 @@
         @apply font-bold text-gray-600;
     }
 
-    .product-filter-wrapper .option-list input + span.label .checkbox rect{
-        @apply fill-white stroke-1 stroke-gray-600 transition-all duration-500 ease-in-out;
+    .product-filter-wrapper .option-list input + span.label .checkbox{
+        @apply bg-white ring-1 ring-gray-600 size-5;
     }
 
-    .product-filter-wrapper .option-list input:checked + span.label .checkbox rect{
-        @apply fill-green-400/45 stroke-green-600;
+    .product-filter-wrapper .option-list input + span.label .checkbox .checkmark{
+        @apply opacity-0;
     }
 
+    .product-filter-wrapper .option-list input:checked + span.label .checkbox .checkmark{
+        @apply block opacity-100;
+    }
 
     .product-filter-wrapper .toggle-button{
         @apply top-0 right-0 absolute;
     }
 
+
+    /* Modal */
+
+    .modal{
+        @apply top-0 left-0 z-50 fixed flex justify-center items-center opacity-0 w-full h-full transition-opacity duration-1000 ease-in-out pointer-events-none;
+    }
+
+    .modal.modal-open{
+        @apply opacity-100 pointer-events-auto;
+    }
+
+
+    /* Footer */
+    .footer-gray {
+        @apply bg-[#f2f2f2]
+    }
+
+    .footer-white {
+        @apply bg-white
+    }
 
 }
 

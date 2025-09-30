@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', __('Produk Kami'))
+
+@section('meta_description', 'Product')
+
 @section('content')
 
 <section class="relative">
@@ -46,9 +50,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Sapi</span>
                                 </span>
                             </label>
@@ -57,9 +61,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Ayam</span>
                                 </span>
                             </label>
@@ -68,9 +72,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Babi</span>
                                 </span>
                             </label>
@@ -93,9 +97,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Premix</span>
                                 </span>
                             </label>
@@ -104,9 +108,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Pharmasetik</span>
                                 </span>
                             </label>
@@ -115,9 +119,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Herbal</span>
                                 </span>
                             </label>
@@ -126,9 +130,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Vaksin</span>
                                 </span>
                             </label>
@@ -137,9 +141,9 @@
                             <label class="option-list">
                                 <input type="checkbox" class="form-checkbox">
                                 <span class="label">
-                                    <svg class="checkbox" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="18" height="18" rx="4" fill="current"/>
-                                    </svg>
+                                    <span class="checkbox">
+                                        <x-heroicon-o-check class="stroke-2 stroke-blue-mensana size-5 checkmark"/>
+                                    </span>
                                     <span>Perlengkapan</span>
                                 </span>
                             </label>
@@ -157,7 +161,7 @@
                 <!-- Download Catalogue Button -->
 
                 <div class="mt-6">
-                    <a href="#" class="group flex items-center hover:bg-blue-mensana border border-blue-mensana rounded-xl">
+                    <a href="#" @click.prevent="openRequestModal = !openRequestModal" class="group flex items-center hover:bg-blue-mensana border border-blue-mensana rounded-xl">
                         <div class="flex flex-1 justify-center items-center px-4 size-6">
                             <x-heroicon-s-arrow-down-tray class="text-blue-mensana group-hover:text-white transition-all ease-in-out"/>
                         </div>
@@ -262,73 +266,6 @@
                         product_description=""
                         :categories="['Farmasetik', 'Antibiotik']"
                     />
-
-
-
-
-                    {{-- <div class="product-card">
-                        <div class="p-4 pt-8">
-                            <img src="https://i.imgur.com/kP8yHj9.png" alt="Sanavac ND Clone" class="mx-auto h-36 object-contain">
-                        </div>
-                        <div class="flex flex-col justify-between p-5 h-full product-info">
-                            <div>
-                                <h3 class="product-title">Sanavac ND Clone</h3>
-                                <p class="mt-1 min-h-[40px] text-gray-600 text-sm">Vaksin aktif newcastle disease</p>
-                            </div>
-                            <div class="flex justify-center space-x-2 mt-4 pt-4 border-gray-200 border-t">
-                                <span class="px-3 py-1 border border-blue-700 rounded-full font-medium text-blue-700 text-sm">Vaksin</span>
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Live</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="p-4 pt-8">
-                            <img src="https://i.imgur.com/yFqGfQy.png" alt="Colimas" class="mx-auto h-36 object-contain">
-                        </div>
-                        <div class="flex flex-col justify-between p-5 h-full">
-                            <div>
-                                <h3 class="mt-2 font-semibold text-blue-700 text-xl">Colimas</h3>
-                                <p class="mt-1 min-h-[40px] text-gray-600 text-sm">Kombinasi ideal antibakteri dalam bentuk water soluble powder</p>
-                            </div>
-                            <div class="flex justify-center space-x-2 mt-4 pt-4 border-gray-200 border-t">
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Farmasetik</span>
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Antibiotik</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="p-4 pt-8">
-                            <img src="https://i.imgur.com/83p7Q7C.png" alt="Doxerin +" class="mx-auto h-36 object-contain">
-                        </div>
-                        <div class="flex flex-col justify-between p-5 h-full">
-                            <div>
-                                <h3 class="mt-2 font-semibold text-blue-700 text-xl">Doxerin +</h3>
-                                <p class="mt-1 min-h-[40px] text-gray-600 text-sm">Kombinasi dua antibiotik dalam konsentrasi tinggi untuk melawan CRD, Snot dan komplikasinya</p>
-                            </div>
-                            <div class="flex justify-center space-x-2 mt-4 pt-4 border-gray-200 border-t">
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Premix</span>
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Antibiotik</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="p-4 pt-8">
-                            <img src="https://i.imgur.com/712W1Xo.png" alt="Doxerin" class="mx-auto h-36 object-contain">
-                        </div>
-                        <div class="flex flex-col justify-between p-5 h-full">
-                            <div>
-                                <h3 class="mt-2 font-semibold text-blue-700 text-xl">Doxerin</h3>
-                                <p class="mt-1 min-h-[40px] text-gray-600 text-sm">Kombinasi ampuh melawan CRD, Snot dan komplikasinya dalam bentuk water soluble powder</p>
-                            </div>
-                            <div class="flex justify-center space-x-2 mt-4 pt-4 border-gray-200 border-t">
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Farmasetik</span>
-                                <span class="px-3 py-1 border border-gray-400 rounded-full text-gray-700 text-sm">Antibiotik</span>
-                            </div>
-                        </div>
-                    </div> --}}
 
                 </div>
             </div>
