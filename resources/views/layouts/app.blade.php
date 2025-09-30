@@ -43,10 +43,9 @@
 
     @livewireStyles
 </head>
-<body x-data="{ openRequestModal: false }"
-    :class="{ 'overflow-hidden': openRequestModal }"
-    @keyup.escape="openRequestModal = false"
-    >
+<body x-data="{ openRequestModal: false, openShareModal: false }"
+    :class="{ 'overflow-hidden': openRequestModal || openShareModal}"
+    @keyup.escape="openRequestModal = false; openShareModal = false">
 
     @include('partials.navbar')
 
@@ -68,8 +67,42 @@
         </div>
     </div>
 
+    <!-- Share Modal -->
+    <div class="modal"
+        :class="{ 'modal-open': openShareModal }">
+        <div class="absolute bg-gray-900 opacity-50 w-full h-full modal-overlay"></div>
 
-     <!--Modal-->
+        <div class="z-50 bg-white shadow-lg mx-auto rounded-xl overflow-y-auto modal-container">
+
+            <!-- Add margin if you want to see some of the overlay behind the modal-->
+            <div
+                class="relative bg-white px-6 py-4 text-black text-left modal-content">
+
+                <div
+                    @click="openShareModal = false"
+                    class="top-0 right-0 z-50 absolute flex flex-col items-center mt-4 mr-4 text-black text-sm cursor-pointer modal-close">
+                    <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 18 18">
+                        <path
+                            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
+                        </path>
+                    </svg>
+                </div>
+
+
+                <!--Body-->
+                <div class="modal-body">
+                    <p class="mb-4 font-medium text-stone-700">Share to:</p>
+                    <!-- ShareThis BEGIN -->
+                    <div class="sharethis-inline-share-buttons"></div>
+                    <!-- ShareThis END -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Modal -->
     <div class="modal"
         :class="{ 'modal-open': openRequestModal }">
         <div class="absolute bg-gray-900 opacity-50 w-full h-full modal-overlay"></div>
@@ -129,13 +162,13 @@
 
 
     <script>
-
-
         const escapeModal = (evt) => {
             console.log(evt);
         }
-
     </script>
+
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68db768ceaff2dd921be386c&product=sop' async='async'></script>
+
     @livewireScripts
 
     @stack('after-scripts')

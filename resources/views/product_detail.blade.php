@@ -16,12 +16,15 @@
             <div class="bg-white mx-auto mb-8 p-6 lg:p-12 max-w-7xl">
                 <div class="relative flex lg:flex-row flex-col lg:space-x-12">
 
-                    <!-- ShareThis BEGIN -->
-                    <div class="sharethis-inline-share-buttons"></div>
-                    <!-- ShareThis END -->
-
                     <div class="top-4 right-4 z-10 absolute flex space-x-4 text-xl">
-                        <span class="group block hover:bg-blue-mensana/40 p-0.5 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
+
+                        <span
+                            @click="openShareModal = true"
+                            class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
+                            <x-heroicon-o-share class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
+                        </span>
+
+                        <span class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
                             <x-heroicon-o-x-mark class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
                         </span>
                     </div>
@@ -124,9 +127,4 @@
 </div>
 
 @endsection
-
-@push('after-scripts')
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=68db768ceaff2dd921be386c&product=sop' async='async'></script>
-@endpush
-
 
