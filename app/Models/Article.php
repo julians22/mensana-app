@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Category\SubCategoryItem;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -56,6 +57,11 @@ class Article extends Model implements HasMedia, LocalizedUrlRoutable
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function sub_category_items()
+    {
+        return $this->belongsToMany(SubCategoryItem::class, 'sub_category_item_article', 'article_id', 'sub_category_item_id');
     }
 
     public function getLocalizedRouteKey($locale)

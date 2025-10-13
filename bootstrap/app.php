@@ -18,6 +18,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
             'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
         ]);
+        $middleware->appendToGroup('web', [
+            \App\Http\Middleware\RemoveTrailingSlashMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

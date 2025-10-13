@@ -6,7 +6,7 @@
 ])
 
 
-<a href="{{ route('product.detail', ['slug'=> 'dummy']) }}" class="product-card">
+<a href="{{ route('product.detail', ['slug'=> $slug ?? 'dummy']) }}" class="product-card">
     <div class="p-4 pt-8">
         <div class="w-full aspect-square">
             <img src="{{ asset('product-thumbs.png') }}" alt="{{ $product_name }}" class="size-full object-center object-cover">

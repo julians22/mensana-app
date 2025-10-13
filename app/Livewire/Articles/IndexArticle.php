@@ -4,6 +4,7 @@ namespace App\Livewire\Articles;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Category\SubCategory;
 use Illuminate\Contracts\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
@@ -23,9 +24,43 @@ class IndexArticle extends Component
     public $maxPage = 1;
     public $queryCount = 0;
 
+    #[Computed()]
+    public function sub_categories()
+    {
+        $category = Category::findBySlug($this->category);
+
+        if (! $category ){
+            return [];
+        }
+
+        return SubCategory::query()->with('items')->where('category_id', $category->id)->get()->toArray();
+    }
+
+    public array $articleFilter = [
+        'Penyakit' => [
+            'Koksidiosis',
+            'Colibacilosis',
+            'Cacing',
+            'Stress Panas',
+            'Mikotoksin',
+            'Immunosupresi',
+        ],
+        'Manajemen Pemeliharaan' => [
+            'Keamanan dan kualitas ransum',
+            'Biosecurity',
+            'Kualitas Air',
+            'Enzim',
+            'Optimalisasi potensi genetik sejak dini',
+            'Kontrol kualitas pakan',
+            'Musim berganti nutrisi tetap presisi',
+        ],
+    ];
+
 
     #[Url(history: true, as: 'category', keep: false)]
     public $category = '';
+
+    public $filterArticle = [];
 
     public function mount($categories)
     {
@@ -83,4 +118,16 @@ class IndexArticle extends Component
     public function hasNextPage(){
         return $this->page < $this->maxPage;
     }
+
+    public function filterArticle()
+    {
+        //
+    }
+
+    public function resetFilterArticle()
+    {
+        //
+    }
+
+
 }

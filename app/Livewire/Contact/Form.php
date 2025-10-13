@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Contact;
 
+use App\Models\Message;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\On;
@@ -34,6 +35,20 @@ class Form extends Component
         // dd($token);
         $this->validate();
         $this->validateToken($token);
+
+        try {
+            Message::create([
+                'name' => $this->name,
+                'email' => $this->email,
+                'phone' => $this->phone,
+                'message' => $this->message,
+                'ip_address' => request()->ip(),
+                'user_agent' => request()->header('User-Agent')
+            ]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
 
         $this->reset();
 

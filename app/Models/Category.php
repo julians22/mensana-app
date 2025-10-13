@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Category\SubCategory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Sluggable\HasTranslatableSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -27,6 +27,11 @@ class Category extends Model
         return $this->hasMany(Article::class);
     }
 
+    public function sub_categories()
+    {
+        return $this->hasMany(SubCategory::class);
+    }
+
     /**
      * Get the options for generating the slug.
      */
@@ -35,15 +40,5 @@ class Category extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
-    }
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
     }
 }
