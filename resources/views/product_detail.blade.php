@@ -116,7 +116,9 @@
         </div>
 
         <div class="-bottom-5 absolute inset-x-0 flex justify-center mt-8">
-            <button type="button" class="bg-white hover:bg-stone-300 p-2 border border-stone-300 rounded-full transition-colors">
+            <button
+                @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+                type="button" class="bg-white hover:bg-stone-300 p-2 border border-stone-300 rounded-full transition-colors">
                 <x-heroicon-o-chevron-double-up class="w-6 h-6 text-stone-500" />
             </button>
         </div>
