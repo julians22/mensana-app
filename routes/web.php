@@ -20,7 +20,10 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
  * - Service Page
  */
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => ['localize', 'localizationRedirect']
+], function()
 {
     Route::get('', [PageController::class, 'home_page'])->name('home');
     Route::get('about', [PageController::class, 'about_page'])->name('about');
