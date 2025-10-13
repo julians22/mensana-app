@@ -128,6 +128,4 @@ class IndexArticle extends Component
     {
         //
     }
-
-
 }

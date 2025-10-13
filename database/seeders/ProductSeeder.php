@@ -148,11 +148,6 @@ class ProductSeeder extends Seeder
             $product->categories()->attach(
                 $categories->random(rand(1, 2))->pluck('id')->toArray()
             );
-
-            // Attach random tags (2-4 tags per product)
-            $product->tags()->attach(
-                $tags->random(rand(1,2))->pluck('id')->toArray()
-            );
         }
 
         $this->command->info('Created ' . count($products) . ' products with random relationships!');
