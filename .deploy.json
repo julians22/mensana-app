@@ -13,7 +13,6 @@
         "tests",
         "artisan",
         "composer.json",
-        "composer.lock",
-        "server.php"
+        "composer.lock"
     ]
 }
