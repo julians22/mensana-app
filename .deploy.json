@@ -1,0 +1,19 @@
+{
+    "DEPLOYPATH" : "/home/designcube3/demo_projects/mensana",
+    "task" :  [
+        "app",
+        "bootstrap",
+        "config",
+        "database",
+        "lang",
+        "public",
+        "resources",
+        "routes",
+        "storage",
+        "tests",
+        "artisan",
+        "composer.json",
+        "composer.lock",
+        "server.php"
+    ]
+}
