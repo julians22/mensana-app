@@ -1,5 +1,6 @@
 @props([
     'slug',
+    'image',
     'type' => 'Berita',
     'date' => '08 Feb 2022',
     'title' => 'Infeksi Patogen pada Unggas',
@@ -11,7 +12,7 @@
         <!-- Type Label -->
         <div class="article-badge">{{ $type }}</div>
         <!-- Article Image -->
-        <img src="{{ asset('dummy/article-1.png') }}" alt="" class="w-full h-full object-cover">
+        <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover">
     </div>
     <div class="px-8 py-4">
         <!-- Article Title -->
@@ -21,6 +22,6 @@
         <!-- Article Excerpt -->
         <p class="mb-4 text-gray-500">{{ $excerpt }}</p>
         <!-- Read More Link -->
-        <a href="{{ route('article.detail', ['article' => $slug]) }}" class="read-more">SELENGKAPNYA</a>
+        <a href="{{ route('article.detail', ['article' => $slug]) }}" class="read-more">@lang('Selengkapnya')</a>
     </div>
 </div>

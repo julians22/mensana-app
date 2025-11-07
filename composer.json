@@ -12,6 +12,7 @@
         "codeat3/blade-eos-icons": "^1.15",
         "davidhsianturi/blade-bootstrap-icons": "^2.1",
         "filament/filament": "^4.1",
+        "filament/spatie-laravel-media-library-plugin": "^4.1",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6",

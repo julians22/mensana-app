@@ -19,9 +19,11 @@ class PageController extends Controller
      */
     public function home_page()
     {
-        $featured_articles = Article::latest()->take(3)->get();
+        $featured_article = Article::isFeatured()->latest()->first();
 
-        return view('home', compact('featured_articles'));
+        $articles = Article::take(3)->get();
+
+        return view('home', compact('articles', 'featured_article'));
     }
 
     /**
@@ -63,7 +65,10 @@ class PageController extends Controller
     {
         $categories = Category::all();
 
-        return view('article', compact('categories'));
+
+        $featured_articles = Article::isFeatured()->take(4)->get();
+
+        return view('article', compact('categories', 'featured_articles'));
     }
 
     /**
@@ -72,9 +77,10 @@ class PageController extends Controller
      * @param string $slug
      * @return \Illuminate\View\View
      */
-    public function article_detail_page($slug)
+    public function article_detail_page(Request $request, $slug)
     {
-        $article = Article::findBySlug($slug);
+        $article = Article::where('slug', $slug)->firstOrFail();
+
         return view('article_detail', compact('article'));
     }
 

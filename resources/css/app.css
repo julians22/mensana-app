@@ -83,7 +83,7 @@
     }
 
     .language-switcher .language-link:not(:last-child){
-        @apply border-r border-black;
+        @apply border-black border-r;
     }
 
 
@@ -366,6 +366,7 @@
     @apply bg-blue-400;
 }
 
+
 /* 2. Featured Products Pagination */
 .featured-products .swiper-pagination {
     @apply right-0 bottom-8 left-0 z-20 absolute flex justify-center items-center gap-x-3;
@@ -377,4 +378,9 @@
 
 .featured-products .swiper-pagination-bullet-active {
     @apply bg-blue-400;
+}
+
+/* 3. Featured Article Pagination */
+.article_image_swiper__pagination.swiper-pagination{
+    @apply text-left;
 }

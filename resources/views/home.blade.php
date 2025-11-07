@@ -65,8 +65,8 @@
 <section class="mt-16">
 
     <h1 class="text-blue-mensana text-5xl text-center">
-        <span data-motion="fade-up" data-duration="0.6" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
-        <span data-motion="fade-down" data-duration="0.6" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
+        <span data-motion="fade-in" data-duration="0.6" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
+        <span data-motion="fade-in" data-duration="0.6" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
     </h1>
 
     <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
@@ -74,7 +74,7 @@
 
         <div class="product-service-card">
 
-            <div data-motion="fade-right" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
+            <div data-motion="fade-in" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
                 <h3 title="Produk">PRODUK</h3>
             </div>
 
@@ -95,7 +95,7 @@
         </div>
 
         <div class="product-service-card">
-            <div data-motion="fade-right" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
+            <div data-motion="fade-in" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
                 <h3 title="Layanan">LAYANAN</h3>
             </div>
             <div class="z-0 absolute inset-0">
@@ -124,7 +124,7 @@
     <div class="mx-auto container">
         <div class="featured-products">
             <!-- badge -->
-            <div data-motion="fade-left" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
+            <div data-motion="fade-in" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
                 <h3 title="Featured">Produk Unggulan</h3>
             </div>
 
@@ -311,41 +311,50 @@
 
         <div class="article-news">
              <!-- badge -->
-            <div data-motion="fade-left" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
+            <div data-motion="fade-in" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
                 <h3 title="Featured">Berita & Artikel</h3>
             </div>
-            <!-- Background gray -->
-            <div class="top-0 bottom-6/12 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
 
-            <!-- Featured Article -->
-            <div class="z-10 relative gap-x-10 grid grid-cols-2 px-16">
 
-                <div>
-                    <img src="{{ asset('dummy/article-0.png') }}" alt="" class="rounded-xl">
+            @if ($featured_article)
+                <!-- Background gray -->
+                <div class="top-0 bottom-6/12 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
+
+                <!-- Featured Article -->
+                <div class="z-10 relative gap-x-10 grid grid-cols-2 px-16">
+
+                    <div class="w-full aspect-[166/89]">
+                        <img src="{{ asset($featured_article->getFirstMediaUrl()) }}" onerror="this.src='{{ asset('dummy/article-1.png') }}'" alt="" class="rounded-xl w-full h-full object-center object-cover">
+                    </div>
+
+                    <div>
+                        <!-- Type Label -->
+                        <span class="mb-2 font-black text-blue-mensana text-2xl">{{ $featured_article->category->name }}</span>
+                        <!-- Article Title -->
+                        <h4 class="mb-2 font-sans-9pt-regular text-blue-mensana text-4xl">{{ $featured_article->title }}</h4>
+                        <!-- Article Date -->
+                        <p class="mb-4 font-sans font-bold text-gray-600">{{ $featured_article->published_at ?  $featured_article->published_at->format('d M y') : $featured_article->created_at->format('d M y')}}</p>
+                        <!-- Article Excerpt -->
+                        <p class="mb-4 text-gray-500">
+                            {{ $featured_article->excerpt }}
+                        </p>
+                        <!-- Read More Button -->
+                        <a href="#" class="bg-blue-mensana px-4 py-2 rounded text-white">@lang('Selengkapnya')</a>
+
+                    </div>
+
                 </div>
+            @endif
 
-                <div>
-                    <!-- Type Label -->
-                    <span class="mb-2 font-black text-blue-mensana text-2xl">Artikel</span>
-                    <!-- Article Title -->
-                    <h4 class="mb-2 font-sans-9pt-regular text-blue-mensana text-4xl">Optimalkan Biosekuriti Saat Musim Pancaroba</h4>
-                    <!-- Article Date -->
-                    <p class="mb-4 font-sans font-bold text-gray-600">08 Feb 2022</p>
-                    <!-- Article Excerpt -->
-                    <p class="mb-4 text-gray-500">Peralihan antar musim atau yang kita kenal dengan istilah musim pancaroba merupakan suatu tantangan terhadap para peternak, khususnya dalam bidang perunggasan.</p>
-                    <!-- Read More Button -->
-                    <a href="#" class="bg-blue-mensana px-4 py-2 rounded text-white">Selengkapnya</a>
 
-                </div>
-
-            </div>
 
             <!-- Article List -->
             <div class="z-10 relative gap-x-10 grid grid-cols-1 lg:grid-cols-3 mt-10 px-16">
 
-                @foreach ($featured_articles as $article)
+                @foreach ($articles as $article)
                     <x-article-card-component
                         :article="$article"
+                        :image="$article->getFirstMediaUrl() ? $article->getFirstMediaUrl() : asset('dummy/article-1.png')"
                         :type="$article->category->name"
                         :date="$article->published_at ? $article->published_at->format('d M Y') : $article->created_at->format('d M Y')"
                         :title="$article->title"
@@ -359,7 +368,7 @@
 
             {{-- button more articles --}}
             <div class="flex justify-center mt-8">
-                <a href="{{ route('article.index') }}" class="btn btn-primary">ARTIKEL LAIN</a>
+                <a href="{{ route('article.index') }}" class="btn btn-primary">@lang('Artikel Lain')</a>
             </div>
 
         </div>
@@ -370,7 +379,5 @@
 
 
 </section>
-
-
 
 @endsection

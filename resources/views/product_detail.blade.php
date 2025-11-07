@@ -20,11 +20,11 @@
 
                         <span
                             @click="openShareModal = true"
-                            class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
+                            class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full">
                             <x-heroicon-o-share class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
                         </span>
 
-                        <span class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
+                        <span class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full">
                             <x-heroicon-o-x-mark class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
                         </span>
                     </div>
@@ -38,7 +38,7 @@
                         <h2 class="mt-2 font-normal text-blue-mensana text-xl lg:text-2xl">Albendazole, Oral Suspension</h2>
 
                         <div class="mt-8">
-                            <h3 class="mb-2 font-semibold text-blue-mensana text-base">Ukuran</h3>
+                            <h3 class="mb-2 font-semibold text-blue-mensana text-base">@lang('Ukuran / Kemasan')</h3>
                             <div class="flex space-x-2">
                                 <span class="px-4 py-2 border border-blue-mensana rounded-full font-medium text-slate-700 cursor-pointer">1000 ml</span>
                                 <span class="px-4 py-2 border border-blue-mensana rounded-full font-medium text-slate-700 cursor-pointer">100 ml</span>
@@ -65,7 +65,7 @@
                             <p class="mb-2 font-semibold text-blue-mensana text-sm">Produk untuk Sapi, kuda, domba, unggas</p>
                             <button class="group flex items-center space-x-2 bg-white hover:bg-blue-mensana/60 py-3 pr-6 pl-3 border border-blue-men rounded-xl font-bold text-blue-mensana hover:text-white transition-colors">
                                 <x-heroicon-s-arrow-down-tray class="size-5 text-blue-mensana group-hover:text-white transition-all ease-in-out"/>
-                                <span>Request Download Catalog</span>
+                                <span>@lang('Request Download Catalog')</span>
                             </button>
                         </div>
                     </div>

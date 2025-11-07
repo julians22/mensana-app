@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Articles;
 
-use App\Models\Article;
 use App\Models\Category;
 use App\Models\Category\SubCategory;
 use Illuminate\Contracts\Database\Query\Builder as QueryBuilder;
@@ -11,61 +10,33 @@ use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Url;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class IndexArticle extends Component
 {
     const ITEMS_PER_PAGE = 6;
 
     public $categories;
+    public $sub_categories;
 
     public $postIdChunks = [];
     public $page = 1;
     public $maxPage = 1;
     public $queryCount = 0;
 
-    #[Computed()]
-    public function sub_categories()
-    {
-        $category = Category::findBySlug($this->category);
-
-        if (! $category ){
-            return [];
-        }
-
-        return SubCategory::query()->with('items')->where('category_id', $category->id)->get()->toArray();
-    }
-
-    public array $articleFilter = [
-        'Penyakit' => [
-            'Koksidiosis',
-            'Colibacilosis',
-            'Cacing',
-            'Stress Panas',
-            'Mikotoksin',
-            'Immunosupresi',
-        ],
-        'Manajemen Pemeliharaan' => [
-            'Keamanan dan kualitas ransum',
-            'Biosecurity',
-            'Kualitas Air',
-            'Enzim',
-            'Optimalisasi potensi genetik sejak dini',
-            'Kontrol kualitas pakan',
-            'Musim berganti nutrisi tetap presisi',
-        ],
-    ];
+    public $showSubFilter = false;
 
 
     #[Url(history: true, as: 'category', keep: false)]
     public $category = '';
 
-    public $filterArticle = [];
+    public $filterTopicArticles = [];
 
     public function mount($categories)
     {
         $this->categories = $categories;
         $this->prepareChunks();
+
+        $this->defineSubFilter();
     }
 
     public function render()
@@ -84,6 +55,8 @@ class IndexArticle extends Component
     {
         $set_category = '';
 
+        $this->reset('filterTopicArticles');
+
         if(
             empty($this->category) ||
             $category != $this->category ){
@@ -93,6 +66,24 @@ class IndexArticle extends Component
         $this->category = $set_category;
 
         $this->prepareChunks();
+
+        $this->defineSubFilter();
+    }
+
+    public function defineSubFilter(){
+        $this->showSubFilter = false;
+
+
+        if (!empty($this->category)) {
+            $category = Category::findBySlug($this->category);
+            $sub_categories = SubCategory::where('category_id', $category->id)->get();
+
+            if ($sub_categories->count()) {
+                $this->showSubFilter = true;
+                $this->sub_categories = $sub_categories;
+            }
+
+        }
     }
 
     public function prepareChunks()
@@ -101,7 +92,14 @@ class IndexArticle extends Component
             ->when($this->category, function (QueryBuilder $builder) {
                 $category = Category::findBySlug($this->category);
                 if ($category) {
-                    $builder->where('category_id', $category->id);
+                    $builder->where('category_id', $category->id)
+                        ->when($this->filterTopicArticles, function (QueryBuilder $builder) {
+                            $builder->whereIn('id', function ($query) {
+                                $query->select('article_id')
+                                    ->from('subcategory_articles')
+                                    ->whereIn('sub_category_id', $this->filterTopicArticles);
+                            });
+                        });
                 }
             })
             ->orderBy('created_at', 'desc')
@@ -119,13 +117,14 @@ class IndexArticle extends Component
         return $this->page < $this->maxPage;
     }
 
-    public function filterArticle()
+    public function filterArticleTopic()
     {
-        //
+        $this->prepareChunks();
     }
 
     public function resetFilterArticle()
     {
-        //
+        $this->reset('filterTopicArticles');
+        $this->prepareChunks();
     }
 }

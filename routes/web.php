@@ -36,7 +36,7 @@ Route::group([
     Route::group(['prefix' => 'product', 'as' => 'product.'], function() {
         Route::get('', [PageController::class, 'product_page'])->name('index');
         Route::get('{slug}', [PageController::class, 'product_detail_page'])->name('detail');
-        Route::get('dummy', [PageController::class, 'product_detail_page_dummy'])->name('detail');
+        // Route::get('dummy', [PageController::class, 'product_detail_page_dummy'])->name('detail');
     });
 
     // Livewire Routes

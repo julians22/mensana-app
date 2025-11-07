@@ -5,13 +5,14 @@ namespace App\Models\Category;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 
 class SubCategory extends Model
 {
-    use HasTranslations, HasSlug;
+    use HasTranslations, HasSlug, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

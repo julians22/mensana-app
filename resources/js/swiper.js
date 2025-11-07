@@ -1,7 +1,7 @@
 // import Swiper JS
 import Swiper from 'swiper';
 
-import { Autoplay, FreeMode, Pagination, Thumbs, Zoom } from 'swiper/modules';
+import { Autoplay, Controller, EffectFade, FreeMode, Navigation, Pagination, Thumbs, Zoom } from 'swiper/modules';
 
 
 const home__swiper = new Swiper('.home__swiper', {
@@ -95,6 +95,28 @@ const milestone__swiper = new Swiper('.milestone__swiper', {
     }
 });
 
-// milestone__thumbnail_swiper.controller.control = milestone__swiper;
+const article_text_swiper = new Swiper('.article_text_swiper', {
+    slidesPerView: 1,
+    allowSlideNext: false,
+    allowSlidePrev: false,
+    allowTouchMove: false
+});
 
-// milestone__thumbnail_swiper.init();
+const article_image_swiper = new Swiper('.article_image_swiper', {
+    modules: [Controller, Navigation, Pagination],
+    watchSlidesProgress: true,
+    slidesPerView: 1,
+    controller: {
+        by: "slide",
+        control: article_text_swiper
+    },
+    navigation: {
+        prevEl: ".article_image_swiper .swiper-button-prev",
+        nextEl: ".article_image_swiper .swiper-button-next"
+    },
+    pagination: {
+        el: '.article_image_swiper__pagination.swiper-pagination',
+        clickable: true,
+    }
+});
+

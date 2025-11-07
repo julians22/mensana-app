@@ -15,13 +15,12 @@ class CategoryForm
             ->components([
                 Fieldset::make('Title')
                     ->schema([
-                        Textarea::make('title.en')
-                            ->label('English Name')
-                            ->required()
-                            ->maxLength(255),
-                        Textarea::make('title.id')
+                        Textarea::make('name.id')
                             ->label('Bahasa Name')
                             ->required()
+                            ->maxLength(255),
+                        Textarea::make('name.en')
+                            ->label('English Name')
                             ->maxLength(255),
                     ])
                 ->columns(2),

@@ -2,6 +2,7 @@
 
 @section('title', $article->meta_title)
 @section('meta_description', $article->meta_description)
+@section('meta_keyword', $article->meta_keywords)
 
 @section('content')
 <!-- Nothing worth having comes easy. - Theodore Roosevelt -->
@@ -16,19 +17,51 @@
                 <x-heroicon-o-share class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
             </span>
 
-            <span class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
-                <x-heroicon-o-x-mark class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
-            </span>
+            <a href="{{ route('article.index') }}">
+                <span class="group block hover:bg-blue-mensana/40 p-2 border border-stone-300 hover:border-blue-mensana/40 rounded-full cursor-pointer">
+                    <x-heroicon-o-x-mark class="stroke-stone-300 group-hover:stroke-white w-6 h-6"/>
+                </span>
+            </a>
+
         </div>
 
         <h5 class="mb-4 font-bold text-blue-mensana text-2xl text-center">{{ $article->category->name }}</h5>
         <h1 class="mb-4 font-bold text-blue-mensana text-4xl text-center">{{ $article->title }}</h1>
 
-        <img src="{{ asset($article->getFirstMediaUrl()) }}" alt="">
+        <article class="mx-auto mt-4 prose">
+            <img src="{{ asset($article->getFirstMediaUrl()) }}" alt="" class="mx-auto">
 
-        <div class="mx-auto prose">
-            {{ $article->body }}
-        </div>
+            @php
+                $body = $article->body;
+
+                if (empty($body) && App::isLocale('en')) {
+                    $body = $article->getTranslation('body', 'id');
+                }
+
+            @endphp
+
+            {{-- loop each content type: heading, paragraph, image  --}}
+            @foreach ($body as $item)
+
+                @switch($item["type"])
+                    @case('heading')
+                        <{{$item['data']['level']}}>
+                            {{$item['data']['content']}}
+                        </{{$item['data']['level']}}>
+                        @break
+                    @case('paragraph')
+                        <p>{!! $item['data']['content'] !!}</p>
+                        @break
+                    @case('image')
+                        <img src="{{ asset('storage/' . $item['data']['url']) }}" alt="{{ $item['data']['alt'] }}" style="max-width: {{$item['data']['width']}};">
+                        @break
+                    @default
+
+                @endswitch
+
+            @endforeach
+
+        </article>
 
     </div>
 </div>

@@ -31,33 +31,18 @@
 
             <!-- language switcher -->
             <div class="divide-black divide language-switcher">
-                @if (Route::is('article.detail'))
-                    <a
-                        href="{{ LaravelLocalization::getURLFromRouteNameTranslated('id', 'routes.article_detail', ['article' => $article->getLocalizedRouteKey('id')]) }}"
-                        class="language-link {{ LaravelLocalization::getCurrentLocale() == 'id' ? 'active' : '' }}">
-                        <img src="{{ asset('img/icons/idn.png') }}" alt="Indonesia Flag" class="inline mr-1 w-5 h-5">
-                        IND
-                    </a>
-                    <a
-                        href="{{ LaravelLocalization::getURLFromRouteNameTranslated('en', 'routes.article_detail', ['article' => $article->getLocalizedRouteKey('en')]) }}"
-                        class="language-link {{ LaravelLocalization::getCurrentLocale() == 'en' ? 'active' : '' }}">
-                        ENG
-                        <img src="{{ asset('img/icons/eng.png') }}" alt="English Flag" class="inline mr-1 w-5 h-5">
-                    </a>
-                @else
-                    <a
-                        href="{{ LaravelLocalization::getLocalizedURL('id', null, [], true) }}"
-                        class="language-link {{ LaravelLocalization::getCurrentLocale() == 'id' ? 'active' : '' }}">
-                        <img src="{{ asset('img/icons/idn.png') }}" alt="Indonesia Flag" class="inline mr-1 w-5 h-5">
-                        IND
-                    </a>
-                    <a
-                        href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"
-                        class="language-link {{ LaravelLocalization::getCurrentLocale() == 'en' ? 'active' : '' }}">
-                        ENG
-                        <img src="{{ asset('img/icons/eng.png') }}" alt="English Flag" class="inline mr-1 w-5 h-5">
-                    </a>
-                @endif
+                <a
+                    href="{{ LaravelLocalization::getLocalizedURL('id', null, [], true) }}"
+                    class="language-link {{ LaravelLocalization::getCurrentLocale() == 'id' ? 'active' : '' }}">
+                    <img src="{{ asset('img/icons/idn.png') }}" alt="Indonesia Flag" class="inline mr-1 w-5 h-5">
+                    IND
+                </a>
+                <a
+                    href="{{ LaravelLocalization::getLocalizedURL('en', null, [], true) }}"
+                    class="language-link {{ LaravelLocalization::getCurrentLocale() == 'en' ? 'active' : '' }}">
+                    ENG
+                    <img src="{{ asset('img/icons/eng.png') }}" alt="English Flag" class="inline mr-1 w-5 h-5">
+                </a>
             </div>
         </div>
     </nav>
