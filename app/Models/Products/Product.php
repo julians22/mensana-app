@@ -3,14 +3,18 @@
 namespace App\Models\Products;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Product extends Model
+class Product extends Model implements HasMedia
 {
-    use HasTranslations, HasSlug;
+    use HasTranslations, HasSlug, InteractsWithMedia;
 
     /**
      * The table associated with the model.
@@ -24,7 +28,7 @@ class Product extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'description', 'sku', 'price', 'stock', 'is_active'];
+    protected $fillable = ['name', 'subtitle', 'excerpt', 'description', 'sku', 'price', 'stock', 'is_active', 'is_featured', 'sizes'];
 
     /**
      * The attributes that should be cast to native types.
@@ -33,9 +37,11 @@ class Product extends Model
      */
     protected $casts = [
         'is_active' => 'boolean',
+        'sizes' => 'array',
+        'is_featured' => 'boolean'
     ];
 
-    protected $translatable = ['description'];
+    protected $translatable = ['description', 'subtitle', 'excerpt'];
 
     public function getSlugOptions() : SlugOptions
     {
@@ -46,8 +52,9 @@ class Product extends Model
             ->usingLanguage('id');
     }
 
-    public function categories() {
-        return $this->belongsToMany(Category::class);
+    public function categories() : BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_product');
     }
 
     public function animals() {
@@ -63,7 +70,22 @@ class Product extends Model
      */
     public function getShortDescriptionAttribute()
     {
-        return strip_tags(Str::limit($this->description, 100));
+        if (!$this->excerpt) {
+            return strip_tags(Str::limit($this->description, 100));
+        }
+
+        return $this->excerpt;
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $fallBackThumbnailUrl = asset('product-thumbs.png');
+
+        $this->addMediaCollection('thumbnail')
+            ->useFallbackUrl($fallBackThumbnailUrl)
+            ->singleFile();
+
+        $this->addMediaCollection('showcase');
     }
 
 

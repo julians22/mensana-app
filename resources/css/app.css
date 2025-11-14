@@ -43,11 +43,15 @@
     }
 
     .nav-wrapper{
-        @apply flex justify-between items-center;
+        @apply hidden lg:flex lg:flex-row flex-col justify-between items-center pb-2 lg:pb-0;
+    }
+
+    .nav-wrapper.openNav {
+        @apply block;
     }
 
     .nav-wrapper .search-form{
-        @apply relative;
+        @apply relative w-full lg:w-auto;
     }
 
     .nav-wrapper .search-input{
@@ -55,15 +59,15 @@
     }
 
     .nav-items{
-        @apply flex items-center lg:space-x-14;
+        @apply flex lg:flex-row flex-col items-start space-x-0 lg:space-x-14 space-y-2 lg:space-y-0 w-full lg:w-auto;
     }
 
     .nav-items .nav-link{
-        @apply relative font-sans-9pt-regular text-blue-mensana text-lg transition duration-300;
+        @apply relative font-sans-9pt-regular font-light lg:font-normal text-blue-mensana text-base lg:text-lg transition duration-300;
     }
 
     .nav-items .nav-link::after{
-        @apply block bg-white mt-2 w-full h-1 content-[''] scale-0 transition-all duration-300 ease-in-out transform;
+        @apply block bg-white mt-px lg:mt-2 w-full h-0.5 lg:h-1 content-[''] scale-0 transition-all duration-300 ease-in-out transform;
     }
 
     .nav-items .nav-link.active::after, .nav-items .nav-link:hover::after{
@@ -71,7 +75,11 @@
     }
 
     .language-switcher{
-        @apply absolute top-1/2 right-0 transform -translate-y-1/2 grid grid-cols-2 gap-2 pl-4;
+        @apply lg:absolute lg:top-1/2 lg:right-0 transform lg:-translate-y-1/2 lg:grid grid-cols-2 gap-2 pl-0 lg:pl-4 relative hidden;
+    }
+
+    .language-switcher.openNav{
+        @apply block;
     }
 
     .language-switcher .language-link{
@@ -79,7 +87,7 @@
     }
 
     .language-switcher .language-link img{
-        @apply inline grayscale-100 mr-1 border border-gray-300 w-5 h-5;
+        @apply inline grayscale-100 mr-1 border border-gray-300 w-2 lg:w-5 h-2 lg:h-5;
     }
 
     .language-switcher .language-link:not(:last-child){
@@ -96,20 +104,20 @@
     }
 
     .home__swiper{
-        @apply relative h-[800px];
+        @apply relative lg:h-[800px];
     }
 
     .home__swiper .shape__banner{
-        @apply bottom-0 z-10 absolute inset-x-0 flex justify-center items-center w-full h-[100px];
+        @apply bottom-0 z-10 absolute inset-x-0 flex justify-center items-center w-full h-[20px] lg:h-[100px];
     }
 
 
     .banner-text-wrapper {
-        @apply left-0 absolute inset-y-0 flex justify-center w-5/12;
+        @apply left-0 absolute inset-y-0 flex justify-center w-full lg:w-5/12;
     }
 
     .banner-text-wrapper .banner-text {
-        @apply z-10 relative space-y-7 mt-[220px] max-w-[60%] text-white;
+        @apply lg:block z-10 relative flex flex-col justify-center space-y-2 lg:space-y-7 mt-0 lg:mt-[220px] max-w-[60%] text-white;
     }
 
     .banner-text-wrapper .banner-text-bg {
@@ -117,11 +125,11 @@
     }
 
     .product-service-card{
-        @apply relative bg-gray-100 pl-2 rounded-2xl h-[300px] overflow-hidden
+        @apply relative bg-gray-100 pl-2 rounded-2xl h-[200px] lg:h-[300px] overflow-hidden
     }
 
     .product-service-card .badge {
-        @apply top-0 right-0 z-20 absolute py-2.5 rounded-tr-md w-[300px] font-bold text-white text-4xl text-center;
+        @apply top-0 right-0 z-20 absolute py-1 lg:py-2.5 rounded-tr-md w-[150px] lg:w-[300px] font-bold text-white text-xl lg:text-4xl text-center;
     }
 
     .badge.badge-rtl{
@@ -129,11 +137,11 @@
     }
 
     .featured-products{
-        @apply relative px-5 pt-20 pb-16 border border-gray-200 rounded-2xl w-full;
+        @apply relative px-5 pt-14 lg:pt-20 pb-16 border border-gray-200 rounded-2xl w-full;
     }
 
     .featured-products .badge {
-        @apply top-0 -left-1 z-20 absolute py-2.5 pr-16 pl-8 rounded-tr-md font-bold text-white text-4xl text-center;
+        @apply top-0 -left-1 z-20 absolute py-2 lg:py-2.5 pr-5 lg:pr-16 pl-2 lg:pl-8 lg:rounded-tr-md font-bold text-white text-xl lg:text-4xl text-center;
     }
 
     .badge.badge-ltr{
@@ -165,15 +173,15 @@
     }
 
     .article-news {
-        @apply relative pt-20 pb-16 w-full overflow-hidden;
+        @apply relative pt-20 pb-10 w-full overflow-hidden;
     }
 
     .article-news .badge {
-        @apply top-0 -left-1 z-20 absolute py-2.5 pr-16 pl-8 rounded-tr-md font-bold text-white text-4xl text-center;
+        @apply top-0 -left-1 z-20 absolute py-2 lg:py-2.5 pr-5 lg:pr-16 pl-2 lg:pl-8 lg:rounded-tr-md font-bold text-white text-xl lg:text-4xl text-center;
     }
 
     .article-card{
-        @apply bg-white shadow-md rounded-lg overflow-hidden;
+        @apply bg-white shadow-lg rounded-lg overflow-hidden;
     }
 
     .article-card .article-badge{
@@ -206,7 +214,7 @@
     /* About page */
 
     .about__section {
-        @apply relative flex items-center py-20 aspect-[3/1];
+        @apply relative flex items-center py-10 lg:py-20 w-full lg:aspect-[3/1] px-4 lg:px-0 overflow-hidden;
     }
 
     .thumbnail_milestone__swiper{
@@ -255,7 +263,7 @@
     }
 
     .fixed-contact-button{
-        @apply right-10 bottom-10 z-30 fixed flex items-center bg-white shadow-lg p-1 border border-blue-mensana rounded-full;
+        @apply right-3 lg:right-10 bottom-3 lg:bottom-10 z-30 fixed flex items-center bg-white shadow-lg p-1 border border-blue-mensana rounded-full;
     }
 
     .fixed-contact-button .contact-button{
@@ -267,7 +275,7 @@
     }
 
     .img__shadowable_wrapper {
-        @apply relative ml-auto w-max;
+        @apply relative lg:ml-auto lg:w-max;
     }
 
     .img__shadowable.shadow{
@@ -275,6 +283,19 @@
     }
 
     /* Product Page */
+
+    .product__section{
+        @apply gap-x-10 grid grid-cols-10 mx-auto container;
+    }
+
+    .product__section .filter-section{
+        @apply col-span-10 lg:col-span-3;
+    }
+
+    .product__section .product-items-section{
+        @apply col-span-10 lg:col-span-7;
+    }
+
 
     .product__wrapper{
         @apply gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mx-auto max-w-7xl;
@@ -305,7 +326,7 @@
     }
 
     .product-filter-wrapper .option-list span.label{
-        @apply flex items-center space-x-2 ml-2 text-gray-500 text-lg;
+        @apply flex items-center space-x-2 ml-2 text-gray-500 text-base lg:text-lg;
     }
 
     .product-filter-wrapper .option-list input:checked + span.label{
@@ -313,7 +334,7 @@
     }
 
     .product-filter-wrapper .option-list input + span.label .checkbox{
-        @apply bg-white ring-1 ring-gray-600 size-5;
+        @apply bg-white ring-1 ring-gray-600 size-4 lg:size-5;
     }
 
     .product-filter-wrapper .option-list input + span.label .checkbox .checkmark{
@@ -355,7 +376,7 @@
 
 /* 1. Banner Pagination */
 .home__swiper .swiper-pagination {
-    @apply right-0 bottom-[90px] left-0 z-20 absolute flex justify-center items-center gap-x-3;
+    @apply right-0 bottom-[70px] lg:bottom-[90px] left-0 z-20 absolute flex justify-center items-center gap-x-3;
 }
 
 .home__swiper .swiper-pagination-bullet {
@@ -383,4 +404,62 @@
 /* 3. Featured Article Pagination */
 .article_image_swiper__pagination.swiper-pagination{
     @apply text-left;
+}
+
+/* 4. Product Showcase */
+
+
+
+
+
+
+
+/* Hamburger */
+/* HAMBURGER MENU */
+
+.hamburger {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s;
+}
+
+.hamburger__top-bun,
+.hamburger__bottom-bun {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger:hover [class*="-bun"] {
+  background: #333;
+}
+
+.hamburger__top-bun {
+  transform: translateY(-5px);
+}
+
+.hamburger__bottom-bun {
+  transform: translateY(3px);
+}
+
+.openNav {
+  transform: rotate(90deg);
+  transform: translateY(-1px);
+}
+
+.openNav .hamburger__top-bun {
+  transform:
+    rotate(45deg)
+    translateY(0px);
+}
+
+.openNav .hamburger__bottom-bun {
+  transform:
+    rotate(-45deg)
+    translateY(0px);
 }

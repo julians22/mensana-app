@@ -7,7 +7,7 @@
 @section('content')
 <!-- Nothing worth having comes easy. - Theodore Roosevelt -->
 <div class="mx-auto px-4 py-8 container">
-    <div class="relative px-8 py-10 border border-gray-200 rounded-3xl">
+    <div class="relative px-2 lg:px-8 py-10 border border-gray-200 rounded-xl lg:rounded-3xl">
 
         <div class="top-4 right-4 z-10 absolute flex flex-row space-x-4 text-xl">
 
@@ -25,10 +25,10 @@
 
         </div>
 
-        <h5 class="mb-4 font-bold text-blue-mensana text-2xl text-center">{{ $article->category->name }}</h5>
-        <h1 class="mb-4 font-bold text-blue-mensana text-4xl text-center">{{ $article->title }}</h1>
+        <h5 class="mb-4 font-bold text-blue-mensana text-lg lg:text-2xl text-center">{{ $article->category->name }}</h5>
+        <h1 class="mb-4 font-bold text-blue-mensana text-2xl lg:text-4xl text-center">{{ $article->title }}</h1>
 
-        <article class="mx-auto mt-4 prose">
+        <article class="mx-auto mt-4 prose prose-stone prose-sm">
             <img src="{{ asset($article->getFirstMediaUrl()) }}" alt="" class="mx-auto">
 
             @php

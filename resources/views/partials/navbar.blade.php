@@ -1,13 +1,17 @@
-<header class="pt-4 pb-1">
+<header class="top-0 z-50 lg:static fixed bg-white shadow lg:shadow-none px-4 lg:px-0 pt-2 lg:pt-4 pb-2">
     <nav class="relative mx-auto container">
         <div>
-            <div>
-                <a class="inline-block mb-4" href="{{ route('home') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="Mensana Logo" class="h-24">
+            <div class="lg:block flex justify-between">
+                <a class="inline-block flex-1 lg:mb-4" href="{{ route('home') }}">
+                    <img src="{{ asset('img/logo.png') }}" alt="Mensana Logo" class="w-9/12 lg:w-auto h-auto lg:h-24">
                 </a>
+
+                <button id="menuBtn" class="lg:hidden block focus:outline-none hamburger" :class="openNav ? 'openNav' : ''" type="button" @click="openNav = !openNav">
+                    <span class="hamburger__top-bun"></span><span class="hamburger__bottom-bun"></span>
+                </button>
             </div>
 
-            <div class="nav-wrapper">
+            <div class="nav-wrapper" :class="openNav ? 'openNav' : ''">
                 <ul class="nav-items">
                     <li><a href="{{ route('home') }}" class="nav-link {{ activeClass('home') }}">{{ __('Home') }}</a></li>
                     <li><a href="{{ route('about') }}" class="nav-link {{ activeClass('about') }}">{{ __('Tentang Kami') }}</a></li>
@@ -28,9 +32,8 @@
                 </div>
             </div>
 
-
             <!-- language switcher -->
-            <div class="divide-black divide language-switcher">
+            <div class="mx-auto divide-black max-w-max lg:max-w-none divide language-switcher" :class="openNav ? 'openNav' : ''">
                 <a
                     href="{{ LaravelLocalization::getLocalizedURL('id', null, [], true) }}"
                     class="language-link {{ LaravelLocalization::getCurrentLocale() == 'id' ? 'active' : '' }}">

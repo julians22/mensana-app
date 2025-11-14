@@ -10,41 +10,41 @@
 <section class="relative">
     <!--swiper-->
     <div class="swiper home__swiper">
-        <div class="swiper-wrapper">
+        <div class="flex swiper-wrapper">
             <div class="swiper-slide">
-                <div class="relative">
+                <div class="relative aspect-square lg:aspect-auto">
                     <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
-                            <p class="font-bold text-7xl">Produsen & Distributor</p>
-                            <p class="text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
+                            <p class="font-bold text-4xl lg:text-7xl">Produsen & Distributor</p>
+                            <p class="text-lg lg:text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
                         </div>
                         <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
                     </div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="relative">
+                <div class="relative aspect-square lg:aspect-auto">
                     <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
-                            <p class="font-bold text-7xl">Produsen & Distributor</p>
-                            <p class="text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
+                            <p class="font-bold text-4xl lg:text-7xl">Produsen & Distributor</p>
+                            <p class="text-lg lg:text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
                         </div>
                         <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
                     </div>
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="relative">
+                <div class="relative aspect-square lg:aspect-auto">
                     <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
                         <div class="banner-text">
-                            <p class="font-bold text-7xl">Produsen & Distributor</p>
-                            <p class="text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
+                            <p class="font-bold text-4xl lg:text-7xl">Produsen & Distributor</p>
+                            <p class="text-lg lg:text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
                         </div>
                         <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
                     </div>
@@ -62,14 +62,14 @@
 
 
 <!-- Product & Service Section -->
-<section class="mt-16">
+<section class="mt-4 lg:mt-16 px-4 lg:px-0">
 
-    <h1 class="text-blue-mensana text-5xl text-center">
+    <h1 class="text-blue-mensana text-2xl lg:text-5xl text-center">
         <span data-motion="fade-in" data-duration="0.6" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
         <span data-motion="fade-in" data-duration="0.6" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
     </h1>
 
-    <div class="gap-x-8 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
+    <div class="gap-x-8 gap-y-2 lg:gap-y-0 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
 
 
         <div class="product-service-card">
@@ -78,17 +78,17 @@
                 <h3 title="Produk">PRODUK</h3>
             </div>
 
-            <div class="flex items-center space-x-6 px-10 py-10">
+            <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
                 <div>
-                    <div class="w-64 h-64">
+                    <div class="w-24 lg:w-64 h-24 lg:h-64">
                         <img src="{{ asset('product.png') }}" alt="Vaksin Hewan" class="object-cover object-top">
                     </div>
                 </div>
 
-                <div class="space-y-3">
-                    <h4 class="font-bold text-blue-mensana text-4xl">Vaksin Aktif</h4>
-                    <p class="text-gray-600">Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
-                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">Info Lebih</a>
+                <div class="space-y-1 lg:space-y-3">
+                    <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">@lang('Vaksin Aktif')</h4>
+                    <p class="text-gray-600 text-sm lg:text-base">Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
+                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">@lang('Info Lebih')</a>
                 </div>
             </div>
 
@@ -104,14 +104,10 @@
 
             <div class="flex justify-center-center items-center h-full">
                 <div class="relative flex-1 space-y-2 text-center">
-                    <h4 class="font-normal text-blue-mensana text-4xl">LABORATORIUM / <br> ANIMAL HEALTH CONSULTANT</h4>
-                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">Info Lebih</a>
+                    <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">LABORATORIUM / <br> ANIMAL HEALTH CONSULTANT</h4>
+                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                 </div>
             </div>
-
-
-
-
         </div>
 
 
@@ -128,7 +124,7 @@
                 <h3 title="Featured">Produk Unggulan</h3>
             </div>
 
-            <div class="top-0 right-0 absolute mt-5 mr-5">
+            <div class="top-0 right-0 absolute mt-2 lg:mt-5 mr-2 lg:mr-5">
                 <a class="text-blue-mensana" href="{{ route('product.index') }}">@lang('Product Lainnya') <span class="inline"><x-heroicon-o-chevron-double-right class="inline outline-blue-mensana size-5" /></span></a>
             </div>
 
@@ -136,162 +132,33 @@
             <!-- Featured Products Carousel -->
             <div class="home__product_swiper swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-0.jpg') }}" alt="Product 1">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 1</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 1</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-1.jpg') }}" alt="Product 2">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 2</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 2</p>
-                            </div>
+                    @foreach ($products as $product)
+                        <div class="swiper-slide">
+                            <div class="product-card">
+                                <img src="{{$product->getFirstMediaUrl('thumbnail')}}" alt="Product 1">
+                                <div class="product-info">
+                                    <!-- Title -->
+                                <h4 class="product-title">{{ $product->name }}</h4>
 
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-2.jpg') }}" alt="Product 3">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 3</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 3</p>
+                                    <!-- Category -->
+                                    <p class="product-description">
+                                        @foreach ($product->categories as $category)
+                                            {{ $category->name }}
+                                        @endforeach
+                                    </p>
+                                    <p class="text-gray-600">{{ $product->excerpt }}</p>
+                                </div>
+                                @if ($product->tags)
                                 <!-- Product Tags -->
                                 <div class="product-tags">
-                                    <span class="tag">Tag 1</span>
-                                    <span class="tag">Tag 2</span>
+                                    @foreach ($product->tags as $tag)
+                                    <span class="tag">{{ $tag->name }}</span>
+                                    @endforeach
                                 </div>
+                                @endif
                             </div>
                         </div>
-
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-3.jpg') }}" alt="Product 4">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 4</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 4</p>
-                            </div>
-
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-4.jpg') }}" alt="Product 5">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 5</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 5</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-4.jpg') }}" alt="Product 5">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 5</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 5</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-4.jpg') }}" alt="Product 5">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 5</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 5</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-4.jpg') }}" alt="Product 5">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 5</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 5</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-card">
-                            <img src="{{ asset('dummy/product-4.jpg') }}" alt="Product 5">
-                            <div class="product-info">
-                                <!-- Title -->
-                                <h4 class="product-title">Product 5</h4>
-                                <!-- Category -->
-                                <p class="product-description">Vaccines</p>
-                                <p class="text-gray-600">Description for Product 5</p>
-                            </div>
-                            <!-- Product Tags -->
-                            <div class="product-tags">
-                                <span class="tag">Tag 1</span>
-                                <span class="tag">Tag 2</span>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
 
             </div>
@@ -318,10 +185,10 @@
 
             @if ($featured_article)
                 <!-- Background gray -->
-                <div class="top-0 bottom-6/12 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
+                <div class="top-0 lg:top-0 bottom-[80%] lg:bottom-6/12 z-0 absolute inset-x-0 bg-gray-100 rounded-3xl"></div>
 
                 <!-- Featured Article -->
-                <div class="z-10 relative gap-x-10 grid grid-cols-2 px-16">
+                <div class="z-10 relative gap-x-10 grid grid-cols-1 lg:grid-cols-2 px-4 lg:px-16">
 
                     <div class="w-full aspect-[166/89]">
                         <img src="{{ asset($featured_article->getFirstMediaUrl()) }}" onerror="this.src='{{ asset('dummy/article-1.png') }}'" alt="" class="rounded-xl w-full h-full object-center object-cover">
@@ -349,7 +216,7 @@
 
 
             <!-- Article List -->
-            <div class="z-10 relative gap-x-10 grid grid-cols-1 lg:grid-cols-3 mt-10 px-16">
+            <div class="z-10 relative gap-x-10 gap-y-4 grid grid-cols-1 lg:grid-cols-3 mt-10 px-4 lg:px-16">
 
                 @foreach ($articles as $article)
                     <x-article-card-component

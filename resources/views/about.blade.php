@@ -7,14 +7,17 @@
 <section class="relative">
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
 
-    <img src="{{ asset('img/hero-about.png') }}" alt="">
+    <div class="aspect-square lg:aspect-video">
+        <img src="{{ asset('img/hero-about.png') }}" alt="" class="w-full h-full object-center object-cover">
+    </div>
 
-    <div class="absolute inset-0 flex items-center">
+
+    <div class="absolute inset-0 flex items-center px-4 lg:px-0">
         <div class="grid grid-cols-5 mx-auto container">
-            <div class="col-span-2 text-white">
-                <h1 data-motion="fade-left" class="mb-4 font-bold text-4xl">PT MENSANA ANEKAS SATWA</h1>
+            <div class="col-span-4 lg:col-span-2 text-white">
+                <h1 data-motion="fade-left" class="mb-4 font-bold text-xl lg:text-4xl">PT MENSANA ANEKAS SATWA</h1>
 
-                <div class="text-2xl" data-motion="fade-down">
+                <div class="text-base lg:text-2xl" data-motion="fade-down">
                     <p>adalah perusahaan produsen, importir, eksportir dan distributor yang bergerak dibidang kesehatan hewan. Sejak berdiri pada tahun 1986 hingga saat ini produknya sudah merambah hampir diseluruh Indonesia. Produk yang diproduksi adalah farmasetik, obat alami, dan premix.</p>
                 </div>
 
@@ -25,10 +28,10 @@
 </section>
 
 <!-- Milestones Section -->
-<section class="py-20">
+<section class="py-8 lg:py-20">
 
     <div class="mx-auto px-4 container">
-        <h2 class="mb-8 font-bold text-blue-mensana text-4xl text-center" data-motion="">Pencapaian Kami</h2>
+        <h2 class="mb-8 font-bold text-blue-mensana text-4xl text-center" data-motion="">@lang('Pencapaian Kami')</h2>
 
         <!-- Milestones Thumbnail swiper -->
          <div class="pb-6">
@@ -157,17 +160,19 @@
 <!-- Product Section -->
 <section class="about__section">
 
-    <div class="top-[80%] z-0 absolute inset-x-0 bg-linear-to-t from-30% from-white via-80% to-[#DDDDDD] to-100% w-full h-[500px]"></div>
+    <div class="hidden lg:block lg:top-[80%] z-0 absolute inset-x-0 bg-linear-to-t from-30% from-white via-80% to-[#DDDDDD] to-100% w-full lg:h-[500px]"></div>
 
     <div class="relative mx-auto container">
-        <div class="top-7 left-0 absolute max-w-[700px]">
-            <h5 class="font-sans-9pt-regular text-blue-mensana text-3xl 2xl:text-5xl text-center">Jelajahi produk kami untuk</h5>
-            <h5 class="font-sans font-black text-blue-mensana text-3xl 2xl:text-5xl text-center">mengetahui kami <br> lebih dalam</h5>
+        <div class="lg:top-7 lg:left-0 lg:absolute lg:max-w-[600px] text-center">
+            <h5 class="font-sans-9pt-regular font-normal text-blue-mensana text-3xl 2xl:text-5xl">@lang('Jelajahi produk kami untuk')</h5>
+            <h5 class="font-sans font-black text-blue-mensana text-3xl 2xl:text-6xl">@lang('mengetahui kami lebih dalam')</h5>
+
+            <a class="inline-block bg-white mt-8 px-4 py-2 border border-blue-mensana rounded text-blue-mensana" href="">@lang('Produk Kami')</a>
         </div>
 
 
-        <div class="relative ml-auto w-max img__shadowable_wrapper">
-            <img src="{{ asset('img/Product Lineup.png') }}" alt="" class="z-10 relative w-full max-w-52 lg:max-w-[800px] 2xl:max-w-[1000px] img__shadowable">
+        <div class="img__shadowable_wrapper">
+            <img src="{{ asset('img/Product Lineup.png') }}" alt="" class="z-10 relative mt-4 lg:mt-0 w-full max-w-full lg:max-w-[800px] 2xl:max-w-[1000px] img__shadowable">
         </div>
     </div>
 

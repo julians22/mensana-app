@@ -8,21 +8,21 @@
     <!-- Act only according to that maxim whereby you can, at the same time, will that it should become a universal law. - Immanuel Kant -->
 
     <div class="bg-white shadow mx-auto rounded-4xl container">
-        <div class="space-y-4 px-7 py-6">
+        <div class="space-y-4 px-4 lg:px-0 py-6 lg:py3">
             <img src="{{ asset('img/maps.jpg') }}" alt="" class="w-full">
 
             <div class="bg-cyan-mensana rounded-full w-full h-1.5"></div>
 
-            <div class="pl-4">
-                <h1 class="font-bold text-blue-mensana text-5xl">Kontak Kami</h1>
+            <div class="lg:pl-4">
+                <h1 class="mb-3 lg:mb-0 font-bold text-blue-mensana text-3xl lg:text-5xl">Kontak Kami</h1>
 
-                <div class="lg:gap-x-10 grid grid-cols-12">
-                    <div class="place-items-center grid grid-cols-2 col-span-7">
-                        <div>
-                            <img src="{{ asset('img/logo-simple-blue.png') }}" alt="" class="mx-auto">
+                <div class="gap-y-4 lg:gap-x-10 lg:gap-y-0 grid grid-cols-12">
+                    <div class="lg:place-items-center gap-y-4 lg:gap-y-0 order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-2 col-span-12 lg:col-span-7">
+                        <div class="order-3 lg:order-1">
+                            <img src="{{ asset('img/logo-simple-blue.png') }}" alt="" class="lg:mx-auto max-w-[120px] lg:max-w-none">
                         </div>
 
-                        <div class="flex flex-col space-y-5">
+                        <div class="flex flex-col space-y-5 order-4 lg:order-2">
 
                             <h2 class="text-blue-mensana text-3xl">PT Mensana Aneka Satwa</h2>
 
@@ -54,17 +54,17 @@
                             </div>
                         </div>
 
-                        <div>
-                            <img src="{{ asset('img/logo-sanbio.png') }}" alt="" class="mx-auto">
+                        <div class="order-2 lg:order-3">
+                            <img src="{{ asset('img/logo-sanbio.png') }}" alt="" class="lg:mx-auto max-w-[120px] lg:max-w-none">
                         </div>
 
-                        <div>
+                        <div class="order-1 lg:order-4">
                             <h3 class="text-blue-mensana text-3xl">Kami distributor tunggal PT Sanbio Laboratories</h3>
                         </div>
 
 
                     </div>
-                    <div class="col-span-5">
+                    <div class="order-1 lg:order-2 col-span-12 lg:col-span-5">
                         @livewire('contact.form')
                     </div>
                 </div>

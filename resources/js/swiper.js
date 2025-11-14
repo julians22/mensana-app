@@ -95,6 +95,7 @@ const milestone__swiper = new Swiper('.milestone__swiper', {
     }
 });
 
+// Article swiper
 const article_text_swiper = new Swiper('.article_text_swiper', {
     slidesPerView: 1,
     allowSlideNext: false,
@@ -118,5 +119,14 @@ const article_image_swiper = new Swiper('.article_image_swiper', {
         el: '.article_image_swiper__pagination.swiper-pagination',
         clickable: true,
     }
+});
+
+
+// Product Showcase Swiper
+const product_showcase_swiper = new Swiper('.product_showcase_swiper', {
+    modules: [Navigation],
+    slidesPerView: 1,
+    rewind: true,
+    spaceBetween: 30
 });
 

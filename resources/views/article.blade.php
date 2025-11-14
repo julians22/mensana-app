@@ -14,7 +14,7 @@
 
         @if ($featured_articles->count())
             <!-- Featured Article -->
-        <div class="z-10 relative gap-x-10 grid grid-cols-2 mb-10">
+        <div class="z-10 relative gap-x-10 grid grid-cols-1 lg:grid-cols-2 mb-4 lg:mb-10 px-4 lg:px-0">
 
             <div class="relative">
                 <div style="--swiper-navigation-color: #fff;" class="swiper article_image_swiper">
@@ -25,8 +25,8 @@
                                 <img src="{{ asset($article->getFirstMediaUrl()) }}" onerror="this.src='{{ asset('dummy/article-1.png') }}'" alt="{{ $article->getTranslation('title', 'id') }}" class="rounded-xl w-full h-full object-center object-cover">
 
                                 <!-- Article Title -->
-                                <div class="bottom-10 left-10 absolute max-w-2/3">
-                                    <h4 class="font-sans-9pt-regular text-white text-2xl xl:text-4xl">
+                                <div class="bottom-4 lg:bottom-10 left-4 lg:left-10 absolute lg:max-w-2/3">
+                                    <h4 class="font-sans-9pt-regular text-white text-xl lg:text-2xl xl:text-4xl">
                                         {{ $article->title }}
                                     </h4>
                                 </div>
@@ -57,7 +57,7 @@
                                             {{ $_article->excrept }}
                                         </p>
                                         <!-- Read More Button -->
-                                        <a href="#" class="font-bold text-gray-500 underline">@lang('Lanjut Baca')</a>
+                                        <a href="{{ route('article.detail', ['article' => $_article->slug]) }}" class="font-bold text-gray-500 underline">@lang('Lanjut Baca')</a>
                                     </div>
                                 @endforeach
                             </div>

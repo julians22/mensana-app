@@ -1,6 +1,6 @@
 <div class="space-y-10">
 
-    <ul class="relative flex items-center gap-x-2 lg:gap-x-6"
+    <ul class="relative flex items-center gap-x-2 lg:gap-x-6 px-4 lg:px-0"
         x-data="{
             show_sub_filter: $wire.entangle('showSubFilter').live,
             openFilter: false }"
@@ -58,9 +58,10 @@
 
     <div>
         @for ($i = 0; $i < $page && $i < $maxPage; $i++)
-            @livewire('articles.card-component', [
-                'postIds' => $postIdChunks[$i]
-            ], key("chunk-{$queryCount}-{$i}"))
+            <livewire:articles.card-component
+                :postIds="$postIdChunks[$i]"
+                key="chunk-{{$queryCount}}-{{$i}}"
+            />
         @endfor
     </div>
 

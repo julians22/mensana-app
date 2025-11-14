@@ -23,7 +23,9 @@ class PageController extends Controller
 
         $articles = Article::take(3)->get();
 
-        return view('home', compact('articles', 'featured_article'));
+        $products = Product::with('categories', 'animals', 'tags')->take(10)->get();
+
+        return view('home', compact('articles', 'featured_article', 'products'));
     }
 
     /**
@@ -106,7 +108,17 @@ class PageController extends Controller
      */
     public function product_detail_page($slug)
     {
-        return view('product_detail', compact('slug'));
+        $product = Product::with('categories', 'animals', 'tags')->where('slug', $slug)->firstOrFail();
+
+        // get random category from $product->categories
+        $categories = $product->categories;
+
+        $randomCategory = null;
+        if ($categories->isNotEmpty()) {
+            $randomCategory = $categories->random();
+        }
+
+        return view('product_detail', compact('product', 'randomCategory'));
     }
 
     /**

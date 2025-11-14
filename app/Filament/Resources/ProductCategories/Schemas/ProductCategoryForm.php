@@ -14,10 +14,12 @@ class ProductCategoryForm
             ->components([
                 Fieldset::make('Name')
                     ->schema([
-                        Textarea::make('name.en')
+                        Textarea::make('name.id')
+                            ->label('Judul Kategori Produk (Indonesia)')
                             ->required()
                             ->columnSpanFull(),
-                        Textarea::make('name.id')
+                        Textarea::make('name.en')
+                            ->label('Judul Kategori Produk (Inggris)')
                             ->required()
                             ->columnSpanFull(),
                     ])

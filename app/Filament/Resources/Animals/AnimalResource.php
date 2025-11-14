@@ -23,6 +23,8 @@ class AnimalResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Products Management';
 
+    protected static ?int $navigationSort = 2;
+
     public static function form(Schema $schema): Schema
     {
         return AnimalForm::configure($schema);

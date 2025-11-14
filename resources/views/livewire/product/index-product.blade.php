@@ -1,7 +1,7 @@
-<div class="gap-x-10 grid grid-cols-10 mx-auto container">
-    <div class="col-span-3">
+<div class="product__section">
+    <div class="filter-section">
 
-        <div class="top-10 sticky bg-[#f2f2f2] px-10 py-10 rounded-2xl">
+        <div class="top-10 sticky bg-[#f2f2f2] px-4 lg:px-10 py-3 lg:py-10 rounded-2xl">
 
             <!-- Search Field -->
             <div>
@@ -37,7 +37,7 @@
 
             <!-- Filter Animal -->
             <div class="product-filter-wrapper" x-data="{openAnimal: false}">
-                <h3 class="filter-parrent-title">Animal</h3>
+                <h3 class="filter-parrent-title">@lang('Pilih Hewan')</h3>
 
                 <ul class="mt-4" x-show="openAnimal" x-transition x-transition:enter.scale.80 x-transition:leave.scale.90>
                     @foreach ($animals as $key => $value)
@@ -64,7 +64,7 @@
 
             <!-- Category Filter -->
             <div class="product-filter-wrapper" x-data="{openCategory: true}">
-                <h3 class="filter-parrent-title" @click="openCategory = !openCategory">Category</h3>
+                <h3 class="filter-parrent-title" @click="openCategory = !openCategory">@lang('Pilih Kategori')</h3>
 
                 <ul class="mt-4" x-show="openCategory" x-transition x-transition:enter.scale.80 x-transition:leave.scale.90>
                     @foreach ($categories as $key => $value)
@@ -92,14 +92,14 @@
 
             <!-- Download Catalogue Button -->
 
-            <div class="mt-6">
-                <a href="#" @click.prevent="openRequestModal = !openRequestModal" class="group flex items-center hover:bg-blue-mensana border border-blue-mensana rounded-xl">
-                    <div class="flex flex-1 justify-center items-center px-2 xl:px-4 size-2 xl:size-6">
-                        <x-heroicon-s-arrow-down-tray class="text-blue-mensana group-hover:text-white transition-all ease-in-out"/>
+            <div class="mt-6 text-center">
+                <a href="#" @click.prevent="openRequestModal = !openRequestModal" class="group inline-flex items-center hover:bg-blue-mensana border border-blue-mensana rounded-xl">
+                    <div class="flex justify-center items-center px-2 xl:px-4 w-[45px] lg:w-[50px]">
+                        <x-heroicon-s-arrow-down-tray class="w-6 lg:w-14 h-6 lg:h-14 text-blue-mensana group-hover:text-white transition-all ease-in-out"/>
                     </div>
-                    <div class="px-4 py-2 group-hover:border-white border-blue-mensana border-l transition-all ease-in-out">
+                    <div class="px-4 py-2 border-blue-mensana group-hover:border-white border-l transition-all ease-in-out">
                         <span class="font-bold text-blue-mensana group-hover:text-white text-xs xl:text-xl text-center transition-all ease-in-out">
-                            Request Download Catalog
+                            @lang('Request Download Catalog')
                         </span>
                     </div>
                 </a>
@@ -110,8 +110,8 @@
         </div>
 
     </div>
-    <div class="col-span-7">
-        <div class="min-h-[1000px]" id="paginated-products">
+    <div class="product-items-section">
+        <div class="px-4 lg:px-0 min-h-[1000px]" id="paginated-products">
             <div class="product__wrapper">
 
                 @foreach ($products as $item)
@@ -119,6 +119,7 @@
                         slug="{{$item->slug}}"
                         product_name="{{$item->name}}"
                         product_description="{{$item->short_description}}"
+                        image="{{$item->getFirstMediaUrl('thumbnail')}}"
                         :categories="$item->categories->pluck('name')->toArray()"
                     />
                 @endforeach

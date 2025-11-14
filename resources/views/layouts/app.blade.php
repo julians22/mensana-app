@@ -25,6 +25,13 @@
     <!-- Local Fonts -->
     <link rel="stylesheet" href="{{ asset('fonts/stylesheet.css') }}">
 
+    <!-- Simple Bar Plugin -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+
 
     @stack('before-styles')
 
@@ -44,13 +51,13 @@
 
     @livewireStyles
 </head>
-<body x-data="{ openRequestModal: false, openShareModal: false }"
+<body x-data="{ openRequestModal: false, openShareModal: false, openNav: false }"
     :class="{ 'overflow-hidden': openRequestModal || openShareModal}"
     @keyup.escape="openRequestModal = false; openShareModal = false">
 
     @include('partials.navbar')
 
-    <div id="app" class="min-h-[500px]">
+    <div id="app" class="pt-[64px] lg:pt-0 min-h-[500px]">
         @yield('content')
     </div>
 
@@ -59,7 +66,7 @@
         @mouseenter="openText = true" @mouseleave="openText = false"
     >
         <div class="contact-button">
-            <img src="{{ asset('img/icons/chat.svg') }}" alt="" class="w-12 h-12">
+            <img src="{{ asset('img/icons/chat.svg') }}" alt="" class="w-6 lg:w-12 h-6 lg:h-12">
         </div>
         <div class="contact-text" x-show="openText" x-transition x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
             <a href="#">

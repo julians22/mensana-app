@@ -1,4 +1,4 @@
-<div class="bg-blue-mensana/40 p-8 rounded-2xl w-full max-w-lg">
+<div class="bg-blue-mensana/40 p-4 lg:p-8 rounded-2xl w-full lg:max-w-lg">
 
     @error('recaptcha')
         <div class="bg-red-300 p-3 rounded text-red-700">{{ $message }}</div>

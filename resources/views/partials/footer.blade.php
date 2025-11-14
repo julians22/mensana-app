@@ -9,18 +9,18 @@
         $class = "footer-white";
     }
 @endphp
-<footer class="relative bg-cover bg-top pt-20 pb-24 {{ $class }}" style="background-image: url('{{ asset('img/footer-shape.png') }}');">
+<footer class="relative bg-cover bg-top px-10 lg:px-0 pt-10 lg:pt-20 pb-10 lg:pb-24 {{ $class }}" style="background-image: url('{{ asset('img/footer-shape.png') }}');">
 
     <div class="mx-auto overflow-hidden container">
-        <div class="flex">
+        <div class="flex lg:flex-row flex-col items-center lg:items-start space-y-6 lg:space-y-0">
 
             <!-- Logo -->
-            <div class="flex-shrink-0 mr-20">
-                <img src="{{ asset('img/logo-simple.svg') }}" alt="Logo" class="h-40">
+            <div class="flex-shrink-0 lg:mr-20 lg:text-left text-center">
+                <img src="{{ asset('img/logo-simple.svg') }}" alt="Logo" class="h-24 lg:h-40">
             </div>
 
             <!-- Address -->
-            <div class="flex-grow-0 space-y-3 mr-60 max-w-80 font-sans-9pt-regular">
+            <div class="flex-grow-0 space-y-3 mr-0 lg:mr-60 lg:max-w-80 font-sans-9pt-regular">
                 <h5 class="font-sans text-white text-2xl">PT. Mensana Aneka Satwa</h5>
                 <p class="text-white text-lg text-justify">Mensana Tower Cibubur Lt. 18, Jalan Raya Kranggan No. 69, Kelurahan Jatisampurna, Bekasi, Jawa Barat, Indonesia, 17433</p>
 
@@ -41,9 +41,9 @@
             </div>
 
             <!-- Site Link & Social Icons Column -->
-            <div>
+            <div class="w-full lg:w-auto">
                 <!-- Site Links -->
-                <ul class="gap-10 grid grid-cols-2 text-lg">
+                <ul class="gap-4 lg:gap-10 grid grid-cols-2 text-lg">
                     <li><a href="{{ url('/') }}" class="text-white hover:underline">Home</a></li>
                     <li><a href="{{ url('/career') }}" class="text-white hover:underline">Career</a></li>
                     <li><a href="{{ url('/products') }}" class="text-white hover:underline">Products</a></li>
@@ -54,7 +54,7 @@
                 </ul>
 
                 <!-- Social Icons -->
-                <div class="mt-10">
+                <div class="mt-5 lg:mt-10">
                     <p class="text-white text-lg">Social media kami</p>
                     <div class="flex">
                         <a href="#" class="w-12 h-12 text-white hover:underline">
