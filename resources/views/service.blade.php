@@ -5,8 +5,8 @@
 @section('content')
 <section class="relative">
     <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
-    <div class="w-full aspect-square lg:aspect-video">
-        <img src="{{ asset('img/layanan-hero_1.png') }}" alt="" class="w-full lg:w-full h-full lg:h-auto object-cover object-right lg:object-none">
+    <div class="w-full aspect-square lg:aspect-auto">
+        <img src="{{ asset('img/layanan-hero_1.png') }}" alt="" class="w-full lg:w-full h-full lg:h-full object-cover object-right lg:object-none">
     </div>
 
     <div class="absolute inset-0 flex items-center">

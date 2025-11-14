@@ -8,8 +8,8 @@
 
 <section class="relative">
     <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-    <div class="aspect-video">
-        <img src="{{ asset('img/hero-product.png') }}" class="w-full lg:w-full h-full lg:h-autoobject-center object-cover lg:object-none" alt="">
+    <div class="w-full aspect-square lg:aspect-auto">
+        <img src="{{ asset('img/hero-product.png') }}" class="w-full lg:w-full h-full lg:h-full object-center object-cover lg:object-none" alt="">
     </div>
 </section>
 
