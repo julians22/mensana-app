@@ -15,13 +15,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-
         if (env('DEPLOY_MODE') === 'cpanel') {
-            $this->app->bind('path.public', function() {
-                return realpath(env('DEPLOY_PUBLIC_PATH'));
-            });
+            $this->app->usePublicPath(realpath(env('DEPLOY_PUBLIC_PATH')));
         }
-
     }
 
     /**
