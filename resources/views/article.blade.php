@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-@section('title', __('Berita & Artikel'))
+@section('title', $site_title)
+@section('meta_description', $meta_description)
+@section('meta_keyword', $meta_keywords)
+@section('meta_og_img', storageAsset($meta_og_img))
 
 @section('content')
 

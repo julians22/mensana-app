@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Tags;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\Tags\Pages\CreateTags;
 use App\Filament\Resources\Tags\Pages\EditTags;
 use App\Filament\Resources\Tags\Pages\ListTags;
@@ -19,9 +20,7 @@ class TagsResource extends Resource
 {
     protected static ?string $model = Tags::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static string | UnitEnum | null $navigationGroup = 'Products Management';
+    protected static string | UnitEnum | null $navigationGroup = AdminNavigationGroup::ProductManagements;
 
     protected static ?int $navigationSort = 4;
 

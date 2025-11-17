@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\SubCategoryItems;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\SubCategoryItems\Pages\CreateSubCategoryItem;
 use App\Filament\Resources\SubCategoryItems\Pages\EditSubCategoryItem;
 use App\Filament\Resources\SubCategoryItems\Pages\ListSubCategoryItems;
@@ -19,8 +20,7 @@ class SubCategoryItemResource extends Resource
 {
     protected static ?string $model = SubCategoryItem::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-    protected static string|UnitEnum|null $navigationGroup = 'Posts';
+    protected static string|UnitEnum|null $navigationGroup = AdminNavigationGroup::Posts;
 
     protected static bool $shouldRegisterNavigation = false;
 

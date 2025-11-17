@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\HeroBanner;
 use App\Models\Products\Animal;
 use App\Models\Products\Category as ProductsCategory;
 use App\Models\Products\Product;
 use App\Models\Products\Tags;
+use App\Settings\AboutpageSetting;
+use App\Settings\ContactpageSetting;
+use App\Settings\HomepageSetting;
+use App\Settings\PostpageSetting;
+use App\Settings\ProductpageSetting;
+use App\Settings\ServicepageSetting;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -17,7 +24,7 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function home_page()
+    public function home_page(HomepageSetting $settings)
     {
         $featured_article = Article::isFeatured()->latest()->first();
 
@@ -25,7 +32,27 @@ class PageController extends Controller
 
         $products = Product::with('categories', 'animals', 'tags')->take(10)->get();
 
-        return view('home', compact('articles', 'featured_article', 'products'));
+        $hero_banners = HeroBanner::take(3)->latest()->get();
+
+        $locale = app()->getLocale();
+
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
+        return view('home',
+            compact(
+                'articles',
+                'featured_article',
+                'products',
+                'hero_banners',
+                'site_title',
+                'meta_description',
+                'meta_keywords',
+                'meta_og_img'
+                )
+        );
     }
 
     /**
@@ -33,9 +60,26 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function about_page()
+    public function about_page(AboutpageSetting $settings)
     {
-        return view('about');
+        $locale = app()->getLocale();
+
+        $hero_banner = $settings->hero_image;
+        $hero_banner_mobile = $settings->hero_image_mobile;
+
+        $hero_title = $settings->{'hero_title_'.$locale};
+        $hero_subtitle = $settings->{'hero_subtitle_'.$locale};
+
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
+        $achievements = $settings->achievements;
+
+        $section_contents = $settings->section_contents;
+
+        return view('about', compact('site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle', 'achievements', 'section_contents'));
     }
 
     /**
@@ -43,9 +87,21 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function contact_page()
+    public function contact_page(ContactpageSetting $settings)
     {
-        return view('contact');
+        $locale = app()->getLocale();
+
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
+        return view('contact', [
+            'site_title' => $site_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords,
+            'meta_og_img' => $meta_og_img,
+        ]);
     }
 
     /**
@@ -53,9 +109,22 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function service_page()
+    public function service_page(ServicepageSetting $settings)
     {
-        return view('service');
+        $locale = app()->getLocale();
+
+        $hero_banner = $settings->hero_image;
+        $hero_banner_mobile = $settings->hero_image_mobile;
+
+        $hero_title = $settings->{'hero_title_'.$locale};
+        $hero_subtitle = $settings->{'hero_subtitle_'.$locale};
+
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
+        return view('service', compact('site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle'));
     }
 
     /**
@@ -63,14 +132,20 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function article_page()
+    public function article_page(PostpageSetting $settings)
     {
-        $categories = Category::all();
+        $locale = app()->getLocale();
 
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
+        $categories = Category::all();
 
         $featured_articles = Article::isFeatured()->take(4)->get();
 
-        return view('article', compact('categories', 'featured_articles'));
+        return view('article', compact('categories', 'featured_articles', 'site_title', 'meta_description', 'meta_keywords', 'meta_og_img'));
     }
 
     /**
@@ -91,13 +166,25 @@ class PageController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function product_page()
+    public function product_page(ProductpageSetting $settings)
     {
+        $locale = app()->getLocale();
+        $hero_banner = $settings->hero_image;
+        $hero_banner_mobile = $settings->hero_image_mobile;
+
+        $hero_title = $settings->{'hero_title_'.$locale};
+        $hero_subtitle = $settings->{'hero_subtitle_'.$locale};
+
+        $site_title = $settings->{'title_'.$locale};
+        $meta_description = $settings->{'meta_description_'.$locale};
+        $meta_keywords = $settings->{'meta_keywords_'.$locale};
+        $meta_og_img = $settings->{'meta_og_img_'.$locale};
+
         $tags = Tags::all()->pluck('name', 'id')->toArray();
         $categories = ProductsCategory::all()->pluck('name', 'id')->toArray();
         $animals = Animal::all()->pluck('name', 'id')->toArray();
 
-        return view('product', compact('tags', 'categories', 'animals'));
+        return view('product', compact('tags', 'categories', 'animals', 'site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle'));
     }
 
     /**

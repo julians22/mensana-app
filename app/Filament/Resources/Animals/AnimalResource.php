@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Animals;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\Animals\Pages\CreateAnimal;
 use App\Filament\Resources\Animals\Pages\EditAnimal;
 use App\Filament\Resources\Animals\Pages\ListAnimals;
@@ -19,9 +20,7 @@ class AnimalResource extends Resource
 {
     protected static ?string $model = Animal::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static string | UnitEnum | null $navigationGroup = 'Products Management';
+    protected static string | UnitEnum | null $navigationGroup = AdminNavigationGroup::ProductManagements;
 
     protected static ?int $navigationSort = 2;
 

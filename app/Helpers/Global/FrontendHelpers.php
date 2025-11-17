@@ -24,3 +24,17 @@ if (! function_exists('activeClass')) {
         return request()->routeIs($route) ? 'active' : '';
     }
 }
+
+if (! function_exists('storageAsset')) {
+    /**
+     * Helper to retrieve storage url assets
+     *
+     * @param null|string $path
+     *
+     */
+
+    function storageAsset(?string $path)
+    {
+        return asset('storage/' . $path);
+    }
+}

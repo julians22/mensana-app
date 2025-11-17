@@ -1,18 +1,22 @@
 @extends('layouts.app')
 
-@section('title', __('Produk Kami'))
+@section('title', $site_title)
+@section('meta_description', $meta_description)
+@section('meta_keyword', $meta_keywords)
+@section('meta_og_img', storageAsset($meta_og_img))
 
 @section('meta_description', 'Product')
 
 @section('content')
 
-<section class="relative">
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
-    <div class="w-full aspect-square lg:aspect-auto">
-        <img src="{{ asset('img/hero-product.png') }}" class="w-full lg:w-full h-full lg:h-full object-center object-cover lg:object-none" alt="">
-    </div>
-</section>
-
+<!-- The whole future lies in uncertainty: live immediately. - Seneca -->
+<x-heros.default
+    src="{{ $hero_banner }}"
+    src_mobile="{{ $hero_banner_mobile }}"
+    title="{{ $hero_title }}"
+    :subtitle="$hero_subtitle"
+    text_position="left"
+/>
 
 <section class="pt-8 lg:pt-20">
 

@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Articles;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\Articles\Pages\CreateArticle;
 use App\Filament\Resources\Articles\Pages\EditArticle;
 use App\Filament\Resources\Articles\Pages\ListArticles;
@@ -19,9 +20,7 @@ class ArticleResource extends Resource
 {
     protected static ?string $model = Article::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static string|UnitEnum|null $navigationGroup = 'Posts';
+    protected static string|UnitEnum|null $navigationGroup = AdminNavigationGroup::Posts;
 
     protected static ?string $recordTitleAttribute = 'Article';
 

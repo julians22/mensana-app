@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Categories;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\Categories\Pages\CreateCategory;
 use App\Filament\Resources\Categories\Pages\EditCategory;
 use App\Filament\Resources\Categories\Pages\ListCategories;
@@ -19,9 +20,7 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static string | UnitEnum | null $navigationGroup = 'Posts';
+    protected static string|UnitEnum|null $navigationGroup = AdminNavigationGroup::Posts;
 
     protected static ?string $recordTitleAttribute = 'Article Category';
 

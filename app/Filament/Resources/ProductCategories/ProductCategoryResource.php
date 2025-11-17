@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ProductCategories;
 
+use App\Enums\Filament\AdminNavigationGroup;
 use App\Filament\Resources\ProductCategories\Pages\CreateProductCategory;
 use App\Filament\Resources\ProductCategories\Pages\EditProductCategory;
 use App\Filament\Resources\ProductCategories\Pages\ListProductCategories;
@@ -25,9 +26,7 @@ class ProductCategoryResource extends Resource
 
     protected static ?string $navigationLabel = 'Kategori Produk';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static string | UnitEnum | null $navigationGroup = 'Products Management';
+    protected static string | UnitEnum | null $navigationGroup = AdminNavigationGroup::ProductManagements;
 
     protected static ?int $navigationSort = 2;
 

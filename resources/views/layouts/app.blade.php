@@ -16,6 +16,7 @@
     <meta name="description" content="@yield('meta_description', appName())">
     <meta name="author" content="@yield('meta_author', 'Designcub3')">
     <meta name="keywords" content="@yield('meta_keyword', 'Mensana, Premix, Pharmasetik, Poulty Equipment')">
+    <meta property="og:image" content="@yield('meta_og_img')">
 
     <!-- Fonts -->
     <!-- Montserrat Fonts -->

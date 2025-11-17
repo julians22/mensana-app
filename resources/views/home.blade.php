@@ -2,7 +2,10 @@
 
 @extends('layouts.app')
 
-@section('title', 'Home Page')
+@section('title', $site_title)
+@section('meta_description', $meta_description)
+@section('meta_keyword', $meta_keywords)
+@section('meta_og_img', storageAsset($meta_og_img))
 
 @section('content')
 
@@ -11,8 +14,27 @@
     <!--swiper-->
     <div class="swiper home__swiper">
         <div class="flex swiper-wrapper">
+            @if ($hero_banners->count())
+                @foreach ($hero_banners as $banner)
+                    <div class="swiper-slide">
+                        <div class="relative aspect-square lg:aspect-video">
+                            <img src="{{ $banner->getFirstMediaUrl() }}" class="w-full h-full object-cover">
+
+                            @if ($banner->isHasTitle())
+                                <div class="banner-text-wrapper">
+                                    <div class="banner-text">
+                                        <p class="font-bold text-4xl lg:text-7xl">{!! $banner->title !!}</p>
+                                        <p class="text-lg lg:text-2xl">{{ $banner->subtitle }}</p>
+                                    </div>
+                                    <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            @else
             <div class="swiper-slide">
-                <div class="relative aspect-square lg:aspect-auto">
+                <div class="relative aspect-square lg:aspect-blog">
                     <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
@@ -25,7 +47,7 @@
                 </div>
             </div>
             <div class="swiper-slide">
-                <div class="relative aspect-square lg:aspect-auto">
+                <div class="relative aspect-square lg:aspect-blog">
                     <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
 
                     <div class="banner-text-wrapper">
@@ -37,19 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide">
-                <div class="relative aspect-square lg:aspect-auto">
-                    <img src="{{ asset('dummy/banner.png') }}" alt="Banner 1" class="w-full h-full object-cover">
-
-                    <div class="banner-text-wrapper">
-                        <div class="banner-text">
-                            <p class="font-bold text-4xl lg:text-7xl">Produsen & Distributor</p>
-                            <p class="text-lg lg:text-2xl">Premix, Pharmasetik, dan Poulty Equipment</p>
-                        </div>
-                        <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
 
         <!-- Pagination -->
