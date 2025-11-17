@@ -18,7 +18,7 @@
             <h3 class="product-title">{{ $product_name }}</h3>
             <p class="mt-1 min-h-[40px] text-gray-600 text-sm">{{ $product_description }}</p>
         </div>
-        <div class="pb-1 overflow-x-auto" data-simplebar wire:ignore>
+        <div class="pb-1 overflow-x-auto" data-simplebar wire:ignore.self>
             <div class="flex flex-nowrap justify-start space-x-2 mt-4 pt-4 w-max">
                 @foreach ($categories as $item)
                     <span class="px-3 py-1 border border-gray-200 rounded-full font-medium text-blue-mensana text-sm">{{ $item }}</span>
