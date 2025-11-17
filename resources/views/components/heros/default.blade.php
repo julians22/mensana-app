@@ -25,7 +25,7 @@
     @if (!empty($title))
         <div class="absolute inset-0 flex items-center">
             <div class="grid grid-cols-5 mx-auto px-4 lg:px-0 container">
-                <div class="col-span-5 lg:col-span-2 {{ $text_position == 'left' ? 'lg:col-start-4' : '' }} text-white text-center lg:text-left">
+                <div class="col-span-5 lg:col-span-2 {{ $text_position === 'left' ? '' : 'lg:col-start-4' }} text-white text-center lg:text-left">
                     <h1 data-motion="fade-left" class="mb-4 font-bold text-xl lg:text-6xl">{{ $title }}</h1>
 
                     <div class="text-base lg:text-2xl" data-motion="fade-down">
