@@ -22,7 +22,7 @@
             <div class="border-blue-mensana lg:border-y-2 lg:border-r-2 rounded-r-4xl h-full">
                 <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
                     <div class="flex flex-col justify-center lg:py-32 text-right">
-                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl lg:text-6xl">LABORATORIUM</h2>
+                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">LABORATORIUM</h2>
                         <p class="text-lg">
                             Mauris tincidunt rutrum arcu, sit amet pretium
                             lectus mattis sed. Suspendisse ultricies eu
@@ -34,23 +34,23 @@
                         </p>
                     </div>
                     <div class="relative">
-                        <div class="lg:bottom-6 lg:absolute lg:w-[500px]">
+                        <div class="lg:bottom-6 lg:absolute 2xl:w-[500px] xl:w-[460px]">
                             <img class="w-full h-auto" src="{{ asset('img/layanan-content-1.png') }}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="lg:-ml-28 w-full">
+        <div class="2xl:-ml-28 xl:-ml-16 w-full">
             <div class="border-blue-mensana lg:border-y-2 lg:border-l-2 rounded-l-4xl h-full">
                 <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
                     <div class="relative">
-                        <div class="lg:top-6 lg:right-0 lg:absolute lg:w-[500px]">
+                        <div class="lg:top-6 lg:right-0 lg:absolute 2xl:w-[500px] xl:w-[460px]">
                             <img class="w-full h-auto" src="{{ asset('img/layanan-content-2.png') }}" alt="">
                         </div>
                     </div>
                     <div class="flex flex-col justify-center lg:py-32 text-left">
-                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl lg:text-6xl">ANIMAL HEALTH CONSULTATION</h2>
+                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">ANIMAL HEALTH CONSULTATION</h2>
                         <p class="text-lg">
                             Mauris tincidunt rutrum arcu, sit amet pretium
                             lectus mattis sed. Suspendisse ultricies eu

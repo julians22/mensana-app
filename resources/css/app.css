@@ -202,7 +202,7 @@
     }
 
     .article-card .article-title {
-        @apply mb-2 font-bold text-blue-mensana text-3xl;
+        @apply mb-2 font-bold text-blue-mensana text-lg xl:text-xl 2xl:text-3xl;
     }
 
     .article-card .read-more{

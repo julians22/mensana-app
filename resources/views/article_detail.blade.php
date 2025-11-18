@@ -25,8 +25,8 @@
 
         </div>
 
-        <h5 class="mb-4 font-bold text-blue-mensana text-lg lg:text-2xl text-center">{{ $article->category->name }}</h5>
-        <h1 class="mb-4 font-bold text-blue-mensana text-2xl lg:text-4xl text-center">{{ $article->title }}</h1>
+        <h5 class="mb-4 font-bold text-blue-mensana text-lg xl:text-xl 2xl:text-2xl text-center">{{ $article->category->name }}</h5>
+        <h1 class="mb-4 font-bold text-blue-mensana text-2xl 2xl:text-4xl xl:text-4xl text-center">{{ $article->title }}</h1>
 
         <article class="mx-auto mt-4 prose prose-stone prose-sm">
             <img src="{{ asset($article->getFirstMediaUrl()) }}" alt="" class="mx-auto">
