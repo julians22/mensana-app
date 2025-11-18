@@ -34,6 +34,10 @@ const home__product_swiper = new Swiper('.home__product_swiper', {
             slidesPerGroup: 1
         },
         1024: {
+            slidesPerView: 4,
+            slidesPerGroup: 3
+        },
+        1400: {
             slidesPerView: 5,
             slidesPerGroup: 3
         },

@@ -31,7 +31,10 @@
     --color-cyan-mensana: #03909a;
 
     --aspect-blog: 12 / 5;
+}
 
+@utility container{
+    @apply md:px-2 xl:px-0 max-w-full 2xl:max-w-[1536px] xl:max-w-6xl;
 }
 
 @layer components {
@@ -106,7 +109,7 @@
     }
 
     .home__swiper{
-        @apply relative lg:h-[800px];
+        @apply relative lg:h-[50px] 2xl:h-[800px] xl:h-[600px];
     }
 
     .home__swiper .shape__banner{
@@ -115,11 +118,11 @@
 
 
     .banner-text-wrapper {
-        @apply left-0 absolute inset-y-0 flex justify-center w-full lg:w-5/12;
+        @apply left-0 absolute inset-y-0 flex justify-center w-full xl:w-6/12 2xl:w-5/12;
     }
 
     .banner-text-wrapper .banner-text {
-        @apply lg:block z-10 relative flex flex-col justify-center space-y-2 lg:space-y-7 mt-0 lg:mt-[220px] max-w-[60%] text-white;
+        @apply lg:block z-10 relative flex flex-col justify-center space-y-2 lg:space-y-7 mt-0 2xl:mt-[220px] xl:mt-[120px] max-w-[60%] text-white;
     }
 
     .banner-text-wrapper .banner-text-bg {
