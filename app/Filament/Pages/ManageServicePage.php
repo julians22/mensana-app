@@ -28,12 +28,14 @@ class ManageServicePage extends SettingsPage
                 Fieldset::make('Hero Section')
                     ->schema([
                         FileUpload::make('hero_image')
+                            ->belowContent('Resolusi terbaik 1200x500px. Tipe File: PNG')
                             ->required()
                             ->image()
                             ->directory('settings')
                             ->disk('public')
                             ->columnSpanFull(),
                         FileUpload::make('hero_image_mobile')
+                            ->belowContent('Resolusi terbaik 512x512px. Tipe File: PNG, JPG')
                             ->image()
                             ->directory('settings')
                             ->disk('public')

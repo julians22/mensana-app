@@ -31,12 +31,14 @@ class ManageAboutPage extends SettingsPage
                 Fieldset::make('Hero Section')
                     ->schema([
                         FileUpload::make('hero_image')
+                            ->belowContent('Resolusi terbaik 1200x500px. Tipe File: PNG')
                             ->required()
                             ->image()
                             ->directory('settings')
                             ->disk('public')
                             ->columnSpanFull(),
                         FileUpload::make('hero_image_mobile')
+                            ->belowContent('Resolusi terbaik 512x512px. Tipe File: PNG, JPG')
                             ->image()
                             ->directory('settings')
                             ->disk('public')
@@ -78,6 +80,7 @@ class ManageAboutPage extends SettingsPage
                                     ->required(),
                                 TextInput::make('subtitle_en'),
                                 FileUpload::make('thumbnail')
+                                    ->belowContent('Resolusi terbaik 220x330px. Tipe File: PNG, JPG')
                                     ->image()
                                     ->directory('setting/achievements')
                                     ->disk('public')
@@ -101,6 +104,7 @@ class ManageAboutPage extends SettingsPage
                                     ->required(),
                                 RichEditor::make('subtitle_en'),
                                 FileUpload::make('background')
+                                    ->belowContent('Resolusi terbaik 1200x400px. Tipe File: PNG, JPG')
                                     ->image()
                                     ->directory('setting/section_contents')
                                     ->disk('public')
