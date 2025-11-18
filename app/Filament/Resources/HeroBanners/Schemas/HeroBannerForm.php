@@ -25,7 +25,8 @@ class HeroBannerForm
                         Textarea::make('subtitle.en')->label('English')
                     ]),
                 TextInput::make('link'),
-                SpatieMediaLibraryFileUpload::make('featured_image'),
+                SpatieMediaLibraryFileUpload::make('featured_image')
+                    ->belowContent('Resolusi terbaik 1200x675px')
             ]);
     }
 }
