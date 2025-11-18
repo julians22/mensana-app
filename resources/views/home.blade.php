@@ -131,7 +131,7 @@
         <div class="featured-products">
             <!-- badge -->
             <div data-motion="fade-in" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
-                <h3 title="Featured">Produk Unggulan</h3>
+                <h3 title="Featured">@lang('Produk Unggulan')</h3>
             </div>
 
             <div class="top-0 right-0 absolute mt-2 lg:mt-5 mr-2 lg:mr-5">
@@ -189,7 +189,7 @@
         <div class="article-news">
              <!-- badge -->
             <div data-motion="fade-in" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
-                <h3 title="Featured">Berita & Artikel</h3>
+                <h3 title="Featured">@lang("Berita & Artikel")</h3>
             </div>
 
 
@@ -216,7 +216,7 @@
                             {{ $featured_article->excerpt }}
                         </p>
                         <!-- Read More Button -->
-                        <a href="#" class="bg-blue-mensana px-4 py-2 rounded text-white">@lang('Selengkapnya')</a>
+                        <a href="{{ route('article.detail', ['article' => $featured_article->slug]) }}" class="bg-blue-mensana px-4 py-2 rounded text-white">@lang('Selengkapnya')</a>
 
                     </div>
 

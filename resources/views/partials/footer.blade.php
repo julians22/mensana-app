@@ -44,13 +44,13 @@
             <div class="w-full lg:w-auto">
                 <!-- Site Links -->
                 <ul class="gap-4 lg:gap-10 grid grid-cols-2 text-lg">
-                    <li><a href="{{ url('/') }}" class="text-white hover:underline">Home</a></li>
-                    <li><a href="{{ url('/career') }}" class="text-white hover:underline">Career</a></li>
-                    <li><a href="{{ url('/products') }}" class="text-white hover:underline">Products</a></li>
-                    <li><a href="{{ url('/services') }}" class="text-white hover:underline">Services</a></li>
+                    <li><a href="{{ route('home') }}" class="text-white hover:underline">@lang("Home")</a></li>
+                    <li><a href="#" class="text-white hover:underline">@lang("Career")</a></li>
+                    <li><a href="{{ route('product.index') }}" class="text-white hover:underline">@lang("Products")</a></li>
+                    <li><a href="{{ route('service') }}" class="text-white hover:underline">@lang("Services")</a></li>
 
-                    <li><a href="{{ url('/download') }}" class="text-white hover:underline">Download</a></li>
-                    <li><a href="{{ url('/article') }}" class="text-white hover:underline">Article</a></li>
+                    <li><a href="#" @click.prevent="openRequestModal = !openRequestModal" class="text-white hover:underline">@lang("Download")</a></li>
+                    <li><a href="{{ route('article.index') }}" class="text-white hover:underline">@lang("Berita & Artikel")</a></li>
                 </ul>
 
                 <!-- Social Icons -->

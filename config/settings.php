@@ -12,7 +12,8 @@ return [
         \App\Settings\ContactpageSetting::class,
         \App\Settings\PostpageSetting::class,
         \App\Settings\ProductpageSetting::class,
-        \App\Settings\ServicepageSetting::class
+        \App\Settings\ServicepageSetting::class,
+        \App\Settings\GeneralSetting::class,
     ],
 
     /*

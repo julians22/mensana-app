@@ -133,34 +133,12 @@
                     </svg>
                 </div>
 
-
                 <!--Body-->
                 <div class="modal-body">
-                    <p class="font-black text-4xl text-center">REQUEST DOWNLOAD CATALOG</p>
-                    <p class="mb-4 font-black text-xl text-center">Catalog akan dikirimkan ke alamat email anda </p>
+                    <p class="font-black text-4xl text-center">@lang('REQUEST DOWNLOAD CATALOG')</p>
+                    <p class="mb-4 font-black text-xl text-center">@lang('Catalog akan dikirimkan ke alamat email anda') </p>
 
-                    <div class="flex flex-col gap-y-2">
-                        <div class="flex flex-col space-y-1">
-                            <label for="full_name" class="font-extrabold text-lg">@lang('Nama Lengkap')</label>
-                            <input name="full_name" type="text" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
-                        </div>
-
-                        <div class="flex flex-col space-y-1">
-                            <label for="email" class="font-extrabold text-lg">@lang('Email')</label>
-                            <input name="email" type="email" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
-                        </div>
-
-                        <div class="flex flex-col space-y-1">
-                            <label for="phone_number" class="font-extrabold text-lg">@lang('No. Telp')</label>
-                            <input name="phone_number" type="tel" class="bg-white px-3 py-2 rounded-lg outline-0 text-black">
-                        </div>
-                    </div>
-                </div>
-
-                <!--Footer-->
-                <div class="flex justify-end pt-2">
-                    <button
-                        class="bg-orange-400 hover:bg-orange-500 mr-2 p-3 px-4 rounded-lg text-white">@lang('Kirim')</button>
+                    <livewire:catalog-form>
                 </div>
 
             </div>

@@ -17,7 +17,7 @@
             <div class="bg-cyan-mensana rounded-full w-full h-1.5"></div>
 
             <div class="lg:pl-4">
-                <h1 class="mb-3 lg:mb-0 font-bold text-blue-mensana text-3xl lg:text-5xl">Kontak Kami</h1>
+                <h1 class="mb-3 lg:mb-0 font-bold text-blue-mensana text-3xl lg:text-5xl">@lang('Hubungi Kami')</h1>
 
                 <div class="gap-y-4 lg:gap-x-10 lg:gap-y-0 grid grid-cols-12">
                     <div class="lg:place-items-center gap-y-4 lg:gap-y-0 order-2 lg:order-1 grid grid-cols-1 lg:grid-cols-2 col-span-12 lg:col-span-7">
