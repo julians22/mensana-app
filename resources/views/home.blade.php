@@ -135,7 +135,7 @@
             </div>
 
             <div class="top-0 right-0 absolute mt-2 lg:mt-5 mr-2 lg:mr-5">
-                <a class="text-blue-mensana" href="{{ route('product.index') }}">@lang('Product Lainnya') <span class="inline"><x-heroicon-o-chevron-double-right class="inline outline-blue-mensana size-5" /></span></a>
+                <a class="text-blue-mensana" href="{{ route('product.index') }}">@lang('Produk Lainnya') <span class="inline"><x-heroicon-o-chevron-double-right class="inline outline-blue-mensana size-5" /></span></a>
             </div>
 
 

@@ -154,8 +154,12 @@
         @apply bg-white p-4 border border-gray-300 rounded-md overflow-hidden;
     }
 
+    .home__product_swiper .product-card .product-info{
+        @apply h-[128px];
+    }
+
     .product-card .product-info{
-        @apply mb-2 text-center;
+        @apply mb-2 overflow-y-auto text-center;
     }
 
     .product-card .product-info .product-title{
@@ -167,7 +171,7 @@
     }
 
     .product-card .product-tags{
-        @apply flex flex-nowrap gap-2 mt-5;
+        @apply flex flex-nowrap gap-2 mt-5 h-[32px];
     }
 
     .product-card .product-tags .tag{
