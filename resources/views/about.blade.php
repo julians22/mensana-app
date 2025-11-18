@@ -12,7 +12,7 @@
     src_mobile="{{ $hero_banner_mobile }}"
     title="{{ $hero_title }}"
     :subtitle="$hero_subtitle"
-    text_position="right"
+    text_position="left"
 />
 
 <!-- Milestones Section -->
