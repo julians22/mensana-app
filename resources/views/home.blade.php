@@ -98,7 +98,7 @@
                 <div class="space-y-1 lg:space-y-3">
                     <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">@lang('Vaksin Aktif')</h4>
                     <p class="text-gray-600 text-sm lg:text-base">Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
-                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="">@lang('Info Lebih')</a>
+                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
                 </div>
             </div>
 
