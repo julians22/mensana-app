@@ -3,7 +3,7 @@
         <div>
             <div class="lg:block flex justify-between">
                 <a class="inline-block flex-1 lg:mb-4" href="{{ route('home') }}">
-                    <img src="{{ asset('img/logo.png') }}" alt="Mensana Logo" class="w-9/12 lg:w-auto h-auto lg:h-24">
+                    <img src="{{ !empty($general_settings['nav_logo']) ? storageAsset($general_settings['nav_logo']) : asset('img/logo.png') }}" alt="Mensana Logo" class="w-9/12 lg:w-auto h-auto lg:h-24">
                 </a>
 
                 <button id="menuBtn" class="lg:hidden block focus:outline-none hamburger" :class="openNav ? 'openNav' : ''" type="button" @click="openNav = !openNav">

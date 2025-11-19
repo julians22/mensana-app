@@ -37,6 +37,6 @@ class AppServiceProvider extends ServiceProvider
             fallbackLocale: 'id',
         );
 
-        View::composer('layouts.app', GeneralComposer::class);
+        View::composer(['layouts.app', 'partials.footer', 'partials.navbar', 'contact'], GeneralComposer::class);
     }
 }

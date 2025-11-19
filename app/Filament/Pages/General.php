@@ -37,8 +37,8 @@ class General extends SettingsPage
                                 TextInput::make('value'),
                                 Select::make('type')
                                     ->options([
-                                        'phone',
-                                        'email'
+                                        'phone' => 'Phone',
+                                        'email' => 'Email',
                                     ])
                             ])
                         ]),

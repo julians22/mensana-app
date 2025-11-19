@@ -16,27 +16,49 @@
 
             <!-- Logo -->
             <div class="flex-shrink-0 lg:mr-20 lg:text-left text-center">
-                <img src="{{ asset('img/logo-simple.svg') }}" alt="Logo" class="h-24 lg:h-40">
+                <img src="{{ !empty($general_settings['footer_logo']) ? storageAsset($general_settings['footer_logo']) : asset('img/logo-simple.svg') }}"  alt="Logo" class="h-24 lg:h-40">
             </div>
 
             <!-- Address -->
             <div class="flex-grow-0 space-y-3 mr-0 lg:mr-60 lg:max-w-80 font-sans-9pt-regular">
-                <h5 class="font-sans text-white text-2xl">PT. Mensana Aneka Satwa</h5>
-                <p class="text-white text-lg text-justify">Mensana Tower Cibubur Lt. 18, Jalan Raya Kranggan No. 69, Kelurahan Jatisampurna, Bekasi, Jawa Barat, Indonesia, 17433</p>
+
+                <div class="prose-invert prose-p:text-white prose">
+
+                    {!! $general_settings['address'] !!}
+                    {{-- <h5 class="font-sans text-white text-2xl">PT. Mensana Aneka Satwa</h5>
+                    <p class="text-white text-lg text-justify">Mensana Tower Cibubur Lt. 18, Jalan Raya Kranggan No. 69, Kelurahan Jatisampurna, Bekasi, Jawa Barat, Indonesia, 17433</p> --}}
+                </div>
+
 
                 <div>
-                    <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('img/icons/email.svg') }}" alt="Email" class="mr-2 w-5 h-5">
-                        sales@ptmensana.com
-                    </p>
-                    <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('img/icons/phone.svg') }}" alt="Phone" class="mr-2 w-5 h-5">
-                        +62 213 970 1500
-                    </p>
-                    <p class="flex items-center text-white text-lg">
-                        <img src="{{ asset('img/icons/whatsapp.svg') }}" alt="WhatsApp" class="mr-2 w-5 h-5">
-                        +62 813 8039 9399
-                    </p>
+                    @foreach ($general_settings['contacts'] as $contact)
+
+                        @switch($contact['type'])
+                            @case('email')
+                                <p class="flex items-center text-white text-lg">
+                                    <img src="{{ asset('img/icons/email.svg') }}" alt="Email" class="mr-2 w-5 h-5">
+                                    {{ $contact['value'] }}
+                                </p>
+                                @break
+                            @case('phone')
+                                <p class="flex items-center text-white text-lg">
+                                    <img src="{{ asset('img/icons/phone.svg') }}" alt="Phone" class="mr-2 w-5 h-5">
+                                    {{ $contact['value'] }}
+                                </p>
+                                @break
+                            @case('whatsapp')
+                                <p class="flex items-center text-white text-lg">
+                                    <img src="{{ asset('img/icons/whatsapp.svg') }}" alt="WhatsApp" class="mr-2 w-5 h-5">
+                                    {{ $contact['value'] }}
+                                </p>
+
+                                @break
+                                @break
+                            @default
+
+                        @endswitch
+
+                    @endforeach
                 </div>
             </div>
 
