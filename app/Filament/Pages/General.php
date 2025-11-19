@@ -49,11 +49,11 @@ class General extends SettingsPage
                                 TextInput::make('value'),
                                 Select::make('type')
                                     ->options([
-                                        'instagram',
-                                        'facebook',
-                                        'tiktok',
-                                        'twitter',
-                                        'youtube'
+                                        'instagram' => 'Instagram',
+                                        'facebook' => 'Facebook',
+                                        'tiktok' => 'TikTok',
+                                        'twitter' => 'Twitter',
+                                        'youtube' => 'Youtube'
                                     ])
                             ])
                         ]),
@@ -65,7 +65,12 @@ class General extends SettingsPage
                             ->prefix('+62'),
                         Textarea::make('quick_call_opening_text'),
                     ]),
-                RichEditor::make('address'),
+                RichEditor::make('address')
+                    ->toolbarButtons([
+                        'h2',
+                        'h3',
+                        'bold'
+                    ]),
 
                 Section::make('Logo Setting')
                     ->schema([

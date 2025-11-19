@@ -25,8 +25,6 @@
                 <div class="prose-invert prose-p:text-white prose">
 
                     {!! $general_settings['address'] !!}
-                    {{-- <h5 class="font-sans text-white text-2xl">PT. Mensana Aneka Satwa</h5>
-                    <p class="text-white text-lg text-justify">Mensana Tower Cibubur Lt. 18, Jalan Raya Kranggan No. 69, Kelurahan Jatisampurna, Bekasi, Jawa Barat, Indonesia, 17433</p> --}}
                 </div>
 
 
@@ -77,15 +75,38 @@
 
                 <!-- Social Icons -->
                 <div class="mt-5 lg:mt-10">
-                    <p class="text-white text-lg">Social media kami</p>
-                    <div class="flex">
-                        <a href="#" class="w-12 h-12 text-white hover:underline">
-                            <img src="{{ asset('img/icons/instagram.svg') }}" alt="">
-                        </a>
-
-                        <a href="#" class="w-12 h-12 text-white hover:underline">
-                            <img src="{{ asset('img/icons/facebook.svg') }}" alt="">
-                        </a>
+                    <p class="mb-2 text-white text-lg">Social media kami</p>
+                    <div class="flex space-x-2">
+                        @foreach ($general_settings['socials'] as $social)
+                                @switch($social['type'])
+                                    @case('instagram')
+                                    <a href="{{ $social['value'] }}">
+                                        <x-bi-instagram class="fill-white size-8"/>
+                                    </a>
+                                    @break
+                                    @case('facebook')
+                                        <a href="{{ $social['value'] }}">
+                                            <x-bi-facebook class="fill-white size-8"/>
+                                        </a>
+                                        @break
+                                    @case('tiktok')
+                                        <a href="{{ $social['value'] }}">
+                                            <x-bi-tiktok class="fill-white size-8"/>
+                                        </a>
+                                        @break
+                                    @case('twitter')
+                                        <a href="{{ $social['value'] }}">
+                                            <x-bi-twitter class="fill-white size-8"/>
+                                        </a>
+                                        @break
+                                    @case('youtube')
+                                        <a href="{{ $social['value'] }}">
+                                            <x-bi-youtube class="fill-white size-8"/>
+                                        </a>
+                                        @break
+                                    @default
+                                @endswitch
+                            @endforeach
                     </div>
                 </div>
             </div>

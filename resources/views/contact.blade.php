@@ -27,33 +27,73 @@
 
                         <div class="flex flex-col space-y-5 order-4 lg:order-2">
 
-                            <h2 class="text-blue-mensana text-3xl">PT Mensana Aneka Satwa</h2>
+                            <div class="prose-invert prose-headings:mb-2 prose-headings:text-blue-mensana prose-p:text-blue-mensana prose-lg">
 
-                            <p class="text-blue-mensana text-xl">
-                                Mensana Tower Cibubur Lt.18,
-                                JI. Raya Kranggan No.69, RT.002/RW.016,
-                                Kel. Jatisampurna, Kec. Jatisampurna
-                                Bekasi, Jawa Barat, Indonesia, 17433
-                            </p>
+                                {!! $general_settings['address'] !!}
+                            </div>
 
                             <ul class="text-blue-mensana text-xl">
-                                <li>
-                                    <a href="mailto:sales@ptmensana.com">
-                                        <span><x-eos-email class="inline-block size-5"/> sales@ptmensana.com</span>
-                                    </a>
-                                </li>
-                                <li><a href="tel:+62 213 970 1500"><span><x-eos-phone class="inline-block size-5"/>+62 213 970 1500</span></a></li>
-                                <li><a href="tel:+62 813 8039 9399"><span><x-eos-phone class="inline-block size-5"/>+62 813 8039 9399</span></a></li>
+
+                                @foreach ($general_settings['contacts'] as $contact)
+
+                                    @switch($contact['type'])
+                                        @case('email')
+                                            <li>
+                                                <a href="mailto:{{ $contact['value'] }}">
+                                                    <span><x-eos-email class="inline-block size-5"/>{{ $contact['value'] }}</span>
+                                                </a>
+                                            </li>
+                                            @break
+                                        @case('phone')
+                                            <li>
+                                               <a href="tel:{{ $contact['value'] }}">
+                                                    <span><x-eos-phone class="inline-block size-5"/>{{ $contact['value'] }}</span>
+                                                </a>
+                                            </li>
+                                            @break
+
+                                        @default
+
+                                    @endswitch
+
+                                @endforeach
                             </ul>
 
-                            <h3 class="text-blue-mensana text-3xl">Sosial media kami</h3>
+                            <div class="prose-headings:mb-2 prose-headings:text-blue-mensana prose prose-lg">
+                                <h2>Sosial media kami</h2>
+                            </div>
                             <div class="flex space-x-4">
-                                <a href="">
-                                    <x-bi-instagram class="fill-blue-mensana size-9"/>
-                                </a>
-                                <a href="">
-                                    <x-elusive-facebook class="fill-blue-mensana size-9"/>
-                                </a>
+                                {{-- loop throught the social setting available type is 'instagram', 'facebook', 'tiktok', 'twitter', 'youtube' --}}
+                                @foreach ($general_settings['socials'] as $social)
+                                    @switch($social['type'])
+                                        @case('instagram')
+                                            <a href="{{ $social['value'] }}">
+                                                <x-bi-instagram class="fill-blue-mensana size-9"/>
+                                            </a>
+                                            @break
+                                        @case('facebook')
+                                            <a href="{{ $social['value'] }}">
+                                                <x-bi-facebook class="fill-blue-mensana size-9"/>
+                                            </a>
+                                            @break
+                                        @case('tiktok')
+                                            <a href="{{ $social['value'] }}">
+                                                <x-bi-tiktok class="fill-blue-mensana size-9"/>
+                                            </a>
+                                            @break
+                                        @case('twitter')
+                                            <a href="{{ $social['value'] }}">
+                                                <x-bi-twitter class="fill-blue-mensana size-9"/>
+                                            </a>
+                                            @break
+                                        @case('youtube')
+                                            <a href="{{ $social['value'] }}">
+                                                <x-bi-youtube class="fill-blue-mensana size-9"/>
+                                            </a>
+                                            @break
+                                        @default
+                                    @endswitch
+                                @endforeach
                             </div>
                         </div>
 
