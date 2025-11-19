@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\View\Composers\GeneralComposer;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -34,5 +36,7 @@ class AppServiceProvider extends ServiceProvider
         Translatable::fallback(
             fallbackLocale: 'id',
         );
+
+        View::composer('layouts.app', GeneralComposer::class);
     }
 }

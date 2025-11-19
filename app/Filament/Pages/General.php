@@ -59,7 +59,10 @@ class General extends SettingsPage
                         ]),
                 Section::make('Quick Call Setting')
                     ->schema([
-                        TextInput::make('quick_call_number'),
+                        TextInput::make('quick_call_number')
+                            ->required()
+                            ->placeholder(`'81234567890'`)
+                            ->prefix('+62'),
                         Textarea::make('quick_call_opening_text'),
                     ]),
                 RichEditor::make('address'),

@@ -70,7 +70,8 @@
             <img src="{{ asset('img/icons/chat.svg') }}" alt="" class="w-6 lg:w-12 h-6 lg:h-12">
         </div>
         <div class="contact-text" x-show="openText" x-transition x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
-            <a href="#">
+
+            <a target="" href="{{ $general_settings['whatsapp_url'] }}" x-data="{url: '{{$general_settings['whatsapp_url']}}' }"  @click.prevent="window.open(url, '_blank', 'width=600,height=400,left=100,top=100')">
                 Tanya Kami
             </a>
         </div>
