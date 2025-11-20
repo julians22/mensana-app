@@ -47,7 +47,7 @@
                                 <img src="{{ storageAsset($achievement__['thumbnail']) }}" alt="">
 
                                 <div class="milestone-description">
-                                    <div class="font-medium text-white">
+                                    <div class="font-medium text-white text-center">
                                         {!!  $achievement__['description_'.app()->getLocale() ] !!}
                                     </div>
                                 </div>
