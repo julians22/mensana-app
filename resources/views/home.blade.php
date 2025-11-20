@@ -145,7 +145,7 @@
                     @foreach ($products as $product)
                         <div class="swiper-slide">
                             <a href="{{ route('product.detail', ['slug'=> $product->slug]) }}" class="product-card">
-                                <img src="{{$product->getFirstMediaUrl('thumbnail')}}" alt="Product 1">
+                                <img src="{{$product->getFirstMediaUrl('thumbnail')}}" alt="Product 1" class="product-image">
                                 <div class="product-info">
                                     <!-- Title -->
                                 <h4 class="product-title">{{ $product->name }}</h4>

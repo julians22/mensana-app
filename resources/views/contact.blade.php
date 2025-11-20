@@ -12,7 +12,18 @@
 
     <div class="bg-white shadow mx-auto rounded-4xl container">
         <div class="space-y-4 px-4 lg:px-0 py-6 lg:py3">
-            <img src="{{ asset('img/maps.jpg') }}" alt="" class="w-full">
+
+            <div class="swiper map_contact__swiper">
+                <div class="swiper-wrapper">
+                    @foreach ($map_images as $image)
+                    <div class="swiper-slide">
+                        <div class="w-full aspect-blog">
+                            <img src="{{ storageAsset($image) }}" alt="" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
 
             <div class="bg-cyan-mensana rounded-full w-full h-1.5"></div>
 

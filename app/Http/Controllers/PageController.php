@@ -96,11 +96,14 @@ class PageController extends Controller
         $meta_keywords = $settings->{'meta_keywords_'.$locale};
         $meta_og_img = $settings->{'meta_og_img_'.$locale};
 
+        $map_images = $settings->map_images;
+
         return view('contact', [
             'site_title' => $site_title,
             'meta_description' => $meta_description,
             'meta_keywords' => $meta_keywords,
             'meta_og_img' => $meta_og_img,
+            'map_images' => $map_images
         ]);
     }
 

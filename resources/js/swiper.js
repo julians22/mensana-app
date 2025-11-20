@@ -14,6 +14,10 @@ const home__swiper = new Swiper('.home__swiper', {
     },
 });
 
+const map_contact__swiper = new Swiper('.map_contact__swiper', {
+    slidesPerView: 1
+});
+
 // Featured Products Swiper
 // Show 5 slide on desktop
 // 4 slide on tablet
