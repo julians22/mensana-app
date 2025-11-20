@@ -18,52 +18,92 @@
 
 <div class="mx-auto mt-10 mb-12 lg:mb-48 px-4 lg:px-0 container">
     <div class="flex flex-col gap-y-4 lg:gap-y-0 lg:p-12 w-full">
-        <div class="lg:pl-48 w-full lg:translate-y-0.5">
-            <div class="border-blue-mensana lg:border-y-2 lg:border-r-2 rounded-r-4xl h-full">
+
+        {{-- @dump($section_contents) --}}
+
+        @foreach ($section_contents as $item)
+
+        @if ($loop->iteration == 1)
+            <div class="lg:pl-48 w-full lg:translate-y-0.5">
+                <div class="border-blue-mensana lg:border-y-2 lg:border-r-2 rounded-r-4xl h-full">
+                    <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
+                        <div class="flex flex-col justify-center lg:py-32 text-right">
+                            <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">{{ $item['title_'.app()->getLocale()] }}</h2>
+                            <div class="prose prose-lg">
+                                {!! $item['body_'.app()->getLocale()] !!}
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="lg:bottom-6 lg:absolute 2xl:w-[500px] xl:w-[460px]">
+                                <img id="{{ Str::slug($item['title_'.app()->getLocale()]) }}" class="w-full h-auto" src="{{ storageAsset($item['featured_image']) }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @elseif ($loop->iteration == 2)
+            <div class="2xl:-ml-28 xl:-ml-16 w-full">
+                <div class="border-blue-mensana lg:border-y-2 lg:border-l-2 rounded-l-4xl h-full">
+                    <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
+                        <div class="relative">
+                            <div class="lg:top-6 lg:right-0 lg:absolute 2xl:w-[500px] xl:w-[460px]">
+                                <img id="{{ Str::slug($item['title_'.app()->getLocale()]) }}" class="w-full h-auto" src="{{ storageAsset($item['featured_image']) }}" alt="">
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center lg:py-32 text-left">
+                            <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">{{ $item['title_'.app()->getLocale()] }}</h2>
+                            <div class="prose prose-lg">
+                                {!! $item['body_'.app()->getLocale()] !!}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        @elseif ($loop->iteration > 2 && ($loop->iteration % 2 != 0))
+
+            <div class="xl:mt-28 lg:pl-48 w-full">
+            <div class="h-full">
                 <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
                     <div class="flex flex-col justify-center lg:py-32 text-right">
-                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">LABORATORIUM</h2>
-                        <p class="text-lg">
-                            Mauris tincidunt rutrum arcu, sit amet pretium
-                            lectus mattis sed. Suspendisse ultricies eu
-                            turpis in feugiat. Nam risus lacus, viverra eget
-                            commodo nec, dapibus id libero. Aenean lorem
-                            tortor, consequat in libero id, congue
-                            ullamcorper ante. Nam risus lacus, viverra eget
-                            commodo nec, dapibus id libero. Aenean lorem
-                        </p>
+                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">{{ $item['title_'.app()->getLocale()] }}</h2>
+                        <div class="prose prose-lg">
+                            {!! $item['body_'.app()->getLocale()] !!}
+                        </div>
                     </div>
                     <div class="relative">
                         <div class="lg:bottom-6 lg:absolute 2xl:w-[500px] xl:w-[460px]">
-                            <img class="w-full h-auto" src="{{ asset('img/layanan-content-1.png') }}" alt="">
+                            <img id="{{ Str::slug($item['title_'.app()->getLocale()]) }}" class="w-full h-auto" src="{{ storageAsset($item['featured_image']) }}" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="2xl:-ml-28 xl:-ml-16 w-full">
-            <div class="border-blue-mensana lg:border-y-2 lg:border-l-2 rounded-l-4xl h-full">
+
+        @elseif ($loop->iteration > 2 && ($loop->iteration % 2 == 0))
+
+            <div class="2xl:-ml-28 xl:-ml-16 w-full">
+            <div class="h-full">
                 <div class="lg:gap-x-20 grid lg:grid-cols-2 h-full">
                     <div class="relative">
                         <div class="lg:top-6 lg:right-0 lg:absolute 2xl:w-[500px] xl:w-[460px]">
-                            <img class="w-full h-auto" src="{{ asset('img/layanan-content-2.png') }}" alt="">
+                            <img id="{{ Str::slug($item['title_'.app()->getLocale()]) }}" class="w-full h-auto" src="{{ storageAsset($item['featured_image']) }}" alt="">
                         </div>
                     </div>
                     <div class="flex flex-col justify-center lg:py-32 text-left">
-                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">ANIMAL HEALTH CONSULTATION</h2>
-                        <p class="text-lg">
-                            Mauris tincidunt rutrum arcu, sit amet pretium
-                            lectus mattis sed. Suspendisse ultricies eu
-                            turpis in feugiat. Nam risus lacus, viverra eget
-                            commodo nec, dapibus id libero. Aenean lorem
-                            tortor, consequat in libero id, congue
-                            ullamcorper ante. Nam risus lacus, viverra eget
-                            commodo nec, dapibus id libero. Aenean lorem
-                        </p>
+                        <h2 class="mb-3 lg:mb-8 font-bold text-blue-mensana text-3xl xl:text-4xl 2xl:text-6xl">{{ $item['title_'.app()->getLocale()] }}</h2>
+                        <div class="prose prose-lg">
+                            {!! $item['body_'.app()->getLocale()] !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        @endif
+
+        @endforeach
     </div>
 </div>
 

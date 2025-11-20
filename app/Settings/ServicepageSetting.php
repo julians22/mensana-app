@@ -18,6 +18,8 @@ class ServicepageSetting extends Settings
     public ?string $hero_subtitle_id;
     public ?string $hero_subtitle_en;
 
+    public $section_contents;
+
     public static function group(): string
     {
         return 'service_page';

@@ -45,6 +45,12 @@
                         <div class="swiper-slide">
                             <div class="milestone-card">
                                 <img src="{{ storageAsset($achievement__['thumbnail']) }}" alt="">
+
+                                <div class="milestone-description">
+                                    <div class="font-medium text-white">
+                                        {!!  $achievement__['description_'.app()->getLocale() ] !!}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -90,7 +96,7 @@
             <h5 class="font-sans-9pt-regular font-normal text-blue-mensana text-3xl 2xl:text-5xl">@lang('Jelajahi produk kami untuk')</h5>
             <h5 class="font-sans font-black text-blue-mensana text-3xl 2xl:text-6xl">@lang('mengetahui kami lebih dalam')</h5>
 
-            <a class="inline-block bg-white mt-8 px-4 py-2 border border-blue-mensana rounded text-blue-mensana" href="">@lang('Produk Kami')</a>
+            <a class="inline-block bg-white mt-8 px-4 py-2 border border-blue-mensana rounded text-blue-mensana" href="{{ route('product.index') }}">@lang('Produk Kami')</a>
         </div>
 
 

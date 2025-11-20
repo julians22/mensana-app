@@ -6,10 +6,12 @@ use App\Enums\Filament\AdminNavigationGroup;
 use App\Settings\ServicepageSetting;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
 use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use UnitEnum;
 
@@ -42,8 +44,16 @@ class ManageServicePage extends SettingsPage
                             ->columnSpanFull(),
                         TextInput::make('hero_title_id'),
                         TextInput::make('hero_title_en'),
-                        RichEditor::make('hero_subtitle_id'),
-                        RichEditor::make('hero_subtitle_en'),
+                        RichEditor::make('hero_subtitle_id')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
+                        RichEditor::make('hero_subtitle_en')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
                     ])
                     ->columnSpanFull(),
 
@@ -63,6 +73,40 @@ class ManageServicePage extends SettingsPage
                             ->image()
                             ->directory('settings')
                             ->disk('public'),
+                    ])
+                    ->columnSpanFull(),
+                Section::make('Page Content Section')
+                    ->schema([
+                        Repeater::make('section_contents')
+                            ->schema([
+                                TextInput::make('title_id')
+                                    ->required(),
+                                TextInput::make('title_en')
+                                    ->required(),
+                                RichEditor::make('body_id')
+                                    ->required()
+                                    ->toolbarButtons([
+                                        'bold',
+                                        'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                                    ])
+                                    ->required(),
+                                RichEditor::make('body_en')
+                                    ->toolbarButtons([
+                                        'bold',
+                                        'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                                    ])
+                                    ->required(),
+                                FileUpload::make('featured_image')
+                                    ->belowContent('Resolusi terbaik 500x637px. Tipe File: PNG, JPG')
+                                    ->image()
+                                    ->directory('setting/section_contents')
+                                    ->disk('public')
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ])
+                            ->cloneable()
+                            ->collapsible()
+                            ->columns(2)
                     ])
                     ->columnSpanFull(),
             ]);

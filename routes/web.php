@@ -39,6 +39,10 @@ Route::group([
         // Route::get('dummy', [PageController::class, 'product_detail_page_dummy'])->name('detail');
     });
 
+    Route::get('search-result', function(){
+        return view('search');
+    })->name('search_result');
+
     // Livewire Routes
     \Livewire\Livewire::setUpdateRoute(function ($handle) {
         return Route::post('livewire/update', $handle);

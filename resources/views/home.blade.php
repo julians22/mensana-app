@@ -144,7 +144,7 @@
                 <div class="swiper-wrapper">
                     @foreach ($products as $product)
                         <div class="swiper-slide">
-                            <div class="product-card">
+                            <a href="{{ route('product.detail', ['slug'=> $product->slug]) }}" class="product-card">
                                 <img src="{{$product->getFirstMediaUrl('thumbnail')}}" alt="Product 1">
                                 <div class="product-info">
                                     <!-- Title -->
@@ -166,7 +166,7 @@
                                     @endforeach
                                 </div>
                                 @endif
-                            </div>
+                            </a>
                         </div>
                     @endforeach
                 </div>

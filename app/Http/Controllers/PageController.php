@@ -124,7 +124,9 @@ class PageController extends Controller
         $meta_keywords = $settings->{'meta_keywords_'.$locale};
         $meta_og_img = $settings->{'meta_og_img_'.$locale};
 
-        return view('service', compact('site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle'));
+        $section_contents = $settings->section_contents;
+
+        return view('service', compact('site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle', 'section_contents'));
     }
 
     /**

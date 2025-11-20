@@ -56,11 +56,15 @@
     }
 
     .nav-wrapper .search-form{
-        @apply relative w-full lg:w-auto;
+        @apply relative w-full lg:w-auto transition-all duration-500 ease-in-out transform;
+    }
+
+    .nav-wrapper .search-form.open{
+        @apply lg:w-[700px];
     }
 
     .nav-wrapper .search-input{
-        @apply block py-0.5 pr-10 pl-4 border border-gray-300 rounded-full focus:outline-none focus:ring focus:ring-blue-400 w-full;
+        @apply block py-0.5 pr-10 pl-4 border border-gray-300 rounded-full focus:outline-none focus:ring focus:ring-blue-400 w-full transition-all duration-500 ease-in-out transform;
     }
 
     .nav-items{
@@ -154,7 +158,7 @@
     }
 
     .home__product_swiper .product-card{
-        @apply bg-white p-4 border border-gray-300 rounded-md overflow-hidden;
+        @apply block bg-white p-4 border border-gray-300 rounded-md overflow-hidden;
     }
 
     .home__product_swiper .product-card .product-info{
@@ -257,6 +261,15 @@
     .swiper-slide-active .milestone-card::after{
         @apply absolute inset-0 from-blue-mensana to-blue-mensana/30 bg-linear-to-b content-[''] bg-blend-multiply transition-all duration-300 ease-in-out;
     }
+
+    .milestone-card .milestone-description{
+        @apply invisible z-10 absolute inset-0 flex justify-center items-center text-lg transition-all ease-in-out;
+    }
+
+    .swiper-slide-active .milestone-card:hover .milestone-description{
+        @apply visible;
+    }
+
 
     .swiper-slide-prev .milestone-card::after,
     .swiper-slide-next .milestone-card::after{

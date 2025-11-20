@@ -9,6 +9,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
 use Filament\Schemas\Components\Fieldset;
@@ -45,8 +46,16 @@ class ManageAboutPage extends SettingsPage
                             ->columnSpanFull(),
                         TextInput::make('hero_title_id'),
                         TextInput::make('hero_title_en'),
-                        RichEditor::make('hero_subtitle_id'),
-                        RichEditor::make('hero_subtitle_en'),
+                        RichEditor::make('hero_subtitle_id')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
+                        RichEditor::make('hero_subtitle_en')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
                     ])
                     ->columnSpanFull(),
 
@@ -79,6 +88,10 @@ class ManageAboutPage extends SettingsPage
                                 TextInput::make('subtitle_id')
                                     ->required(),
                                 TextInput::make('subtitle_en'),
+                                Textarea::make('description_id')
+                                    ->maxLength(200),
+                                Textarea::make('description_en')
+                                    ->maxLength(200),
                                 FileUpload::make('thumbnail')
                                     ->belowContent('Resolusi terbaik 220x330px. Tipe File: PNG, JPG')
                                     ->image()
@@ -101,8 +114,16 @@ class ManageAboutPage extends SettingsPage
                                     ->required(),
                                 TextInput::make('title_en'),
                                 RichEditor::make('subtitle_id')
-                                    ->required(),
-                                RichEditor::make('subtitle_en'),
+                                    ->required()
+                                    ->toolbarButtons([
+                                        'bold',
+                                        'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                                    ]),
+                                RichEditor::make('subtitle_en')
+                                    ->toolbarButtons([
+                                        'bold',
+                                        'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                                    ]),
                                 FileUpload::make('background')
                                     ->belowContent('Resolusi terbaik 1200x400px. Tipe File: PNG, JPG')
                                     ->image()

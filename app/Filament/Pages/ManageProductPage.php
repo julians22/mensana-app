@@ -42,8 +42,16 @@ class ManageProductPage extends SettingsPage
                             ->columnSpanFull(),
                         TextInput::make('hero_title_id'),
                         TextInput::make('hero_title_en'),
-                        RichEditor::make('hero_subtitle_id'),
-                        RichEditor::make('hero_subtitle_en'),
+                        RichEditor::make('hero_subtitle_id')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
+                        RichEditor::make('hero_subtitle_en')
+                            ->toolbarButtons([
+                                'bold',
+                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
+                            ]),
                     ])
                     ->columnSpanFull(),
 

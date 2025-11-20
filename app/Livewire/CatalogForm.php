@@ -10,13 +10,22 @@ use Livewire\Component;
 
 class CatalogForm extends Component
 {
-    #[Validate('required|min:8')]
+    #[Validate('required', message: 'Nama Lengkap wajib diisi')]
+    #[Validate('string', message: 'Nama Lengkap harus berupa string')]
+    #[Validate('max:255', message: 'Nama Lengkap terlalu panjang')]
+    #[Validate('min:3', message: 'Nama Lengkap terlalu pendek')]
     public $request_name = "";
 
-    #[Validate('required|min:5')]
+    #[Validate('required', message: 'Email wajib diisi')]
+    #[Validate('email', message: 'Email tidak valid')]
+    #[Validate('max:255', message: 'Email terlalu panjang')]
     public $request_email = "";
 
-    #[Validate('required|min:8')]
+    #[Validate('required', message: 'No. Telp wajib diisi')]
+    #[Validate('string', message: 'No. Telp harus berupa string')]
+    #[Validate('max:255', message: 'No. Telp terlalu panjang')]
+    #[Validate('min:8', message: 'No. Telp terlalu pendek')]
+    #[Validate('regex:/^([0-9\s\-\+\(\)]*)$/', message: 'No. Telp tidak valid')]
     public $request_phone = "";
 
     protected $clientIp = null;
@@ -30,8 +39,7 @@ class CatalogForm extends Component
 
     public function send()
     {
-        // $this->validate();
-
+        $this->validate();
         $this->clientIp = request()->getClientIp();
         $this->userAgent = request()->userAgent();
         $this->sessionLocale = app()->getLocale();

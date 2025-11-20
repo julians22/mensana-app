@@ -22,14 +22,16 @@
                 </ul>
 
                 <!-- Search Form -->
-                <div class="search-form">
-                    <input type="text" id="search-input" class="search-input">
+                <form action="{{ route('search_result') }}">
+                    <div class="search-form" :class="open ? 'open' : ''" x-data="{ open: false, search: '' }">
+                        <input type="text" id="search-input" name="q" class="search-input" @focusin="open = true" @focusout="open = false">
 
-                    <label for="search-input" class="block right-0 absolute inset-y-1/2 mr-2 size-6 -translate-y-1/2 cursor-pointer transform">
-                        <x-eos-search class="text-blue-mensana"/>
-                    </label>
+                        <button type="submit" for="search-input" class="block right-0 absolute inset-y-1/2 mr-2 size-6 -translate-y-1/2 cursor-pointer transform">
+                            <x-eos-search class="text-blue-mensana"/>
+                        </button>
 
-                </div>
+                    </div>
+                </form>
             </div>
 
             <!-- language switcher -->
