@@ -279,11 +279,11 @@
     }
 
     .milestone-card .milestone-description{
-        @apply invisible z-10 absolute inset-0 flex justify-center items-center text-lg transition-all ease-in-out;
+        @apply z-10 absolute inset-0 flex justify-center items-center opacity-0 text-lg transition-all duration-700 ease-in-out transform;
     }
 
     .swiper-slide-active .milestone-card:hover .milestone-description{
-        @apply visible;
+        @apply opacity-100;
     }
 
 
