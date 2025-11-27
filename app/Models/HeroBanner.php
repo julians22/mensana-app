@@ -30,4 +30,9 @@ class HeroBanner extends Model implements HasMedia
     {
         return !empty($this->title);
     }
+
+    public function isHasSubTitle() : bool
+    {
+        return !empty($this->subtitle);
+    }
 }

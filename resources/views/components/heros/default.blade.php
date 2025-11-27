@@ -3,8 +3,8 @@
     'src_mobile' => null,
     'alt' => 'Gambar Halaman Website PT. Mensana Aneka Satwa',
     'text_position' => 'left',
-    'title' => '',
-    'subtitle' => ''
+    'title' => null,
+    'subtitle' => null
     ])
 
 <section class="relative">
@@ -22,13 +22,13 @@
         </picture>
     </div>
 
-    @if (!empty($title))
-        <div class="absolute inset-0 flex items-center">
+    @if (!empty($title) || !empty($subtitle))
+        <div class="absolute inset-0 flex items-center" x-data="{title: '{{$title}}', subtitle: '{{$subtitle}}'}">
             <div class="grid grid-cols-5 mx-auto px-4 lg:px-0 container">
                 <div class="col-span-5 lg:col-span-2 {{ $text_position === 'left' ? '' : 'lg:col-start-4' }} text-white text-center lg:text-left">
-                    <h1 data-motion="fade-left" class="mb-4 font-bold text-xl xl:text-4xl 2xl:text-6xl">{{ $title }}</h1>
+                    <h2 x-show="title" data-motion="fade-left" class="mb-4 font-bold text-xl xl:text-4xl 2xl:text-6xl">{{ $title }}</h2>
 
-                    <div class="text-base lg:text-2xl" data-motion="fade-down">
+                    <div x-show="subtitle" class="prose-invert prose" data-motion="fade-down">
                         {!! $subtitle !!}
                     </div>
 

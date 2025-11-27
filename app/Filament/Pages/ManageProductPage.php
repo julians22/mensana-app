@@ -40,20 +40,16 @@ class ManageProductPage extends SettingsPage
                             ->directory('settings')
                             ->disk('public')
                             ->columnSpanFull(),
-                        TextInput::make('hero_title_id'),
-                        TextInput::make('hero_title_en'),
+                        TextInput::make('hero_title_id')
+                            ->belowContent('Judul banner dengan ukuran font yang lebih besar, kosongkan jika tidak diperlukan'),
+                        TextInput::make('hero_title_en')
+                            ->belowContent('Judul banner dengan ukuran font yang lebih besar, kosongkan jika tidak diperlukan'),
                         RichEditor::make('hero_subtitle_id')
-                            ->toolbarButtons([
-                                'bold',
-                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
-                            ]),
+                            ->toolbarButtons(config('custom-filament.toolbar_buttons.banner_subtitle')),
                         RichEditor::make('hero_subtitle_en')
-                            ->toolbarButtons([
-                                'bold',
-                                'h2', 'h3', 'italic', 'underline', 'link', 'textColor'
-                            ]),
-                    ])
-                    ->columnSpanFull(),
+                            ->toolbarButtons(config('custom-filament.toolbar_buttons.banner_subtitle')),
+                        ])
+                        ->columnSpanFull(),
 
                 Fieldset::make('SEO & Meta')
                     ->schema([

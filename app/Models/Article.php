@@ -66,4 +66,13 @@ class Article extends Model implements HasMedia
     {
         return $query->where('is_featured', true);
     }
+
+    public function registerMediaCollections(): void
+    {
+        $fallBackThumbnailUrl = asset('dummy/article-1.png');
+
+        $this->addMediaCollection('thumbnail')
+            ->useFallbackUrl($fallBackThumbnailUrl)
+            ->singleFile();
+    }
 }

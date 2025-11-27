@@ -20,11 +20,13 @@
                         <div class="relative aspect-square lg:aspect-video">
                             <img src="{{ $banner->getFirstMediaUrl() }}" class="w-full h-full object-cover">
 
-                            @if ($banner->isHasTitle())
+                            @if ($banner->isHasTitle() || $banner->isHasSubTitle())
                                 <div class="banner-text-wrapper">
                                     <div class="banner-text">
                                         <p class="font-bold text-4xl lg:text-7xl">{!! $banner->title !!}</p>
-                                        <p class="text-lg lg:text-2xl">{{ $banner->subtitle }}</p>
+                                        <div class="prose-invert prose-p:text-lg prose-p:lg:text-2xl prose">
+                                            {!! $banner->subtitle !!}
+                                        </div>
                                     </div>
                                     <img src="{{ asset('img/blue-distord@3x.png') }}" alt="" class="banner-text-bg">
                                 </div>
