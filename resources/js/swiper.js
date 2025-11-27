@@ -15,7 +15,13 @@ const home__swiper = new Swiper('.home__swiper', {
 });
 
 const map_contact__swiper = new Swiper('.map_contact__swiper', {
-    slidesPerView: 1
+    modules: [Pagination],
+    slidesPerView: 1,
+    pagination: {
+        el: '.contact-swiper-pagination.swiper-pagination',
+        clickable: true
+    }
+
 });
 
 // Featured Products Swiper

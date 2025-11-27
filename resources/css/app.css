@@ -413,15 +413,24 @@
 /* Pagination */
 
 /* 1. Banner Pagination */
-.home__swiper .swiper-pagination {
+.home__swiper .swiper-pagination, .contact-swiper-pagination.swiper-pagination {
     @apply right-0 bottom-[70px] lg:bottom-[90px] left-0 z-20 absolute flex justify-center items-center gap-x-3;
 }
 
-.home__swiper .swiper-pagination-bullet {
+.home__swiper .swiper-pagination-bullet, .contact-swiper-pagination.swiper-pagination .swiper-pagination-bullet{
     @apply bg-white opacity-100 !m-0 rounded-full w-3 h-3 transition-opacity duration-300;
 }
 
-.home__swiper .swiper-pagination-bullet-active {
+.home__swiper .swiper-pagination-bullet, .contact-swiper-pagination.swiper-pagination.darken .swiper-pagination-bullet{
+    @apply bg-stone-600/60;
+}
+
+.home__swiper .swiper-pagination-bullet-active,
+.contact-swiper-pagination.swiper-pagination .swiper-pagination-bullet-active{
+    @apply bg-blue-400;
+}
+
+.contact-swiper-pagination.swiper-pagination.darken .swiper-pagination-bullet-active{
     @apply bg-blue-400;
 }
 

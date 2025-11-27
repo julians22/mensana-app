@@ -104,6 +104,11 @@
                                             <x-bi-youtube class="fill-white size-8"/>
                                         </a>
                                         @break
+                                    @case('linkedin')
+                                        <a href="{{ $social['value'] }}">
+                                            <x-bi-linkedin class="fill-white size-8"/>
+                                        </a>
+                                    @break
                                     @default
                                 @endswitch
                             @endforeach

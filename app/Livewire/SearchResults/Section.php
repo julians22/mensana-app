@@ -28,7 +28,6 @@ class Section extends Component
             $keyword = htmlspecialchars(strip_tags($keyword));
             $this->search($keyword);
         }
-
     }
 
     public function search(string $keyword)

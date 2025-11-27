@@ -23,7 +23,10 @@
                     </div>
                     @endforeach
                 </div>
+
             </div>
+
+            <div class="contact-swiper-pagination swiper-pagination darken"></div>
 
             <div class="bg-cyan-mensana rounded-full w-full h-1.5"></div>
 

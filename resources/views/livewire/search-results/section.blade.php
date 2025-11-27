@@ -1,4 +1,4 @@
-<div>
+<div x-data="{results: {{$results->count()}}}" x-cloak x-show="results">
     {{-- The whole world belongs to you. --}}
     <h3 class="mb-10 font-bold text-blue-mensana text-2xl underline underline-offset-4">{{ $sectionTitle }}</h3>
 

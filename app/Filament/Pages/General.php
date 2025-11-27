@@ -53,7 +53,8 @@ class General extends SettingsPage
                                         'facebook' => 'Facebook',
                                         'tiktok' => 'TikTok',
                                         'twitter' => 'Twitter',
-                                        'youtube' => 'Youtube'
+                                        'youtube' => 'Youtube',
+                                        'linkedin' => 'LinkedIn'
                                     ])
                             ])
                         ]),
