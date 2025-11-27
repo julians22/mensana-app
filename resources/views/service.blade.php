@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     @else
-                        <div class="gap-y-10 xl:gap-x-10 xl:gap-y-0 grid grid-cols-8 pr-0 lg:pr-12 xl:h-[330px]">
+                        <div class="gap-y-10 xl:gap-x-10 xl:gap-y-0 grid grid-cols-8 pl-0 lg:pl-12 xl:h-[330px]">
                             <div class="relative col-span-8 lg:col-span-3">
                                 <img class="xl:top-[-160px] xl:absolute xl:w-[90%]" id="{{ Str::slug($item['title_'.app()->getLocale()]) }}" src="{{ storageAsset($item['featured_image']) }}" alt="">
                             </div>
