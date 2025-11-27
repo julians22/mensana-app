@@ -30,7 +30,10 @@ class HeroBannerForm
                     ])
                     ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('featured_image')
-                    ->belowContent('Resolusi terbaik 1200x675px')
+                    ->belowContent('Resolusi terbaik 1200x675px'),
+                SpatieMediaLibraryFileUpload::make('featured_image_mobile')
+                    ->collection('featured_image_mobile')
+                    ->belowContent('Resolusi terbaik 512x512px.'),
             ]);
     }
 }

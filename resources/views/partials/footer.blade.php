@@ -69,7 +69,7 @@
                     <li><a href="{{ route('product.index') }}" class="text-white hover:underline">@lang("Products")</a></li>
                     <li><a href="{{ route('service') }}" class="text-white hover:underline">@lang("Services")</a></li>
 
-                    <li><a href="#" @click.prevent="openRequestModal = !openRequestModal" class="text-white hover:underline">@lang("Download")</a></li>
+                    <li><a href="{{ route('product.index') }}#download"class="text-white hover:underline">@lang("Download")</a></li>
                     <li><a href="{{ route('article.index') }}" class="text-white hover:underline">@lang("Berita & Artikel")</a></li>
                 </ul>
 

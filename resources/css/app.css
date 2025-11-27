@@ -162,7 +162,7 @@
     }
 
     .home__product_swiper .product-card .product-info{
-        @apply h-[128px] transition-all transform;
+        @apply h-[220px] transition-all transform;
     }
 
     .home__product_swiper .product-card:hover .product-info{

@@ -2,7 +2,6 @@
 <form wire:submit="send">
     {{-- Nothing in the world is as soft and yielding as water. --}}
     <div class="flex flex-col gap-y-2">
-
         {{-- write session_flash 'request_form' if exist --}}
         @if (session()->has('request_form'))
             <div class="bg-green-400 mb-4 p-2 rounded text-white">
@@ -35,9 +34,32 @@
         </div>
 
         <!--Footer-->
-        <div class="flex justify-end pt-2">
-            <button type="submit" class="bg-orange-400 hover:bg-orange-500 mr-2 p-3 px-4 rounded-lg text-white">@lang('Kirim')</button>
+        <div class="flex justify-between pt-2">
+            <div wire:ignore>
+                <div class="g-recaptcha" data-callback="attachCaptcha" data-expired-callback="resetCaptcha" data-sitekey="{{ config('captcha.captcha_sitekey_v2') }}"></div>
+            </div>
+            <div>
+                <button type="submit" class="bg-orange-400 hover:bg-orange-500 mr-2 p-3 px-4 rounded-lg text-white">@lang('Kirim')</button>
+            </div>
         </div>
+        @error('recaptcha')
+        <span class="bg-red-400 p-px rounded text-red-100 error">{{ $message }}</span>
+        @enderror
 
     </div>
 </form>
+
+@assets
+<script src="https://www.google.com/recaptcha/api.js?hl={{ app()->getLocale() }}" async defer></script>
+<script>
+    function attachCaptcha(token)
+    {
+        @this.set('captcha', token)
+    }
+
+    function resetCaptcha()
+    {
+        @this.set('captcha', '')
+    }
+</script>
+@endassets

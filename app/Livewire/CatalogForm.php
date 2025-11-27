@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use App\Models\RequestForm;
 use App\Settings\GeneralSetting;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
@@ -32,6 +34,8 @@ class CatalogForm extends Component
     protected $userAgent = null;
     protected $sessionLocale = null;
 
+    public $captcha = null;
+
     public function render()
     {
         return view('livewire.catalog-form');
@@ -39,10 +43,13 @@ class CatalogForm extends Component
 
     public function send()
     {
-        $this->validate();
         $this->clientIp = request()->getClientIp();
         $this->userAgent = request()->userAgent();
         $this->sessionLocale = app()->getLocale();
+
+        $this->validate();
+
+        $this->validateToken($this->captcha);
 
         RequestForm::create([
             'name' => $this->request_name,
@@ -67,5 +74,24 @@ class CatalogForm extends Component
 
         // Todo
 
+    }
+
+    public function validateToken(?string $token) :void
+    {
+        $throw = fn ($message) => throw ValidationException::withMessages(['recaptcha' => $message]);
+
+        if (empty($token)) {
+            $throw('Please verify');
+        }
+
+        // validate Google reCaptcha.
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret' => config('captcha.captcha_secretkey_v2'),
+            'response' => $token,
+            'remoteip' => request()->getClientIp(),
+        ]);
+        if (! $response->successful() || ! $response->json('success')) {
+            $throw($response->json(['error-codes'])[0] ?? 'An error occurred.');
+        }
     }
 }

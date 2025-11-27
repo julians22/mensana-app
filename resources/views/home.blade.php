@@ -18,7 +18,14 @@
                 @foreach ($hero_banners as $banner)
                     <div class="swiper-slide">
                         <div class="relative aspect-square lg:aspect-video">
-                            <img src="{{ $banner->getFirstMediaUrl() }}" class="w-full h-full object-cover">
+                            <picture>
+                                <source media="(max-width: 768px)" srcset="{{ $banner->getFirstMediaUrl('featured_image_mobile') }}">
+                                <source media="(min-width: 769px)" srcset="{{ $banner->getFirstMediaUrl() }}">
+
+                                <img
+                                    src="{{ $banner->getFirstMediaUrl() }}"
+                                    class="w-full h-full object-cover">
+                            </picture>
 
                             @if ($banner->isHasTitle() || $banner->isHasSubTitle())
                                 <div class="banner-text-wrapper">

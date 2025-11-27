@@ -92,7 +92,7 @@
 
             <!-- Download Catalogue Button -->
 
-            <div class="mt-6 text-center">
+            <div class="mt-6 text-center" id="download">
                 <a href="#" @click.prevent="openRequestModal = !openRequestModal" class="group inline-flex items-center hover:bg-blue-mensana border border-blue-mensana rounded-xl">
                     <div class="flex justify-center items-center px-2 xl:px-4 w-[45px] lg:w-[50px]">
                         <x-heroicon-s-arrow-down-tray class="w-6 lg:w-14 h-6 lg:h-14 text-blue-mensana group-hover:text-white transition-all ease-in-out"/>
