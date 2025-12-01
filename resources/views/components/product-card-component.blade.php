@@ -13,7 +13,7 @@
             <img src="{{ $image }}" alt="{{ $product_name }}" class="size-full object-center object-cover">
         </div>
     </div>
-    <div class="flex flex-col justify-between p-5 min-h-[220px]">
+    <div class="flex flex-col flex-grow-1 justify-between p-5 min-h-[220px]">
         <div class="product-info">
             <h3 class="product-title">{{ $product_name }}</h3>
             <p class="mt-1 min-h-[40px] text-gray-600 text-sm">{{ $product_description }}</p>

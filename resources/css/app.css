@@ -177,6 +177,10 @@
         @apply scale-105 -translate-y-6;
     }
 
+    .product-card{
+        @apply flex flex-col;
+    }
+
     .product-card .product-info{
         @apply mb-2 overflow-y-auto text-center;
     }
