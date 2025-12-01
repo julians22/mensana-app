@@ -25,54 +25,70 @@ class TranslatableFixProduct extends Command
     /**
      * Execute the console command.
      */
+    // public function handle()
+    // {
+    //     $products = DB::table('products')->get();
+
+    //     foreach ($products as $product) {
+    //         // dump($product->id);
+    //         // dump($product->name);
+
+    //         // $translations = ['id' => $product->name];
+
+    //         // $productUpdate = Product::find($product->id);
+    //         // $productUpdate->setTranslations('name', $translations);
+    //         // $productUpdate->save();
+
+    //         $sizes = $product->sizes;
+
+    //         $newSizes = [];
+
+    //         if(!empty($sizes))
+    //         {
+    //             $jsonSizes = json_decode($sizes, true);
+
+    //             if (count($jsonSizes)) {
+    //                 # code...
+    //                 foreach($jsonSizes as $size)
+    //                 {
+    //                     if (array_key_exists('label', $size)) {
+
+    //                         $newSizes[] = [
+    //                             'id' => $size['label'],
+    //                             'en' => null
+    //                         ];
+    //                     }
+    //                 }
+
+    //                 // dump(json_encode($newSizes), $product->id);
+
+    //                 $productUpdate = Product::find($product->id);
+    //                 $productUpdate->sizes = $newSizes;
+    //                 $productUpdate->save();
+    //             }
+
+
+
+
+    //         }
+
+    //     }
+
+    // }
+
     public function handle()
     {
         $products = DB::table('products')->get();
 
         foreach ($products as $product) {
-            // dump($product->id);
-            // dump($product->name);
 
-            // $translations = ['id' => $product->name];
+            $title = $product->name;
 
-            // $productUpdate = Product::find($product->id);
-            // $productUpdate->setTranslations('name', $translations);
-            // $productUpdate->save();
+            $decoded = json_decode($title);
 
-            $sizes = $product->sizes;
-
-            $newSizes = [];
-
-            if(!empty($sizes))
-            {
-                $jsonSizes = json_decode($sizes, true);
-
-                if (count($jsonSizes)) {
-                    # code...
-                    foreach($jsonSizes as $size)
-                    {
-                        if (array_key_exists('label', $size)) {
-
-                            $newSizes[] = [
-                                'id' => $size['label'],
-                                'en' => null
-                            ];
-                        }
-                    }
-
-                    // dump(json_encode($newSizes), $product->id);
-
-                    $productUpdate = Product::find($product->id);
-                    $productUpdate->sizes = $newSizes;
-                    $productUpdate->save();
-                }
-
-
-
-
-            }
-
+            $productUpdate = Product::find($product->id);
+            $productUpdate->name = $decoded->id;
+            $productUpdate->save();
         }
-
     }
 }

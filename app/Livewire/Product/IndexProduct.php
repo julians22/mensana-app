@@ -22,6 +22,9 @@ class IndexProduct extends Component
     public $selectAnimals = [];
     public $selectTags = [];
 
+    public ?string $sort = 'asc';
+    public ?string $sortLabel = 'A-Z';
+
     #[Url(as: 'product_keyword')]
     public string $search = '';
 
@@ -43,6 +46,19 @@ class IndexProduct extends Component
         }
 
         $this->resetPage();
+    }
+
+    public function setSort($value)
+    {
+        if ($value == 'asc') {
+            $this->sortLabel = 'A-Z';
+        }elseif ($value == 'desc'){
+            $this->sortLabel = 'Z-A';
+        }else{
+            $this->sortLabel = '';
+        }
+
+        $this->sort= $value;
     }
 
     public function updatedSelectAnimals($value, $key)
@@ -95,6 +111,7 @@ class IndexProduct extends Component
     {
         return view('livewire.product.index-product', [
             'products' => Product::query()
+                ->when(!empty($this->sort), fn($query) => $query->orderBy('name', $this->sort))
                 ->when(!empty($this->search), function ($query) {
                     $animals = $this->selectAnimals;
                     $categories = $this->selectCategories;
@@ -122,14 +139,8 @@ class IndexProduct extends Component
                     $lowerKeyword = '%' . strtolower($keyword) . '%'; // Hanya perlu dihitung sekali
 
                     $query->where(function ($query) use ($lowerKeyword) {
-                        // 1. name->id & name->en
-                        // Menggunakan whereRaw untuk JSON fields dengan fungsi LOWER()
-                        // Catatan: Syntax JSON_EXTRACT mungkin sedikit berbeda tergantung database (MySQL/PostgreSQL)
-
-                        // name->id
-                        $query->whereRaw('LOWER(JSON_EXTRACT(name, "$.id")) LIKE ?', [$lowerKeyword])
-                            // name->en
-                            ->orWhereRaw('LOWER(JSON_EXTRACT(name, "$.en")) LIKE ?', [$lowerKeyword])
+                        // 1. name
+                        $query->whereRaw('LOWER(name) LIKE ?', [$lowerKeyword])
 
                             // 2. description->id & description->en
                             // description->id

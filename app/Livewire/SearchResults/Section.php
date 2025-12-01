@@ -39,15 +39,8 @@ class Section extends Component
                     $lowerKeyword = '%' . strtolower($keyword) . '%'; // Hanya perlu dihitung sekali
 
                     $query->where(function ($query) use ($lowerKeyword) {
-                        // 1. name->id & name->en
-                        // Menggunakan whereRaw untuk JSON fields dengan fungsi LOWER()
-                        // Catatan: Syntax JSON_EXTRACT mungkin sedikit berbeda tergantung database (MySQL/PostgreSQL)
-
-                        // name->id
-                        $query->whereRaw('LOWER(JSON_EXTRACT(name, "$.id")) LIKE ?', [$lowerKeyword])
-                            // name->en
-                            ->orWhereRaw('LOWER(JSON_EXTRACT(name, "$.en")) LIKE ?', [$lowerKeyword])
-
+                        // 1. name
+                        $query->whereRaw('LOWER(name) LIKE ?', [$lowerKeyword])
                             // 2. description->id & description->en
                             // description->id
                             ->orWhereRaw('LOWER(JSON_EXTRACT(description, "$.id")) LIKE ?', [$lowerKeyword])

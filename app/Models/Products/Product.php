@@ -41,7 +41,7 @@ class Product extends Model implements HasMedia
         'is_featured' => 'boolean'
     ];
 
-    protected $translatable = ['description', 'subtitle', 'excerpt', 'name'];
+    protected $translatable = ['description', 'subtitle', 'excerpt'];
 
     public function getSlugOptions() : SlugOptions
     {
