@@ -11,7 +11,7 @@
                 @switch($sectionTitle)
                     @case('Products')
                         @foreach ($results as $product)
-                            <li class="bg-white shadow border-blue-mensana/65">
+                            <li class="bg-white shadow border-blue-mensana/65 hover:scale-105 transition-all transform">
                                 <a href="{{ route('product.detail', ['slug' => $product->slug]) }}" class="flex flex-col items-center gap-y-4 p-2">
                                     <img src="{{ $product->getFirstMediaUrl('thumbnail') }}" alt="{{ $product->name }}" class="rounded-lg size-64 object-cover aspect-square">
                                     <div>
@@ -25,7 +25,7 @@
 
                     @case('Articles')
                         @foreach ($results as $article)
-                            <li class="bg-gray-100 border-blue-mensana/65">
+                            <li class="bg-gray-100 border-blue-mensana/65 hover:scale-105 transition-all transform">
                                 <a href="{{ route('article.detail', ['article' => $article->slug]) }}" class="flex flex-col items-center gap-y-4 p-2">
                                     <img src="{{ $article->getFirstMediaUrl('thumbnail') }}" alt="{{ $article->title }}" class="rounded-lg size-64 object-cover aspect-square">
                                     <div>
@@ -38,7 +38,7 @@
                     @break
                     @case('Services')
                         @foreach ($results as $service)
-                            <li class="bg-gray-100 border-blue-mensana/65">
+                            <li class="bg-gray-100 border-blue-mensana/65 hover:scale-105 transition-all transform">
                                 <a href="{{ route('service') }}#{{Str::slug($service['title_'.app()->getLocale()])}}" class="flex flex-col items-center gap-y-4 p-2">
                                     <img src="{{ storageAsset($service['featured_image']) }}" alt="{{ $service['title_'.app()->getLocale()] }}" class="rounded-lg size-64 object-cover aspect-square">
                                     <div>

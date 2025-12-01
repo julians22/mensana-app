@@ -37,21 +37,21 @@ class Section extends Component
             $this->results = Product::query()
                 ->when($keyword, function ($query) use ($keyword) {
                     $query->where('name->id', 'like', '%' . $keyword . '%')
-                    ->orWhere('name->en', 'like', '%' . $keyword . '%')
-                    ->orWhere('description->id', 'like', '%' . $keyword . '%')
-                    ->orWhere('description->en', 'like', '%' . $keyword . '%')
-                    ->orWhere('subtitle->id', 'like', '%' . $keyword . '%')
-                    ->orWhere('subtitle->en', 'like', '%' . $keyword . '%')
-                    ->orwhere('excerpt->id', 'like', '%' . $keyword . '%')
-                    ->orWhere('excerpt->en', 'like', '%' . $keyword . '%')
-                    ->orWhereHas('tags', function ($query) use ($keyword) {
-                        $query->where('name->id', 'like', '%' . $keyword . '%')
-                            ->orWhere('name->en', 'like', '%' . $keyword . '%');
-                    })
-                    ->orWhereHas('animals', function ($query) use ($keyword) {
-                        $query->where('name->id', 'like', '%' . $keyword . '%')
-                            ->orWhere('name->en', 'like', '%' . $keyword . '%');
-                    });
+                        ->orWhere('name->en', 'like', '%' . $keyword . '%')
+                        ->orWhere('description->id', 'like', '%' . $keyword . '%')
+                        ->orWhere('description->en', 'like', '%' . $keyword . '%')
+                        ->orWhere('subtitle->id', 'like', '%' . $keyword . '%')
+                        ->orWhere('subtitle->en', 'like', '%' . $keyword . '%')
+                        ->orwhere('excerpt->id', 'like', '%' . $keyword . '%')
+                        ->orWhere('excerpt->en', 'like', '%' . $keyword . '%')
+                        ->orWhereHas('tags', function ($query) use ($keyword) {
+                            $query->where('name->id', 'like', '%' . $keyword . '%')
+                                ->orWhere('name->en', 'like', '%' . $keyword . '%');
+                        })
+                        ->orWhereHas('animals', function ($query) use ($keyword) {
+                            $query->where('name->id', 'like', '%' . $keyword . '%')
+                                ->orWhere('name->en', 'like', '%' . $keyword . '%');
+                        });
                 })
                 ->take($this->maxResult)
                 ->get();
