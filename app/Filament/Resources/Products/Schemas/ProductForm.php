@@ -23,9 +23,16 @@ class ProductForm
             ->components([
                 Grid::make(7)->columnSpanFull()->schema([
                     Section::make([
-                        Textarea::make('name')
-                            ->required()
-                            ->columnSpanFull(),
+                        Fieldset::make('Product Title')
+                            ->schema([
+                                Textarea::make('name.id')
+                                    ->label('Name (Bahasa)')
+                                    ->required()
+                                    ->columnSpanFull(),
+                                Textarea::make('name.en')
+                                    ->label('Name (Bahasa)')
+                                    ->columnSpanFull(),
+                            ]),
                         Fieldset::make('Tagline Product')
                             ->schema([
                                 Textarea::make('subtitle.id')

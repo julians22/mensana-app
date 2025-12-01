@@ -36,7 +36,8 @@ class Section extends Component
         if ($this->sectionTitle == 'Products') {
             $this->results = Product::query()
                 ->when($keyword, function ($query) use ($keyword) {
-                    $query->where('name', 'like', '%' . $keyword . '%')
+                    $query->where('name->id', 'like', '%' . $keyword . '%')
+                    ->orWhere('name->en', 'like', '%' . $keyword . '%')
                     ->orWhere('description->id', 'like', '%' . $keyword . '%')
                     ->orWhere('description->en', 'like', '%' . $keyword . '%')
                     ->orWhere('subtitle->id', 'like', '%' . $keyword . '%')
