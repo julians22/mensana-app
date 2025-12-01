@@ -7,8 +7,8 @@ use Livewire\Component;
 
 class RelatedProduct extends Component
 {
-    public Category $category;
-    public function mount(Category $category, $current_product_id)
+    public ?Category $category;
+    public function mount(?Category $category = null, $current_product_id)
     {
 
         $this->category = $category->load(['products' => fn($query) => $query->where('id', '!=', $current_product_id)->inRandomOrder()->take(3)]);

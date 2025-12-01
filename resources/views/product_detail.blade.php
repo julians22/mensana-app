@@ -60,9 +60,11 @@
                                 <h3 class="mb-2 font-semibold text-blue-mensana text-base">@lang('Ukuran / Kemasan')</h3>
                                 <div class="flex space-x-2">
                                     @foreach ($product->sizes as $size)
-                                        <span class="px-4 py-2 border border-blue-mensana rounded-full font-medium text-slate-700 cursor-pointer">
-                                            {{ $size['label'] }}
-                                        </span>
+                                    @if (!empty($size[app()->getLocale()]))
+                                    <span class="px-4 py-2 border border-blue-mensana rounded-full font-medium text-slate-700 cursor-pointer">
+                                        {{ $size[app()->getLocale()] }}
+                                    </span>
+                                    @endif
                                     @endforeach
                                 </div>
                             </div>
@@ -137,12 +139,14 @@
                 </div>
             </div>
 
-            <div class="px-4 lg:px-0">
-                <livewire:product.related-product
-                    :current_product_id="$product->id"
-                    :category="$randomCategory"
-                >
-            </div>
+            @if ($randomCategory)
+                <div class="px-4 lg:px-0">
+                    <livewire:product.related-product
+                        :current_product_id="$product->id"
+                        :category="$randomCategory"
+                    >
+                </div>
+            @endif
 
 
             <div class="-bottom-24 absolute inset-x-0 w-full">

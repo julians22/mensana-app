@@ -82,7 +82,8 @@ class ProductForm
                             ->belowContent('Gambar ini akan digunakan sebagai tampilan produk secara menyeluruh. Resolusi terbaik 512x683px.'),
                         Repeater::make('sizes')
                             ->schema([
-                                TextInput::make('label')->required()
+                                TextInput::make('id')->required(),
+                                TextInput::make('en')->required()
                             ]),
                         Toggle::make('is_active')
                             ->required(),
