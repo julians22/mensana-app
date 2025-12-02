@@ -5,9 +5,12 @@ import { Autoplay, Controller, EffectFade, FreeMode, Navigation, Pagination, Thu
 
 
 const home__swiper = new Swiper('.home__swiper', {
-    modules: [Pagination],
+    modules: [Pagination, Autoplay],
     // Optional parameters
     slidesPerView: 1,
+    autoplay: {
+        delay: 3000
+    },
     pagination: {
         el: '.home__swiper .swiper-pagination',
         clickable: true,
@@ -29,7 +32,7 @@ const map_contact__swiper = new Swiper('.map_contact__swiper', {
 // 4 slide on tablet
 // 1 slide on mobile
 const home__product_swiper = new Swiper('.home__product_swiper', {
-    modules: [Pagination, Autoplay],
+    modules: [Pagination],
     // Optional parameters
     slidesPerView: 1,
     pagination: {

@@ -15,9 +15,39 @@
                 <ul class="nav-items">
                     <li><a href="{{ route('home') }}" class="nav-link {{ activeClass('home') }}">{{ __('Home') }}</a></li>
                     <li><a href="{{ route('about') }}" class="nav-link {{ activeClass('about') }}">{{ __('Tentang Kami') }}</a></li>
-                    <li><a href="{{ route('product.index') }}" class="nav-link {{ activeClass('product.*') }}">{{ __('Produk') }}</a></li>
+                    <li class="relative"
+                        @mouseover.away = "openProductNav = false"
+                        x-data='{openProductNav: false}'>
+                        <a
+                            @mouseover="openProductNav = true"
+                            href="{{ route('product.index') }}" class="nav-link {{ activeClass('product.*') }}">{{ __('Produk') }}</a>
+                        <div class="dropdown-nav" x-show="openProductNav" style="min-width: 14rem;">
+                            <ul class="space-y-2">
+                                @foreach ($general_settings['productCategories'] as $productCategory)
+                                <li>
+                                    <a class="nav-link" href="{{ route('product.index') }}?category[0]={{$productCategory->slug}}">{{$productCategory->name}}</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                     <li><a href="{{ route('service') }}" class="nav-link {{ activeClass('service') }}">{{ __('Layanan') }}</a></li>
-                    <li><a href="{{ route('article.index') }}" class="nav-link {{ activeClass('article.*') }}">{{ __('Berita & Artikel') }}</a></li>
+                    <li class="relative"
+                        @mouseover.away = "openArticleNav = false"
+                        x-data='{openArticleNav: false}'>
+                        <a
+                            @mouseover="openArticleNav = true"
+                            href="{{ route('article.index') }}" class="nav-link {{ activeClass('article.*') }}">{{ __('Berita & Artikel') }}</a>
+                        <div class="dropdown-nav" x-show="openArticleNav" style="min-width: 9rem;">
+                            <ul class="space-y-2">
+                                @foreach ($general_settings['articleCategories'] as $articleCategory)
+                                <li>
+                                    <a class="nav-link" href="{{ route('article.index') }}?category={{$articleCategory->slug}}">{{$articleCategory->name}}</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                     <li><a href="{{ route('contact') }}" class="nav-link {{ activeClass('contact') }}">{{ __('Kontak') }}</a></li>
                 </ul>
 

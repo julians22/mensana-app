@@ -186,7 +186,7 @@ class PageController extends Controller
         $meta_og_img = $settings->{'meta_og_img_'.$locale};
 
         $tags = Tags::all()->pluck('name', 'id')->toArray();
-        $categories = ProductsCategory::all()->pluck('name', 'id')->toArray();
+        $categories = ProductsCategory::all()->pluck('name', 'slug')->toArray();
         $animals = Animal::all()->pluck('name', 'id')->toArray();
 
         return view('product', compact('tags', 'categories', 'animals', 'site_title', 'meta_description', 'meta_keywords', 'meta_og_img', 'hero_banner', 'hero_banner_mobile', 'hero_title', 'hero_subtitle'));

@@ -1,4 +1,4 @@
-<div class="gap-10 grid grid-cols-1 lg:grid-cols-3 px-4 lg:px-16">
+<div class="gap-10 grid grid-cols-1 lg:grid-cols-3">
     @foreach ($articles as $article)
         <x-article-card-component
             :image="$article->getFirstMediaUrl() ? $article->getFirstMediaUrl() : asset('dummy/article-1.png')"

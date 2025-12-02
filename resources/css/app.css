@@ -83,6 +83,18 @@
         @apply bg-blue-mensana scale-100;
     }
 
+    .nav-items .dropdown-nav{
+        @apply top-full z-20 absolute bg-white shadow p-3;
+    }
+
+    .nav-items .dropdown-nav .nav-link{
+        @apply px-1 py-px;
+    }
+
+    .nav-items .dropdown-nav .nav-link::after{
+        @apply hidden;
+    }
+
     .language-switcher{
         @apply lg:absolute lg:top-1/2 lg:right-0 transform lg:-translate-y-1/2 lg:grid grid-cols-2 gap-2 pl-0 lg:pl-4 relative hidden;
     }
@@ -290,6 +302,14 @@
         @apply opacity-100;
     }
 
+    .swiper-slide-active .milestone-card img{
+        @apply transition duration-500 transform;
+    }
+
+    .swiper-slide-active .milestone-card:hover img{
+        @apply scale-105;
+    }
+
 
     .swiper-slide-prev .milestone-card::after,
     .swiper-slide-next .milestone-card::after{
@@ -359,31 +379,38 @@
         @apply space-y-2 mt-4 pl-4;
     }
 
-    .product-filter-wrapper .option-list{
+    .product-filter-wrapper .option-list,
+    .article-category-filter .option-list{
         @apply inline-flex items-center select-none;
     }
 
-    .product-filter-wrapper .option-list input{
+    .product-filter-wrapper .option-list input,
+    .article-category-filter .option-list input{
         @apply hidden;
     }
 
-    .product-filter-wrapper .option-list span.label{
+    .product-filter-wrapper .option-list span.label,
+    .article-category-filter .option-list span.label{
         @apply flex items-center space-x-2 ml-2 text-gray-500 text-base lg:text-lg;
     }
 
-    .product-filter-wrapper .option-list input:checked + span.label{
+    .product-filter-wrapper .option-list input:checked + span.label,
+    .article-category-filter .option-list input:checked + span.label{
         @apply font-bold text-gray-600;
     }
 
-    .product-filter-wrapper .option-list input + span.label .checkbox{
+    .product-filter-wrapper .option-list input + span.label .checkbox,
+    .article-category-filter .option-list input + span.label .checkbox{
         @apply bg-white ring-1 ring-gray-600 size-4 lg:size-5;
     }
 
-    .product-filter-wrapper .option-list input + span.label .checkbox .checkmark{
+    .product-filter-wrapper .option-list input + span.label .checkbox .checkmark,
+    .article-category-filter .option-list input + span.label .checkbox .checkmark{
         @apply opacity-0;
     }
 
-    .product-filter-wrapper .option-list input:checked + span.label .checkbox .checkmark{
+    .product-filter-wrapper .option-list input:checked + span.label .checkbox .checkmark,
+    .article-category-filter .option-list input:checked + span.label .checkbox .checkmark{
         @apply block opacity-100;
     }
 

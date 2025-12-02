@@ -2,6 +2,8 @@
 
 namespace App\View\Composers;
 
+use App\Models\Category;
+use App\Models\Products\Category as ProductsCategory;
 use App\Settings\GeneralSetting;
 use Illuminate\View\View;
 
@@ -18,6 +20,8 @@ class GeneralComposer
 
     public function compose(View $view)
     {
+        $articleCategories = Category::all();
+        $productCategories = ProductsCategory::all();
 
         $quick_call_number = $this->generalSetting->quick_call_number;
         $quick_call_opening_text = $this->generalSetting->quick_call_opening_text;
@@ -49,6 +53,8 @@ class GeneralComposer
             'socials' => $socials,
             'catalogue_id' => $catalogue_id,
             'catalogue_en' => $catalogue_en,
+            'articleCategories' => $articleCategories,
+            'productCategories' => $productCategories
         ]);
 
         $view->with('general_settings', $generalSettings);

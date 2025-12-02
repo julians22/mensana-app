@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Product;
 
+use App\Models\Products\Category;
 use App\Models\Products\Product;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
@@ -18,6 +19,7 @@ class IndexProduct extends Component
     public array $animals;
     public array $tags;
 
+    #[Url(as: 'category', except: '')]
     public $selectCategories = [];
     public $selectAnimals = [];
     public $selectTags = [];
@@ -131,7 +133,7 @@ class IndexProduct extends Component
                             foreach ($categories as $key => $value) {
                                 $where[] = $value;
                             }
-                            $query->whereIn('id', $where);
+                            $query->whereIn('slug', $where);
                         });
                     }
 
@@ -191,7 +193,7 @@ class IndexProduct extends Component
                                 foreach ($categories as $key => $value) {
                                     $where[] = $value;
                                 }
-                                $query->whereIn('id', $where);
+                                $query->whereIn('slug', $where);
                             });
                         })
                         ->when(count($animals), function ($query) use ($animals) {

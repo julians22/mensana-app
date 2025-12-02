@@ -57,7 +57,7 @@
 
                                         <!-- Article Excerpt -->
                                         <p class="mb-4 text-gray-500">
-                                            {{ $_article->excrept }}
+                                            {{ $_article->excerpt }}
                                         </p>
                                         <!-- Read More Button -->
                                         <a href="{{ route('article.detail', ['article' => $_article->slug]) }}" class="font-bold text-gray-500 underline">@lang('Lanjut Baca')</a>
