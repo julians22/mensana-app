@@ -128,6 +128,7 @@ class ArticleForm
                     ->live()
                     ->required(),
                 Select::make('sub_category')
+                    ->multiple()
                     ->relationship(
                         'sub_category',
                         titleAttribute: 'title',
