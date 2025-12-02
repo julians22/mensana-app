@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Articles\Schemas;
 use App\Models\Category\SubCategory;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
@@ -127,8 +128,7 @@ class ArticleForm
                     ->relationship('category', 'name')
                     ->live()
                     ->required(),
-                Select::make('sub_category')
-                    ->multiple()
+                CheckboxList::make('sub_category')
                     ->relationship(
                         'sub_category',
                         titleAttribute: 'title',
