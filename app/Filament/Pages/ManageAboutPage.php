@@ -109,9 +109,9 @@ class ManageAboutPage extends SettingsPage
                                 TextInput::make('title_id')
                                     ->required(),
                                 TextInput::make('title_en'),
-                                RichEditor::make('hero_subtitle_id')
+                                RichEditor::make('subtitle_id')
                                     ->toolbarButtons(config('custom-filament.toolbar_buttons.banner_subtitle')),
-                                RichEditor::make('hero_subtitle_en')
+                                RichEditor::make('subtitle_en')
                                     ->toolbarButtons(config('custom-filament.toolbar_buttons.banner_subtitle')),
                                 FileUpload::make('background')
                                     ->belowContent('Resolusi terbaik 1200x400px. Tipe File: PNG, JPG')

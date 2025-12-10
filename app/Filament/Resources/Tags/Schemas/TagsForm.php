@@ -23,9 +23,6 @@ class TagsForm
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
-                TextInput::make('color')
-                    ->required()
-                    ->default('blue'),
             ]);
     }
 }

@@ -40,6 +40,10 @@ class PageController extends Controller
         $meta_description = $settings->{'meta_description_'.$locale};
         $meta_keywords = $settings->{'meta_keywords_'.$locale};
         $meta_og_img = $settings->{'meta_og_img_'.$locale};
+        $marketing_section_titles = $settings->{'marketing_section_titles_'.$locale};
+
+        $marketing_section_left_contents = $settings->{'marketing_section_left_contents_'.$locale};
+        $marketing_section_right_contents = $settings->{'marketing_section_right_contents_'.$locale};
 
         return view('home',
             compact(
@@ -50,7 +54,10 @@ class PageController extends Controller
                 'site_title',
                 'meta_description',
                 'meta_keywords',
-                'meta_og_img'
+                'meta_og_img',
+                'marketing_section_titles',
+                'marketing_section_left_contents',
+                'marketing_section_right_contents'
                 )
         );
     }
@@ -98,12 +105,15 @@ class PageController extends Controller
 
         $map_images = $settings->map_images;
 
+        $section_content = $settings->{'section_content_'.$locale};
+
         return view('contact', [
             'site_title' => $site_title,
             'meta_description' => $meta_description,
             'meta_keywords' => $meta_keywords,
             'meta_og_img' => $meta_og_img,
-            'map_images' => $map_images
+            'map_images' => $map_images,
+            'section_content' => $section_content
         ]);
     }
 

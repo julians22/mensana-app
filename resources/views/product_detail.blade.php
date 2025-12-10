@@ -45,8 +45,8 @@
                                 <div class="swiper-wrapper">
                                     @foreach ($product->getMedia('showcase') as $showcase)
                                         <div class="swiper-slide">
-                                            <div class="aspect-[3/4]">
-                                                <img src="{{ $showcase->getUrl(); }}" class="w-full h-full object-cover">
+                                            <div class="aspect-square">
+                                                <img src="{{ $showcase->getUrl(); }}" class="w-full h-full object-center object-contain">
                                             </div>
                                         </div>
                                     @endforeach
@@ -127,7 +127,7 @@
                                 @foreach ($product->getMedia('showcase') as $showcase)
                                     <div class="swiper-slide">
                                         <div class="aspect-[3/4]">
-                                            <img src="{{ $showcase->getUrl(); }}" class="w-full h-full object-cover">
+                                            <img src="{{ $showcase->getUrl(); }}" class="w-full h-full object-center object-contain">
                                         </div>
                                     </div>
                                 @endforeach

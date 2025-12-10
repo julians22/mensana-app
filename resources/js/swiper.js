@@ -18,7 +18,10 @@ const home__swiper = new Swiper('.home__swiper', {
 });
 
 const map_contact__swiper = new Swiper('.map_contact__swiper', {
-    modules: [Pagination],
+    modules: [Pagination, Autoplay],
+    autoplay: {
+        delay: 3000,
+    },
     slidesPerView: 1,
     pagination: {
         el: '.contact-swiper-pagination.swiper-pagination',
@@ -32,9 +35,12 @@ const map_contact__swiper = new Swiper('.map_contact__swiper', {
 // 4 slide on tablet
 // 1 slide on mobile
 const home__product_swiper = new Swiper('.home__product_swiper', {
-    modules: [Pagination],
+    modules: [Pagination, Autoplay],
     // Optional parameters
     slidesPerView: 1,
+    autoplay: {
+        delay: 3000
+    },
     pagination: {
         el: '.featured-products .swiper-pagination',
         clickable: true,
@@ -84,9 +90,12 @@ const milestone__thumbnail_swiper = new Swiper('.thumbnail_milestone__swiper', {
 // Milestone Swiper (Galery)
 // Show 3 slides on desktop
 const milestone__swiper = new Swiper('.milestone__swiper', {
-    modules: [Pagination, Thumbs],
+    modules: [Pagination, Thumbs, Autoplay],
     // Optional parameters
     slidesPerView: 1,
+    autoplay: {
+        delay: 3000
+    },
     autoHeight: true,
     centeredSlides: true,
     spaceBetween: 30,

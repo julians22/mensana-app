@@ -21,7 +21,7 @@
                         <a
                             @mouseover="openProductNav = true"
                             href="{{ route('product.index') }}" class="nav-link {{ activeClass('product.*') }}">{{ __('Produk') }}</a>
-                        <div class="dropdown-nav" x-show="openProductNav" style="min-width: 14rem;">
+                        <div class="dropdown-nav" x-show="openProductNav" x-cloak style="min-width: 14rem;">
                             <ul class="space-y-2">
                                 @foreach ($general_settings['productCategories'] as $productCategory)
                                 <li>
@@ -38,7 +38,7 @@
                         <a
                             @mouseover="openArticleNav = true"
                             href="{{ route('article.index') }}" class="nav-link {{ activeClass('article.*') }}">{{ __('Berita & Artikel') }}</a>
-                        <div class="dropdown-nav" x-show="openArticleNav" style="min-width: 9rem;">
+                        <div class="dropdown-nav" x-show="openArticleNav" x-cloak style="min-width: 9rem;">
                             <ul class="space-y-2">
                                 @foreach ($general_settings['articleCategories'] as $articleCategory)
                                 <li>

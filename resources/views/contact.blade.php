@@ -117,11 +117,11 @@
                         </div>
 
                         <div class="order-2 lg:order-3">
-                            <img src="{{ asset('img/logo-sanbio.png') }}" alt="" class="lg:mx-auto max-w-[120px] lg:max-w-none">
+                            <img src="{{ storageAsset($section_content['logo']) }}" alt="" class="lg:mx-auto max-w-[120px] lg:max-w-none">
                         </div>
 
                         <div class="order-1 lg:order-4">
-                            <h3 class="text-blue-mensana text-3xl">Kami distributor tunggal PT Sanbio Laboratories</h3>
+                            <h3 class="text-blue-mensana text-3xl">{{ $section_content['subtitle'] }}</h3>
                         </div>
 
 

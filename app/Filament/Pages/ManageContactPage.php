@@ -6,9 +6,12 @@ use App\Enums\Filament\AdminNavigationGroup;
 use App\Settings\ContactpageSetting;
 use BackedEnum;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Pages\SettingsPage;
 use Filament\Schemas\Components\Fieldset;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use UnitEnum;
 
@@ -48,12 +51,28 @@ class ManageContactPage extends SettingsPage
                             ->disk('public'),
                     ])
                     ->columnSpanFull(),
-                FileUpload::make('map_images')
-                        ->aboveContent('Resolusi terbaik 1200x500px. Tipe File: PNG')
-                        ->multiple()
-                        ->image()
-                        ->reorderable()
-                        ->openable()
+                Grid::make(1)
+                    ->schema([
+                        FileUpload::make('map_images')
+                                ->aboveContent('Resolusi terbaik 1200x500px. Tipe File: PNG')
+                                ->multiple()
+                                ->image()
+                                ->reorderable()
+                                ->openable(),
+                    ]),
+                Section::make('Page Content')
+                    ->schema([
+                        Fieldset::make('Bahasa')
+                            ->schema([
+                                FileUpload::make('section_content_id.logo'),
+                                Textarea::make('section_content_id.subtitle')
+                            ]),
+                        Fieldset::make('English')
+                            ->schema([
+                                FileUpload::make('section_content_en.logo'),
+                                Textarea::make('section_content_en.subtitle')
+                            ])
+                    ])
             ]);
     }
 }

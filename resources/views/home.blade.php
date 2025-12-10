@@ -84,49 +84,88 @@
 <section class="mt-4 lg:mt-16 px-4 lg:px-0">
 
     <h1 class="text-blue-mensana text-2xl lg:text-5xl text-center">
-        <span data-motion="fade-in" data-duration="0.6" class="inline-block">Solusi tepat kesehatan ternak Anda.</span><br>
-        <span data-motion="fade-in" data-duration="0.6" class="inline-block font-quicksilver font-normal">UNGGUL DALAM KUALITAS.</span>
+        @if ($marketing_section_titles)
+            @foreach ($marketing_section_titles as $section_title)
+                @if ($section_title['textstyle'] == 'bold')
+                    <span data-motion="fade-in" data-duration="0.6" class="inline-block font-quicksilver font-normal">{{ $section_title['title'] }}</span>
+                @else
+                    <span data-motion="fade-in" data-duration="0.6" class="inline-block">{{ $section_title['title'] }}</span><br>
+                @endif
+            @endforeach
+        @endif
     </h1>
 
     <div class="gap-x-8 gap-y-2 lg:gap-y-0 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
 
+        {{-- Left Section --}}
 
         <div class="product-service-card">
 
             <div data-motion="fade-in" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
-                <h3 title="Produk">PRODUK</h3>
+                <h3 title="{{ $marketing_section_left_contents['badge_title'] }}">{{ $marketing_section_left_contents['badge_title'] }}</h3>
             </div>
 
-            <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
-                <div>
-                    <div class="w-24 lg:w-64 h-24 lg:h-64">
-                        <img src="{{ asset('product.png') }}" alt="Vaksin Hewan" class="object-cover object-top">
+            @if ($marketing_section_left_contents['layout'] == "background")
+                <div class="z-0 absolute inset-0">
+                    <img src="{{ storageAsset($marketing_section_left_contents['background_image']) }}" alt="{{ $marketing_section_left_contents['title'] }}" class="w-full h-full object-cover">
+                </div>
+
+                <div class="flex justify-center-center items-center h-full">
+                    <div class="relative flex-1 space-y-2 text-center">
+                        <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
+            @else
+                <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
+                    <div>
+                        <div class="w-24 lg:w-64 h-24 lg:h-64">
+                            <img src="{{ storageAsset($marketing_section_left_contents['thumbnail_image']) }}" alt="Vaksin Hewan" class="object-cover object-top">
+                        </div>
+                    </div>
 
-                <div class="space-y-1 lg:space-y-3">
-                    <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">@lang('Vaksin Aktif')</h4>
-                    <p class="text-gray-600 text-sm lg:text-base">Sanavac adalah vaksin aktif yang dikhususkan untuk...</p>
-                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
+                    <div class="space-y-1 lg:space-y-3">
+                        <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
+                        <p class="text-gray-600 text-sm lg:text-base">{{ $marketing_section_left_contents['subtitle'] }}</p>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
+                    </div>
                 </div>
-            </div>
-
+            @endif
         </div>
 
-        <div class="product-service-card">
-            <div data-motion="fade-in" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
-                <h3 title="Layanan">LAYANAN</h3>
-            </div>
-            <div class="z-0 absolute inset-0">
-                <img src="{{ asset('service-bg.png') }}" alt="" class="w-full h-full object-cover">
-            </div>
+        {{-- Right Section --}}
 
-            <div class="flex justify-center-center items-center h-full">
-                <div class="relative flex-1 space-y-2 text-center">
-                    <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">LABORATORIUM / <br> ANIMAL HEALTH CONSULTANT</h4>
-                    <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
-                </div>
+        <div class="product-service-card">
+
+            <div data-motion="fade-in" class="badge badge-rtl" style="background-image: url('{{ asset('img/rtl-badge.svg') }}')">
+                <h3 title="{{ $marketing_section_right_contents['badge_title'] }}">{{ $marketing_section_right_contents['badge_title'] }}</h3>
             </div>
+            @if ($marketing_section_right_contents['layout'] == "background")
+                <div class="z-0 absolute inset-0">
+                    <img src="{{ storageAsset($marketing_section_right_contents['background_image']) }}" alt="{{ $marketing_section_right_contents['title'] }}" class="w-full h-full object-cover">
+                </div>
+
+                <div class="flex justify-center-center items-center h-full">
+                    <div class="relative flex-1 space-y-2 text-center">
+                        <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
+                    </div>
+                </div>
+            @else
+                <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
+                    <div>
+                        <div class="w-24 lg:w-64 h-24 lg:h-64">
+                            <img src="{{ storageAsset($marketing_section_right_contents['thumbnail_image']) }}" alt="Vaksin Hewan" class="object-cover object-top">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1 lg:space-y-3">
+                        <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
+                        <p class="text-gray-600 text-sm lg:text-base">{{ $marketing_section_right_contents['subtitle'] }}</p>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
+                    </div>
+                </div>
+            @endif
         </div>
 
 
@@ -140,7 +179,7 @@
         <div class="featured-products">
             <!-- badge -->
             <div data-motion="fade-in" class="badge badge-ltr" style="background-image: url('{{ asset('img/ltr-badge.svg') }}')">
-                <h3 title="Featured">@lang('Produk Unggulan')</h3>
+                <h3 title="Featured">@lang('Produk Kami')</h3>
             </div>
 
             <div class="top-0 right-0 absolute mt-2 lg:mt-5 mr-2 lg:mr-5">

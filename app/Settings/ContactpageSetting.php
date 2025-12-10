@@ -15,7 +15,8 @@ class ContactpageSetting extends Settings
     public $contacts;
     public $socials;
 
-    public $section_contents;
+    public $section_content_id;
+    public $section_content_en;
 
     public static function group(): string
     {
