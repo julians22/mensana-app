@@ -5,6 +5,8 @@ namespace App\View\Composers;
 use App\Models\Category;
 use App\Models\Products\Category as ProductsCategory;
 use App\Settings\GeneralSetting;
+use App\Settings\ServicepageSetting;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class GeneralComposer
@@ -15,13 +17,28 @@ class GeneralComposer
      */
     public function __construct(
         protected GeneralSetting $generalSetting,
+        protected ServicepageSetting $servicepageSetting
     ) {}
 
 
     public function compose(View $view)
     {
+        $serviceList = [];
+
         $articleCategories = Category::all();
         $productCategories = ProductsCategory::all();
+
+        $serviceListDb = $this->servicepageSetting->section_contents;
+
+        $locale = app()->getLocale();
+
+        foreach ($serviceListDb as $serviceList_db) {
+            $title = $serviceList_db['title_'.$locale];
+            $serviceList[] = [
+                'title' => $title,
+                'slug' => Str::slug($title)
+            ];
+        }
 
         $quick_call_number = $this->generalSetting->quick_call_number;
         $quick_call_opening_text = $this->generalSetting->quick_call_opening_text;
@@ -54,7 +71,8 @@ class GeneralComposer
             'catalogue_id' => $catalogue_id,
             'catalogue_en' => $catalogue_en,
             'articleCategories' => $articleCategories,
-            'productCategories' => $productCategories
+            'productCategories' => $productCategories,
+            'serviceList' => $serviceList
         ]);
 
         $view->with('general_settings', $generalSettings);

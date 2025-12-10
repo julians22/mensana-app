@@ -31,7 +31,23 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="{{ route('service') }}" class="nav-link {{ activeClass('service') }}">{{ __('Layanan') }}</a></li>
+                    <li class="relative"
+                        @mouseover.away = "openServiceNav = false"
+                        x-data='{openServiceNav: false}'
+                    >
+                        <a
+                            @mouseover="openServiceNav = true"
+                            href="{{ route('service') }}" class="nav-link {{ activeClass('service') }}">{{ __('Layanan') }}</a>
+                        <div class="dropdown-nav" x-show="openServiceNav" x-cloak style="min-width: 16rem;">
+                            <ul class="space-y-2">
+                                @foreach ($general_settings['serviceList'] as $servicesList)
+                                <li>
+                                    <a class="nav-link" href="{{ route('service') }}#{{$servicesList['slug']}}">{{$servicesList['title']}}</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </li>
                     <li class="relative"
                         @mouseover.away = "openArticleNav = false"
                         x-data='{openArticleNav: false}'>

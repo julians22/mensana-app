@@ -88,11 +88,7 @@
     }
 
     .nav-items .dropdown-nav .nav-link{
-        @apply block px-1 py-px;
-    }
-
-    .nav-items .dropdown-nav .nav-link::after{
-        /* @apply hidden; */
+        @apply inline-block px-1 py-px;
     }
 
     .language-switcher{

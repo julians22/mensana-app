@@ -33,7 +33,7 @@
                         @if ($product->tags)
                         <div class="flex space-x-2 mb-4 text-gray-500 text-sm">
                                 @foreach ($product->tags as $tag)
-                                    <span class="shadow px-3 py-1 border border-slate-300 rounded-md font-medium text-blue-mensana">{{ $tag->name }}</span>
+                                    <span style="color: {{$tag->color}}" class="shadow px-3 py-1 border border-slate-300 rounded-md font-medium text-blue-mensana">{{ $tag->name }}</span>
                                 @endforeach
                             </div>
                         @endif

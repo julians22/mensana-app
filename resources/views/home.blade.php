@@ -112,20 +112,20 @@
 
                 <div class="flex justify-center-center items-center h-full">
                     <div class="relative flex-1 space-y-2 text-center">
-                        <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
+                        <h4 class="font-normal text-blue-mensana text-xl lg:text-2xl 2xl:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
             @else
                 <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
                     <div>
-                        <div class="w-24 lg:w-64 h-24 lg:h-64">
+                        <div class="w-24 lg:w-56 2xl:w-64 h-24 lg:h-56 2xl:h-64">
                             <img src="{{ storageAsset($marketing_section_left_contents['thumbnail_image']) }}" alt="Vaksin Hewan" class="object-cover object-top">
                         </div>
                     </div>
 
                     <div class="space-y-1 lg:space-y-3">
-                        <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
+                        <h4 class="font-bold text-blue-mensana text-xl lg:text-2xl 2xl:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
                         <p class="text-gray-600 text-sm lg:text-base">{{ $marketing_section_left_contents['subtitle'] }}</p>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
                     </div>
@@ -147,20 +147,20 @@
 
                 <div class="flex justify-center-center items-center h-full">
                     <div class="relative flex-1 space-y-2 text-center">
-                        <h4 class="font-normal text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
+                        <h4 class="font-normal text-blue-mensana text-xl lg:text-3xl 2xl:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
             @else
                 <div class="flex items-center space-x-6 px-4 lg:px-10 pt-10 lg:pt-10 pb-4 lg:pb-10">
                     <div>
-                        <div class="w-24 lg:w-64 h-24 lg:h-64">
+                        <div class="w-24 lg:w-56 2xl:w-64 h-24 lg:h-56 2xl:h-64">
                             <img src="{{ storageAsset($marketing_section_right_contents['thumbnail_image']) }}" alt="Vaksin Hewan" class="object-cover object-top">
                         </div>
                     </div>
 
                     <div class="space-y-1 lg:space-y-3">
-                        <h4 class="font-bold text-blue-mensana text-xl lg:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
+                        <h4 class="font-bold text-blue-mensana text-xl lg:text-2xl 2xl:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
                         <p class="text-gray-600 text-sm lg:text-base">{{ $marketing_section_right_contents['subtitle'] }}</p>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
                     </div>
@@ -210,7 +210,7 @@
                                 <!-- Product Tags -->
                                 <div class="product-tags">
                                     @foreach ($product->tags as $tag)
-                                    <span class="tag">{{ $tag->name }}</span>
+                                    <span class="tag" style="color: {{$tag->color}}">{{ $tag->name }}</span>
                                     @endforeach
                                 </div>
                                 @endif

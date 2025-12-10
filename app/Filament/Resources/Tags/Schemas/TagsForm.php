@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Tags\Schemas;
 
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Fieldset;
@@ -23,6 +24,10 @@ class TagsForm
                             ->columnSpanFull(),
                     ])
                     ->columns(2),
+                ColorPicker::make('color')
+                    ->regex('/^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})\b$/')
+                    ->default('#0284be')
+                    ->required(),
             ]);
     }
 }
