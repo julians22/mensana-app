@@ -30,7 +30,7 @@ class PageController extends Controller
 
         $articles = Article::take(3)->get();
 
-        $products = Product::with('categories', 'animals', 'tags')->take(10)->get();
+        $products = Product::with('categories', 'animals', 'tags')->featured()->take(10)->get();
 
         $hero_banners = HeroBanner::take(3)->latest()->get();
 

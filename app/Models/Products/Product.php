@@ -89,4 +89,16 @@ class Product extends Model implements HasMedia
     }
 
 
+    /**
+     * Scope a query to only include is_featured
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
+    }
+
+
 }
