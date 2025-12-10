@@ -22,9 +22,9 @@
 
         </ul>
 
-        <div class="bg-stone-100 mt-3 p-2 rounded" x-show="show_sub_filter">
+        <div class="bg-stone-100 mt-3 px-4 py-2 rounded max-w-max" x-show="show_sub_filter">
             @if ($sub_categories)
-                <span class="mb-2 ml-2 font-bold text-stone-700 text-lg">Pilih Topik</span>
+                <span class="mb-2 ml-2 font-bold text-stone-700 text-lg">@lang('Pilih Topik')</span>
                 <ul class="flex flex-row items-center space-x-2 article-category-filter">
                     @foreach ($sub_categories as $subcat)
                         <li>
