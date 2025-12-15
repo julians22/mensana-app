@@ -3,6 +3,7 @@
 
 return [
 
+    'allow_domain_panel' => env('ALLOW_DOMAIN_PANEL', '@mensana.id'),
 
     'toolbar_buttons' => [
         'general' => [
