@@ -50,6 +50,8 @@
         </style>
     @endif
 
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+
     @livewireStyles
 </head>
 <body x-data="{ openRequestModal: false, openShareModal: false, openNav: false }"
