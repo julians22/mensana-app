@@ -55,6 +55,7 @@
         @apply block mt-10;
     }
 
+
     .nav-wrapper .search-form{
         @apply relative w-full lg:w-auto transition-all duration-500 ease-in-out transform;
     }
@@ -141,9 +142,10 @@
         @apply z-0 absolute inset-0 w-full h-full object-cover mix-blend-multiply;
     }
 
-    .product-service-card{
-        @apply relative bg-gray-100 pl-2 rounded-2xl h-[200px] lg:h-[300px] overflow-hidden
+    .product-service-card {
+        @apply relative bg-gray-100 pl-2 rounded-2xl h-[200px] lg:h-[300px] overflow-hidden;
     }
+
 
     .product-service-card .badge {
         @apply top-0 right-0 z-20 absolute py-1 lg:py-2.5 rounded-tr-md w-[150px] lg:w-[300px] font-bold text-white text-xl lg:text-4xl text-center;

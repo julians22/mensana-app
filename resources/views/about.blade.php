@@ -76,7 +76,7 @@
             <div class="w-full md:w-1/2 prose xl:prose-xl">
                 <h2 class="text-blue-mensana" data-motion="fade-left">{{ $section['title_'.app()->getLocale()] }}</h2>
 
-                <div data-motion="fade-down">
+                <div data-motion="fade-in" data-duration="0.6">
 
                     {!! $section['subtitle_'.app()->getLocale()] !!}
 

@@ -26,7 +26,7 @@
         >
 
         <div>
-            <label for="nama" class="block mb-2 font-semibold text-blue-mensana">Nama</label>
+            <label for="nama" class="block mb-2 font-semibold text-blue-mensana">@lang("Nama")</label>
             <input type="text" id="nama" wire:model="name"
                 class="bg-white shadow-sm p-3 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-mensana w-full"
                 >
@@ -42,14 +42,14 @@
             </div>
 
             <div>
-                <label for="telp" class="block mb-2 font-semibold text-blue-mensana">No. Telp</label>
+                <label for="telp" class="block mb-2 font-semibold text-blue-mensana">@lang("No. Telp")</label>
                 <input type="tel" id="telp" wire:model="phone"
                 class="bg-white shadow-sm p-3 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-mensana w-full">
                 @error('phone') <label class="mt-1 text-red-500 text-sm">{{ $message }}</label> @enderror
             </div>
 
             <div>
-                <label for="pesan" class="block mb-2 font-semibold text-blue-mensana">Pesan Anda</label>
+                <label for="pesan" class="block mb-2 font-semibold text-blue-mensana">@lang("Pesan Anda")</label>
                 <textarea id="pesan" wire:model="message" rows="5"
                 class="bg-white shadow-sm p-3 border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-mensana w-full resize-none"
                 ></textarea>
@@ -59,7 +59,7 @@
         <div class="flex justify-end pt-2">
             <button type="submit"
                 class="bg-orange-400 hover:bg-orange-500 focus:ring-opacity-50 shadow-md px-8 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 font-bold text-white transition-colors duration-300 cursor-pointer">
-                Kirim
+                @lang("Kirim")
             </button>
         </div>
     </form>

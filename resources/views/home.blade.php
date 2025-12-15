@@ -95,7 +95,7 @@
         @endif
     </h1>
 
-    <div class="gap-x-8 gap-y-2 lg:gap-y-0 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
+    <div class="gap-x-10 gap-y-2 lg:gap-y-0 grid grid-cols-1 md:grid-cols-2 mx-auto my-10 container">
 
         {{-- Left Section --}}
 
@@ -113,7 +113,7 @@
                 <div class="flex justify-center-center items-center h-full">
                     <div class="relative flex-1 space-y-2 text-center">
                         <h4 class="font-normal text-blue-mensana text-xl lg:text-2xl 2xl:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
-                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
             @else
@@ -127,7 +127,7 @@
                     <div class="space-y-1 lg:space-y-3">
                         <h4 class="font-bold text-blue-mensana text-xl lg:text-2xl 2xl:text-4xl">{{ $marketing_section_left_contents['title'] }}</h4>
                         <p class="text-gray-600 text-sm lg:text-base">{{ $marketing_section_left_contents['subtitle'] }}</p>
-                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('product.index') }}">@lang('Info Lebih')</a>
+                        <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
             @endif
@@ -145,9 +145,9 @@
                     <img src="{{ storageAsset($marketing_section_right_contents['background_image']) }}" alt="{{ $marketing_section_right_contents['title'] }}" class="w-full h-full object-cover">
                 </div>
 
-                <div class="flex justify-center-center items-center h-full">
+                <div class="flex justify-end items-center h-full">
                     <div class="relative flex-1 space-y-2 text-center">
-                        <h4 class="font-normal text-blue-mensana text-xl lg:text-3xl 2xl:text-4xl">{{ $marketing_section_right_contents['title'] }}</h4>
+                        <h4 class="mr-20 font-normal text-blue-mensana text-xl lg:text-3xl 2xl:text-4xl break-words">{{ $marketing_section_right_contents['title'] }}</h4>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>

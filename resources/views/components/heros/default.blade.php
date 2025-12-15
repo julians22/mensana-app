@@ -28,7 +28,7 @@
                 <div class="col-span-5 lg:col-span-2 {{ $text_position === 'left' ? '' : 'lg:col-start-4' }} text-white text-center lg:text-left">
                     <h2 x-show="title" data-motion="fade-left" class="mb-4 font-bold text-xl xl:text-4xl 2xl:text-6xl">{{ $title }}</h2>
 
-                    <div x-show="subtitle" class="prose-invert prose" data-motion="fade-down">
+                    <div x-show="subtitle" class="prose-invert prose" data-motion="fade-in" data-duration="0.8">
                         {!! $subtitle !!}
                     </div>
 

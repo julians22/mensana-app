@@ -75,7 +75,7 @@
 
                 <!-- Social Icons -->
                 <div class="mt-5 lg:mt-10">
-                    <p class="mb-2 text-white text-lg">Social media kami</p>
+                    <p class="mb-2 text-white text-lg">@lang("Social media kami")</p>
                     <div class="flex space-x-2">
                         @foreach ($general_settings['socials'] as $social)
                                 @switch($social['type'])
