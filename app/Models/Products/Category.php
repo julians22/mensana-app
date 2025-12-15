@@ -23,7 +23,7 @@ class Category extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug', 'sort_column', 'color'];
 
     protected $translatable = ['name'];
 

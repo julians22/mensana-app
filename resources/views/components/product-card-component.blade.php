@@ -3,7 +3,7 @@
     'image',
     'product_name' => 'Sanavac ND Clone',
     'product_description'=> '-',
-    'categories' => ['Vaksin', 'Live'],
+    'categories' => [],
 ])
 
 
@@ -21,7 +21,7 @@
         <div class="pb-1 overflow-x-auto">
             <div class="flex flex-nowrap justify-start space-x-2 mt-4 pt-4 w-max">
                 @foreach ($categories as $item)
-                    <span class="px-3 py-1 border border-gray-200 rounded-full font-medium text-blue-mensana text-sm">{{ $item }}</span>
+                    <span style="color: {{$item->color}}" class="px-3 py-1 border border-gray-200 rounded-full font-medium text-sm">{{ $item->name }}</span>
                 @endforeach
             </div>
         </div>

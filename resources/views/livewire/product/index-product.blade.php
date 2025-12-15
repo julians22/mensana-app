@@ -153,7 +153,8 @@
                 @foreach ($products as $item)
                 <x-product-card-component slug="{{$item->slug}}" product_name="{{$item->name}}"
                     product_description="{{$item->short_description}}" image="{{$item->getFirstMediaUrl('thumbnail')}}"
-                    :categories="$item->categories->pluck('name')->toArray()" />
+                    :categories="$item->categories"
+                     />
                 @endforeach
 
 

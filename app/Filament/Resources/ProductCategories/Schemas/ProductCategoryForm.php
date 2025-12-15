@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ProductCategories\Schemas;
 
+use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Schema;
@@ -22,6 +23,7 @@ class ProductCategoryForm
                             ->label('Judul Kategori Produk (Inggris)')
                             ->required()
                             ->columnSpanFull(),
+                        ColorPicker::make('color'),
                     ])
             ]);
     }

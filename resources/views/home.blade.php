@@ -210,7 +210,7 @@
                                 <!-- Product Tags -->
                                 <div class="product-tags">
                                     @foreach ($product->tags as $tag)
-                                    <span class="tag" style="color: {{$tag->color}}">{{ $tag->name }}</span>
+                                    <span class="tag">{{ $tag->name }}</span>
                                     @endforeach
                                 </div>
                                 @endif
