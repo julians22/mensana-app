@@ -50,7 +50,7 @@
         </style>
     @endif
 
-    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}?cache={{ time() }}">
 
     @livewireStyles
 </head>
