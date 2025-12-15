@@ -74,7 +74,7 @@
                             </ul>
 
                             <div class="prose-headings:mb-2 prose-headings:text-blue-mensana prose prose-lg">
-                                <h2>Sosial media kami</h2>
+                                <h2>@lang("Social media kami")</h2>
                             </div>
                             <div class="flex space-x-4">
                                 {{-- loop throught the social setting available type is 'instagram', 'facebook', 'tiktok', 'twitter', 'youtube' --}}

@@ -7,6 +7,8 @@ const duration = 0.6;
 
 function attachAnimation(el)
 {
+    
+    
     let animation = checkAnimation(el.getAttribute("data-motion"));
 
     let config = {

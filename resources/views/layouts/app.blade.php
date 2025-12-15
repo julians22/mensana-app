@@ -72,7 +72,7 @@
         <div class="contact-text" x-show="openText" x-transition x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
 
             <a target="" href="{{ $general_settings['whatsapp_url'] }}" x-data="{url: '{{$general_settings['whatsapp_url']}}' }"  @click.prevent="window.open(url, '_blank', 'width=600,height=400,left=100,top=100')">
-                Tanya Kami
+                @lang("Tanya Kami")
             </a>
         </div>
     </div>
