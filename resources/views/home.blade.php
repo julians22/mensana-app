@@ -146,12 +146,8 @@
                 </div>
 
                 <div class="flex justify-end items-center h-full">
-                    <div class="relative z-10 
-                max-w-md space-y-3
-                px-6 py-4 lg:px-10 lg:py-6
-                mr-8 lg:mr-16
-                text-center">
-                        <h4 class="font-normal mr-20 text-blue-mensana text-xl lg:text-3xl 2xl:text-4xl break-words">{{ $marketing_section_right_contents['title'] }}</h4>
+                    <div class="relative flex-1 space-y-2 text-center">
+                        <h4 class="mr-20 font-normal text-blue-mensana text-xl lg:text-3xl 2xl:text-4xl break-words">{{ $marketing_section_right_contents['title'] }}</h4>
                         <a class="inline-block bg-blue-mensana px-4 py-2 rounded text-white" href="{{ route('service') }}">@lang('Info Lebih')</a>
                     </div>
                 </div>
