@@ -1,1 +1,12 @@
 /*Write your custom styles here*/
+
+/*
+Available Fonts: Promo Test Normal, Aileron, Quicksilver, DM Sans 9pt, DM Sans, Myriad Pro
+Use it by your own risk
+You can add more font from the fonts folder, font face are crated on the /fonts/stylesheet.css and you can add new fonts file on the same folder
+*/
+
+.nav-items .nav-link{
+    font-family: 'DM Sans';
+    font-weight: bold;
+}
